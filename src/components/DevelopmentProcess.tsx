@@ -320,13 +320,13 @@ export function DevelopmentProcess() {
         </div>
 
         {/* Mobile/Tablet Layout */}
-        <div className="lg:hidden space-y-6 max-w-2xl mx-auto">
+        <div className="lg:hidden flex flex-col max-w-2xl mx-auto">
           {processes.map((process, index) => {
             const Icon = process.icon;
             return (
               <div
                 key={index}
-                className="relative"
+                className="relative mt-0"
                 onClick={() => setActiveStep(index)}
               >
                 <div
@@ -337,17 +337,17 @@ export function DevelopmentProcess() {
                   }`}
                 >
                   <div className="bg-slate-950/90 rounded-2xl p-6 backdrop-blur-sm">
-                    <div className="flex items-start gap-5">
+                    <div className="flex flex-col xs:flex-row items-center xs:items-start text-center xs:text-start gap-5">
                       {/* Icon */}
                       <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${process.color} p-0.5 flex-shrink-0`}>
                         <div className="w-full h-full bg-slate-950 rounded-2xl flex items-center justify-center">
-                          <Icon className="w-8 h-8 text-white" />
+                          <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                         </div>
                       </div>
 
                       {/* Content */}
                       <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
+                        <div className="flex items-center justify-center xs:justify-start gap-3 mb-2">
                           <span className="text-xs text-blue-400">Step {process.step}</span>
                           <ArrowRight className="w-4 h-4 text-blue-400" />
                         </div>

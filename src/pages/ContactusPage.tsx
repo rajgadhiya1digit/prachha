@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
-import { SlLocationPin } from "react-icons/sl";
-import { IoCallOutline } from "react-icons/io5";
-import { TfiEmail } from "react-icons/tfi";
+import { MapPin, Phone, Mail } from 'lucide-react';
 import {motion} from 'framer-motion'
-import contactbg from '../assets/contactbg.jpg'
 import Newsletter from '../components/Newsletter';
 
 const contactInfo = [
   {
-    icon: SlLocationPin,
+    icon: MapPin,
     title: "Our Location",
     description: "PRACHHA HOUSE, 3rd Floor, Beside Diamond City hotel, Bamanji Sheri, Rughnathpura Road, Lal Darwaja, Surat - 395003"
   },
   {
-    icon:IoCallOutline,
+    icon:Phone,
     title: "Contact Number",
     description: "+91-955-802-6870"
   },
   {
-    icon:TfiEmail,
+    icon:Mail,
     title: "Email Address",
     description: "info@prachha.tech"
   }
@@ -99,8 +96,7 @@ const ContactusPage = () => {
       setMessage('Error sending inquiry. Please check your connection and try again.');
       setMessageType('error');
       showToast('Error sending inquiry. Please check your connection.', 'error');
-      console.error('Error:', error);
-      setTimeout(() => setMessage(''), 5000);
+            setTimeout(() => setMessage(''), 5000);
     } finally {
       setLoading(false);
     }

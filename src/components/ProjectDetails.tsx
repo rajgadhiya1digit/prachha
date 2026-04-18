@@ -18,8 +18,6 @@ import 'swiper/css';
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-Pagination
-
 export const ProjectDetails = () => {
     const { id } = useParams();
 

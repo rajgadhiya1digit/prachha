@@ -1,18 +1,4 @@
 import React from 'react'
-import golden_hero1 from "../assets/golden-hero-1.jpg"
-import golden_hero2 from "../assets/golden-hero-2.jpg"
-import golden_s1 from "../assets/golden-s1.png"
-import golden_s2 from "../assets/golden-s2.png"
-import golden_s3 from "../assets/golden-s3.png"
-import golden_s4 from "../assets/golden-s4.png"
-import golden_video from "../assets/344663aec6ba422e9789b455f676ccf1.mp4"
-import ears_hero1 from "../assets/ears-hero-1.png"
-import ears_hero2 from "../assets/ears-hero-2.png"
-import ed_s1 from "../assets/ed-s1.png"
-import ed_s2 from "../assets/ed-s2.png"
-import ed_s3 from "../assets/ed-s3.png"
-import ed_s4 from "../assets/ed-s4.png"
-import ed_s5 from "../assets/ed-s5.png"
 import { FiActivity, FiVideo, FiFileText } from "react-icons/fi";
 import { FaChartLine, FaMoneyCheckAlt } from "react-icons/fa";
 import { MdSecurity } from "react-icons/md";
@@ -23,7 +9,7 @@ export const projectData = [
     category: "E-Commerce",
     title: "Golden Bird Jewels",
     image: '/projectimg/goldenbird/golden-brids.png',
-    hero_images: ['/projectimg/goldenbird/golden-hero-1.jpg', 'projectimg/goldenbird/golden-hero-2.jpg'],
+    hero_images: ['/projectimg/goldenbird/golden-hero-1.jpg', '/projectimg/goldenbird/golden-hero-2.jpg'],
     description: "Golden Bird Jewels is a Shopify-based lab-grown diamond jewelry brand focused on the US market.",
 
     overview: [
@@ -65,7 +51,7 @@ export const projectData = [
     ],
 
     industry: "Luxury Jewelry",
-    techStack: ["Shopify"],
+    techStack: ["Shopify",],
     tags: ["Shopify"],
     status: "Active",
     timeline: "6 Months",
@@ -187,7 +173,7 @@ export const projectData = [
     category: "E-Commerce",
     title: "Ears Decore",
     image: '/projectimg/earsdecore/ears-decore.png',
-    hero_images: ['/projectimg/earsdecore/ears-hero-1.png', 'public/projectimg/earsdecore/ears-hero-2.png'],
+    hero_images: ['/projectimg/earsdecore/ears-hero-1.png', '/projectimg/earsdecore/ears-hero-2.png'],
     description:
       "EarsDecor is a UK-based custom jewelry brand specializing in trendy, high-quality earrings designed for modern style lovers",
 

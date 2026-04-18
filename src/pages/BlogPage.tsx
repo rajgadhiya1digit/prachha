@@ -91,7 +91,7 @@ const BlogPage = () => {
             </div>
             {/* category tab */}
             <div className='mb-16'>
-                <div className='flex flex-wrap justify-start gap-2 sm:gap-3'>
+                <div className='flex flex-wrap justify-start gap-3 sm:gap-3'>
                     <button
                         onClick={() => handleCategoryChange("All")}
                         className={`px-4 py-2 rounded-sm font-[600] transition text-sm sm:text-base ${
@@ -106,7 +106,7 @@ const BlogPage = () => {
                         <button
                             key={index}
                             onClick={() => handleCategoryChange(category.name)}
-                            className={`px-4 py-1 rounded-sm font-[600] transition text-sm sm:text-base ${
+                            className={`px-4 py-2  rounded-sm font-[600] transition text-sm sm:text-base ${
                                 activeCategory === category.name
                                     ? "bg-red-500 text-white shadow-lg shadow-red-500/30"
                                     : "bg-gray-200 text-gray-700 hover:bg-red-50 hover:text-red-500"
@@ -125,7 +125,7 @@ const BlogPage = () => {
                 {currentBlogs.map((item, index) => (
                 <div
                     key={index}
-                    className="bg-white rounded-md shadow-md hover:shadow-2xl transition-all overflow-hidden group border border-gray-100 h-full flex flex-col hover:-translate-y-2"
+                    className="bg-white rounded-md shadow-md hover:shadow-2xl  overflow-hidden group border border-gray-100 h-full flex flex-col transition-all duration-300 hover:-translate-y-2"
                     >
                     {/* Image Container */}
                     <div className="relative overflow-hidden h-[220px] sm:h-[250px]">
@@ -141,7 +141,7 @@ const BlogPage = () => {
                         </div>
 
                         {/* Category Badge */}
-                        <div className='absolute top-4 right-4 inline-block bg-white/95 backdrop-blur px-4 py-1.5 rounded-md'>
+                        <div className='absolute leading-none top-4 right-4 inline-block bg-white/95 backdrop-blur px-4 py-1.5 rounded-md'>
                             <span className='text-red-500 text-xs font-[700] uppercase tracking-wider'>{item.category}</span>
                         </div>
                     </div>
@@ -199,7 +199,7 @@ const BlogPage = () => {
                 </button>
 
                 {/* Page Numbers */}
-                <div className="flex items-center gap-1 sm:gap-2 flex-wrap justify-center">
+                <div className="flex items-center gap-3 flex-wrap justify-center">
 
                     {[...Array(totalPages)].map((_, index) => (
                     <button

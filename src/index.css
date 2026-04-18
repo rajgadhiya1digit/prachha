@@ -3,11 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
+html {
   scroll-behavior: smooth
 }
 
-.containers{
+.containers {
   max-width: 1300px;
   padding: 0px 15px;
 }
@@ -19,7 +19,6 @@ html{
   border: 2px solid lightgray;
   border-radius: 14px;
   padding: 8px;
-  /* filter: blur(2px);  */
 }
 
 .premium-swiper .swiper-slide-active {
@@ -32,11 +31,12 @@ html{
 }
 
 /* project-inner-swiper */
-.pagination-btn .swiper-pagination-bullet{
+.pagination-btn .swiper-pagination-bullet {
   background-color: #ffffff;
   transition: all 0.3s ease;
 }
-.pagination-btn .swiper-pagination-bullet-active{
+
+.pagination-btn .swiper-pagination-bullet-active {
   width: 20px;
   background-color: #D4AF37;
   border-radius: 999px;
@@ -54,7 +54,7 @@ html{
 /* Active dot */
 .custom-pagination .swiper-pagination-bullet-active {
   width: 20px;
-  background: #e30613; 
+  background: #e30613;
   opacity: 1;
   border-radius: 999px;
 }
@@ -68,20 +68,22 @@ html{
 .group:hover .rotate-word {
   transform: rotateY(360deg);
 }
+
 .email-bg {
   background: linear-gradient(135deg, #EA4335, #FBBC05, #34A853);
 }
 
 
 @keyframes slideInRight {
-    0%{
-      opacity: 0;
-      transform: translateX(50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .animate-slide-in {
@@ -95,6 +97,7 @@ html{
     transform-origin: left;
     opacity: 0;
   }
+
   100% {
     transform: scaleX(1);
     transform-origin: left;
@@ -114,6 +117,7 @@ html{
     transform: translateY(15px);
     filter: blur(4px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -128,40 +132,43 @@ html{
 
 @keyframes slideTop {
   0% {
-      transform: translateY(30px);
-      opacity: 0;
+    transform: translateY(30px);
+    opacity: 0;
   }
+
   100% {
     transform: translateY(0px);
-      opacity: 1;
+    opacity: 1;
   }
 }
 
-.animate-slide-top{
+.animate-slide-top {
   animation: slideTop 1.5s ease-out backwards;
 }
 
 
 @keyframes spinSlow {
-    0%{
-      transform: rotate(0deg);
-    }
-    100%{
-      transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .animate-spin-slow {
-    animation: spinSlow 4s linear infinite;
+  animation: spinSlow 4s linear infinite;
 }
+
 .scroll-reveal {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 
 .scroll-reveal-text {
-    font-size:15px;
-    line-height: 1.5;
-    font-weight: 500;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 500;
 }
 
 .word {
@@ -169,9 +176,17 @@ html{
 }
 
 @keyframes floatSlow {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .float-slow {

@@ -34,7 +34,7 @@ const ServicesPage = () => {
   
   return (
     <>
-    <section className='relative min-h-[calc(100vh-64px)]  sm:min-h-[calc(100vh-72px)] flex items-center justify-center overflow-hidden text-white'>
+    <section className='relative min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-72px)] flex items-center justify-center overflow-hidden text-white'>
 
         <div className="absolute inset-0">
           <img src='/servicess/servicesbg.png' alt="Service Background" 
@@ -83,7 +83,7 @@ const ServicesPage = () => {
     </section>
 
 
-    <section id='services' className='py-16  bg-gray-50'>
+    <section id='services' className='py-16  bg-gray-50 overflow-hidden'>
       <section className='container mx-auto px-4'>
         <div className="text-center mb-16">
           <span className="text-[#FF0000] tracking-wider uppercase text-sm mb-4 font-[600] block">
@@ -94,6 +94,7 @@ const ServicesPage = () => {
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mt-5 text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold text-gray-900 leading-tight"
           >
             Comprehensive{" "}
@@ -106,6 +107,7 @@ const ServicesPage = () => {
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mt-2 text-[14px] sm:text-[16px] md:text-[17px] lg:text-[18px] text-gray-600 max-w-3xl mx-auto">
             From concept to deployment, we offer end-to-end digital services
           </motion.p>

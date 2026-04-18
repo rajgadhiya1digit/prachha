@@ -4,16 +4,15 @@ import { ChevronRight, Star, Check, CreditCard, QrCode, BarChart3, Package, Shop
 
 // Define sendPrompt function to prevent runtime errors
 const sendPrompt = (prompt: string) => {
-  console.log('Prompt:', prompt);
-  // You can implement actual functionality here
+  // console.log('Prompt:', prompt);
 };
 
-// Scroll Animation Hook
+// Scroll Animation Hook - Optimized for Safari
 const useScrollAnimation = () => {
   const { scrollYProgress } = useScroll();
-  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
-  const y = useTransform(scrollYProgress, [0, 0.2], [100, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  const y = useTransform(scrollYProgress, [0, 0.1], [50, 0]);
   
   return { scale, opacity, y };
 };
@@ -23,10 +22,10 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
   const ref = useRef(null);
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 90%", "end 20%"] });
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-  const x = useTransform(scrollYProgress, [0, 0.5], isMobile ? [0, 0] : [index % 2 === 0 ? -60 : 60, 0]);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 95%", "end 10%"] });
+  const scale = useTransform(scrollYProgress, [0, 0.3], [0.9, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
+  const x = useTransform(scrollYProgress, [0, 0.3], isMobile ? [0, 0] : [index % 2 === 0 ? -30 : 30, 0]);
 
   return (
     <motion.div
@@ -34,14 +33,15 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
       ref={ref}
       style={{ scale, opacity, x }}
       className="grid lg:grid-cols-2 gap-12 items-center mb-10"
+      layout="position"
     >
       {/* Left Side - Text Content */}
       <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: index * 0.1 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 text-sm font-semibold mb-6">
             <Zap className="w-4 h-4 mr-2" />
@@ -63,8 +63,8 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
                 key={featureIndex}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 + featureIndex * 0.05 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.05 + featureIndex * 0.03, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-50px" }}
                 className="flex items-start"
               >
                 <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
@@ -80,8 +80,8 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
                 key={statIndex}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 + statIndex * 0.05 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.05 + statIndex * 0.03, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-50px" }}
                 className="text-center p-3 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg"
               >
                 <div className="text-lg font-bold text-blue-600">{String(value)}</div>
@@ -90,7 +90,7 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
             ))}
           </div>
           
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => sendPrompt(`Show me ${item.title} demo`)}
@@ -99,7 +99,7 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
           >
             Learn More
             <ArrowRight className="w-4 h-4 ml-2" />
-          </motion.button>
+          </motion.button> */}
         </motion.div>
       </div>
       
@@ -108,24 +108,25 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: index * 0.05 + 0.1, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-50px" }}
           className="relative"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-3xl blur-3xl opacity-20 animate-pulse" />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-3xl blur-xl opacity-10" />
           <div 
-            className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 p-4 cursor-pointer group hover:shadow-3xl transition-all duration-300"
+            className="relative bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 p-4 cursor-pointer group hover:shadow-2xl transition-shadow duration-200 will-change-transform"
             onClick={() => onImageClick(item.image)}
           >
             <div className="relative w-full h-96">
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-contain group-hover:scale-102 transition-transform duration-200 will-change-transform"
+                loading="lazy"
               />
             </div>
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20">
-              <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/10">
+              <div className="bg-white rounded-full p-3 shadow-md">
                 <Maximize2 className="w-6 h-6 text-blue-600" />
               </div>
             </div>
@@ -147,13 +148,13 @@ interface FeatureCardProps {
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, image, onImageClick }) => {
   const handleImageClick = () => {
     if (image && onImageClick) {
-      console.log('Image clicked:', image);
+      // console.log('Image clicked:', image);
       onImageClick(image);
     }
   };
 
   return (
-    <div className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+    <div className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-200 will-change-transform">
       {image && (
         <div 
           className="relative bg-gradient-to-br from-blue-50 to-indigo-100 p-4 cursor-pointer group"
@@ -163,12 +164,13 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, ima
             <img
               src={image}
               alt={title}
-              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+              className="w-full h-full object-contain group-hover:scale-102 transition-transform duration-200 will-change-transform"
+              loading="lazy"
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <div className="bg-white rounded-full p-3 shadow-md">
               <Monitor className="w-6 h-6 text-blue-600" />
             </div>
           </div>
@@ -198,7 +200,7 @@ interface StatCardProps {
 
 const StatCard: React.FC<StatCardProps> = ({ value, label, icon }) => (
   <div className="text-center group">
-    <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+    <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mx-auto mb-3 group-hover:scale-105 transition-transform duration-200 will-change-transform">
       {icon}
     </div>
     <div className="text-3xl font-bold text-gray-900 mb-1">{value}</div>
@@ -448,7 +450,7 @@ const ContactModal: React.FC<{
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
-    console.log('Form submitted:', formData);
+    // console.log('Form submitted:', formData);
     // You can integrate with email service or API here
     alert('Thank you for contacting us! We will get back to you soon.');
     setFormData({ name: '', email: '', phone: '', message: '' });
@@ -649,10 +651,10 @@ function AnimatedStat({ icon, endValue, suffix, label, gradient, duration }: {
     <motion.div 
       ref={ref}
       className="text-center group flex flex-col items-center justify-center"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
     >
-      <div className={`flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r ${gradient} text-white mx-auto mb-2 group-hover:scale-110 transition-all duration-300 shadow-lg`}>
+      <div className={`flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r ${gradient} text-white mx-auto mb-2 group-hover:scale-105 transition-all duration-200 shadow-lg`}>
         {icon}
       </div>
       <div className="text-xl sm:text-2xl font-bold text-gray-900 mb-1 flex items-center justify-center">
@@ -683,16 +685,18 @@ const One_store: React.FC = () => {
       }
       .animate-gradient {
         background-size: 200% 200%;
-        animation: gradient 3s ease infinite;
+        animation: gradient 4s ease infinite;
+        will-change: background-position;
       }
       @keyframes blob {
         0% { transform: translate(0px, 0px) scale(1); }
-        33% { transform: translate(30px, -50px) scale(1.1); }
-        66% { transform: translate(-20px, 20px) scale(0.9); }
+        33% { transform: translate(20px, -30px) scale(1.05); }
+        66% { transform: translate(-15px, 15px) scale(0.95); }
         100% { transform: translate(0px, 0px) scale(1); }
       }
       .animate-blob {
-        animation: blob 7s infinite;
+        animation: blob 8s infinite;
+        will-change: transform;
       }
       .animation-delay-2000 {
         animation-delay: 2s;
@@ -701,7 +705,9 @@ const One_store: React.FC = () => {
     document.head.appendChild(style);
     
     return () => {
-      document.head.removeChild(style);
+      if (document.head.contains(style)) {
+        document.head.removeChild(style);
+      }
     };
   }, []);
 
@@ -836,24 +842,24 @@ const One_store: React.FC = () => {
       {/* Hero Section */}
       <section className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50"></div>
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-20 left-10 w-48 h-48 bg-blue-200 rounded-full blur-lg opacity-10"></div>
+        <div className="absolute top-40 right-10 w-48 h-48 bg-purple-200 rounded-full blur-lg opacity-10"></div>
         
         <div className="relative max-w-3xl mx-auto">
           <motion.div 
             className="text-center space-y-4"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
                         
             <motion.h1 
               className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             >
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient">
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 One Store
               </span>
               <br />
@@ -864,7 +870,7 @@ const One_store: React.FC = () => {
               className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             >
               Complete business management solution for modern retail. From billing to inventory, analytics to e-commerce - everything you need to grow your business.
             </motion.p>
@@ -873,11 +879,11 @@ const One_store: React.FC = () => {
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             >
               <motion.button 
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)" }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02, boxShadow: "0 10px 20px rgba(59, 130, 246, 0.2)" }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => sendPrompt('Start free trial One Store Business Suite')}
                 className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-lg flex items-center"
               >
@@ -885,8 +891,8 @@ const One_store: React.FC = () => {
                 Start Free Trial
               </motion.button>
               <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => sendPrompt('Watch One Store Business Suite demo')}
                 className="px-8 py-4 border-2 border-gray-200 text-gray-700 font-bold rounded-xl hover:border-blue-600 hover:text-blue-600 transition-all duration-300 flex items-center"
               >
@@ -899,7 +905,7 @@ const One_store: React.FC = () => {
               className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 pt-6 w-full max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
             >
               <AnimatedStat 
                 icon={<Users className="w-6 h-6 sm:w-8 sm:h-8" />}
@@ -957,8 +963,8 @@ const One_store: React.FC = () => {
             className="text-center mb-10"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 text-base font-bold mb-6">
               <Package className="w-5 h-5 mr-2" />
@@ -1003,8 +1009,8 @@ const One_store: React.FC = () => {
             className="text-center mb-20"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 text-base font-bold mb-6">
               <Package className="w-5 h-5 mr-2" />
@@ -1075,8 +1081,8 @@ const One_store: React.FC = () => {
             className="text-center mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 text-base font-bold mb-6">
               <CreditCard className="w-5 h-5 mr-2" />
@@ -1097,11 +1103,11 @@ const One_store: React.FC = () => {
             {paymentMethods.map((method, index) => (
               <motion.div 
                 key={index} 
-                className="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                className="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-50px" }}
               >
                 <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 text-white mb-4">
                   {method.icon}
@@ -1115,7 +1121,7 @@ const One_store: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600">
+      {/* <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
             Ready to transform your business?
@@ -1138,7 +1144,7 @@ const One_store: React.FC = () => {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
       <section
@@ -1177,11 +1183,11 @@ const One_store: React.FC = () => {
 
             {/* Email Card */}
             <motion.div
-              className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+              className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-50px" }}
             >
               <div className="flex items-center justify-center w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white mx-auto mb-4">
                 <svg className="w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1208,11 +1214,11 @@ const One_store: React.FC = () => {
 
             {/* Call Card */}
             <motion.div
-              className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+              className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-50px" }}
             >
               <div className="flex items-center justify-center w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-white mx-auto mb-4">
                 <svg className="w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1239,11 +1245,11 @@ const One_store: React.FC = () => {
 
             {/* Address Card */}
             <motion.div
-              className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 sm:col-span-2 lg:col-span-1"
+              className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 sm:col-span-2 lg:col-span-1"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-50px" }}
             >
               <div className="flex items-center justify-center w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white mx-auto mb-4">
                 <svg className="w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">

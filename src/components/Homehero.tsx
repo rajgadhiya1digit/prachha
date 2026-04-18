@@ -4,28 +4,44 @@ import { ArrowRight, Code2, Globe, Smartphone, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const services = [
-  { icon: Code2, title: "Custom Software" },
-  { icon: Globe, title: "Web Applications" },
-  { icon: Smartphone, title: "Mobile Apps" },
-  { icon: Search, title: "SEO Strategy" },
+  { 
+    icon: Code2, 
+    title: "Custom Software",
+    description: "Tailored solutions built to match your business needs."
+  },
+  { 
+    icon: Globe, 
+    title: "Web Applications",
+    description: "Fast, scalable, and modern web apps for all industries."
+  },
+  { 
+    icon: Smartphone, 
+    title: "Mobile Apps",
+    description: "High-performance apps for iOS and Android devices."
+  },
+  { 
+    icon: Search, 
+    title: "SEO Strategy",
+    description: "Data-driven SEO to boost visibility and organic growth."
+  },
 ];
 
 const heroVariant = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.16 },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as const } },
 };
 
 const fadeIn = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1 },
+  visible: { opacity: 1, transition: { duration: 0.3, ease: "easeOut" as const } },
 };
 
 const HomeHero = () => {
@@ -35,13 +51,14 @@ const HomeHero = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.35 }}
-      className="relative overflow-hidden bg-[#070B14] text-white"
+      className="relative bg-[#070B14] text-white overflow-hidden min-h-[calc(100vh-64px)]  sm:min-h-[calc(100vh-72px)] flex justify-center items-center 
+      py-20 sm:py-24"
     >
       <div className="container mx-auto px-4">
         {/* Background Glow */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-[250px] sm:w-[400px] lg:w-[600px] h-[250px] sm:h-[400px] lg:h-[600px] bg-blue-600/20 blur-[120px] rounded-full top-[-120px] left-[-120px]" />
-          <div className="absolute w-[200px] sm:w-[350px] lg:w-[500px] h-[200px] sm:h-[350px] lg:h-[500px] bg-purple-600/20 blur-[120px] rounded-full bottom-[-120px] right-[-120px]" />
+          <div className="absolute w-[200px] sm:w-[300px] lg:w-[400px] h-[200px] sm:h-[300px] lg:h-[400px] bg-blue-600/15 blur-[60px] rounded-full top-[-100px] left-[-100px]" />
+          <div className="absolute w-[150px] sm:w-[250px] lg:w-[350px] h-[150px] sm:h-[250px] lg:h-[350px] bg-purple-600/15 blur-[60px] rounded-full bottom-[-100px] right-[-100px]" />
         </div>
 
         {/* Grid Overlay */}
@@ -49,8 +66,7 @@ const HomeHero = () => {
 
         {/* Main Content */}
         <div
-          className="relative max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16 
-        py-20 sm:py-28 lg:py-32 pb-32 lg:pb-24"
+          className="relative max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16 "
         >
           {/* LEFT */}
           <div className="flex-1 text-center lg:text-left">
@@ -70,8 +86,8 @@ const HomeHero = () => {
               Digital Products
               <motion.span
                 variants={fadeIn}
-                transition={{ delay: 0.16, duration: 0.6 }}
-                animate={{ scale: [0.98, 1.02, 1], opacity: [0.8, 1, 1] }}
+                transition={{ delay: 0.1, duration: 0.3, ease: "easeOut" }}
+                animate={{ scale: [0.99, 1.01, 1], opacity: [0.9, 1, 1] }}
                 className="text-blue-500 block sm:inline"
               >
                 {" "}
@@ -147,30 +163,38 @@ const HomeHero = () => {
                   variants={fadeInUp}
                   initial="hidden"
                   animate="visible"
-                  transition={{ delay: 0.25 + i * 0.08, duration: 0.45 }}
-                  whileHover={{ scale: 1.02, y: -4 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 sm:p-6 backdrop-blur-xl transition"
+                  transition={{ delay: 0.2 + i * 0.05, duration: 0.3 }}
+                  whileHover={{ scale: 1.01, y: -2 }}
+                  whileTap={{ scale: 0.99 }}
+                  className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 sm:p-6 backdrop-blur-sm transition-transform will-change-transform \
+                  flex flex-col items-center xs:items-start text-center xs:text-left"
                 >
                   <item.icon className="text-blue-400 mb-2 sm:mb-3" />
                   <h3 className="font-semibold text-sm sm:text-base">
                     {item.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-400 mt-1 sm:mt-2">
-                    Scalable and modern solutions
+                    {item.description}
                   </p>
                 </motion.div>
               ))}
             </div>
 
             {/* Floating Card */}
+            <motion.div 
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              className="flex justify-center lg:justify-end">
+
+            
             <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              whileHover={{ scale: 1.03 }}
-              className="absolute bottom-[-100px] sm:bottom-[-100px] lg:-bottom-28 right-20 lg:right-10 translate-x-1/4 lg:translate-x-0 bg-gradient-to-r from-blue-600 to-purple-600 p-[1px] rounded-2xl"
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              whileHover={{ scale: 1.02 }}
+              className="mt-10 w-fit flex justify-center bg-gradient-to-r from-blue-600 to-purple-600 p-[1px] rounded-2xl"
             >
-              <div className="bg-[#0B1020] px-5 py-4 rounded-2xl text-center lg:text-left">
+              <div className=" w-fit bg-[#0B1020] px-5 py-4 rounded-2xl text-center ">
                 <p className="text-xs sm:text-sm text-gray-300">
                   Next Gen Development
                 </p>
@@ -178,6 +202,8 @@ const HomeHero = () => {
                   AI + Cloud Ready Systems
                 </p>
               </div>
+            </motion.div>
+
             </motion.div>
           </div>
         </div>

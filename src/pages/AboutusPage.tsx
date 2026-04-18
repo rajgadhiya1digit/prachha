@@ -14,33 +14,47 @@ const AboutusPage = () => {
 
   return (
     <>
-    <section className='relative py-16 min-h-[60vh] md:min-h-[65vh] lg:min-h-[85vh] flex items-center justify-center overflow-hidden text-white '>
-      <div className="absolute inset-0">
-        <img src={'/about/aboutbg.jpg'} alt="Service Background" 
-        className='w-full h-full object-cover bg-center bg-no-repeat' />
-      </div>
+    <section className="relative overflow-hidden min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-72px)] flex justify-center items-center text-white">
 
-      <div className='absolute inset-0 bg-gradient-to-t from-black/50 via-black/60 to-black/40'></div>
+        {/* Background */}
+        <div className="absolute inset-0">
+            <img
+            src={'/about/aboutbg.jpg'}
+            alt="About Background"
+            className="w-full h-full object-cover"
+            />
+        </div>
 
-      <motion.div 
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className='relative z-10 text-center px-4 max-w-4xl'
-      >
-        <span className="inline-block text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] tracking-widest uppercase  bg-white/25 font-[600] px-4 py-2 rounded-full border border-white/70 mb-4">
-          About Us
-        </span>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F19]/40 via-[#0B0F19]/45 to-[#0B0F19]/60" />
 
-        <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight mb-5 font-[600] '>
-          We Build <span className='text-red-500'> Digital Experiences </span> That Drive Growth
-        </h1>
+        {/* Content */}
+        <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative w-full mx-auto px-4 text-center"
+        >
+            <div className="mb-6">
+                <span className="inline-block text-xs sm:text-sm font-[600] tracking-widest uppercase bg-red-500/10 text-white px-5 py-2 rounded-full border border-orange-400 backdrop-blur-md">
+                    About Us
+                </span>
+            </div>
 
-        <p className='text-gray-50 text-sm sm:text-base md:text-lg  max-w-2xl mx-auto'>
-          We build smart, scalable digital solutions that help businesses grow and succeed in the modern world.
-        </p>
-      </motion.div>
-   </section>
+            {/* Heading */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                We Build Digital Experiencesa
+                <span className="block bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent leading">
+                     That Drive Growth
+                </span>
+            </h1>
+
+            {/* Subtext */}
+            <p className="text-gray-100 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+                We build smart, scalable digital solutions that help businesses grow and succeed in the modern world with cutting-edge technology and innovative approaches.
+            </p>
+
+        </motion.div>
+    </section>
 
     <section className="py-12 sm:py-20 bg-gray-50" id="about">
       <div className="container mx-auto px-4">

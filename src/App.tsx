@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
 import  Header  from './components/Header';
 import { AIBanner } from './components/AIBanner';
 import { Industries } from './components/Industries';
@@ -12,22 +13,22 @@ import { Blog } from './components/Blog';
 import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
 import { ProjectDetails } from './components/ProjectDetails';
-import UserDetails from './pages/CeoProfile';
-import CeoProfile from './pages/CeoProfile';
-import CtoProfile from './pages/CtoProfile';
-import ServicesPage from './pages/ServicesPage';
-import ContactusPage from './pages/ContactusPage';
-import InqueryPage from './pages/InqueryPage';
-import AboutusPage from './pages/AboutusPage';
-import BlogPage from './pages/BlogPage';
 import ScrollToTop from './components/ScrollToTop';
-import PrachhaTechClient from './pages/products/One_store';
-import One_store from './pages/products/One_store';
-import Wherit from './pages/products/Wherit';
 import { Hero } from './components/Hero';
 import Homehero from './components/Homehero';
-import BlogDetailPage from './pages/BlogDetailsPage';
-import ProjectPage from './pages/ProjectPage';
+
+// Lazy load route components
+const CeoProfile = lazy(() => import('./pages/CeoProfile'));
+const CtoProfile = lazy(() => import('./pages/CtoProfile'));
+const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const ContactusPage = lazy(() => import('./pages/ContactusPage'));
+const InqueryPage = lazy(() => import('./pages/InqueryPage'));
+const AboutusPage = lazy(() => import('./pages/AboutusPage'));
+const BlogPage = lazy(() => import('./pages/BlogPage'));
+const One_store = lazy(() => import('./pages/products/One_store'));
+const Wherit = lazy(() => import('./pages/products/Wherit'));
+const BlogDetailPage = lazy(() => import('./pages/BlogDetailsPage'));
+const ProjectPage = lazy(() => import('./pages/ProjectPage'));
 
 export default function App() {
   return (
@@ -52,20 +53,20 @@ export default function App() {
           </>
         } />
         <Route path="/industries" element={<Industries />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/about" element={<AboutusPage />} />
-        <Route path="/contact" element={<ContactusPage />} />
-        <Route path="/inquery" element={<InqueryPage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog_details/:id" element={<BlogDetailPage />} />
+        <Route path="/services" element={<Suspense fallback={<div>Loading...</div>}><ServicesPage /></Suspense>} />
+        <Route path="/about" element={<Suspense fallback={<div>Loading...</div>}><AboutusPage /></Suspense>} />
+        <Route path="/contact" element={<Suspense fallback={<div>Loading...</div>}><ContactusPage /></Suspense>} />
+        <Route path="/inquery" element={<Suspense fallback={<div>Loading...</div>}><InqueryPage /></Suspense>} />
+        <Route path="/blog" element={<Suspense fallback={<div>Loading...</div>}><BlogPage /></Suspense>} />
+        <Route path="/blog_details/:id" element={<Suspense fallback={<div>Loading...</div>}><BlogDetailPage /></Suspense>} />
 
-        <Route path="/projects" element={<ProjectPage />} />
+        <Route path="/projects" element={<Suspense fallback={<div>Loading...</div>}><ProjectPage /></Suspense>} />
         <Route path="/project-details/:id" element={<ProjectDetails />} />
-        <Route path="/team/ceo/vijay-sarkheliya" element={<CeoProfile />} />
-        <Route path="/team/cto/hitesh-sarkheliya" element={<CtoProfile />} />
+        <Route path="/team/ceo/vijay-sarkheliya" element={<Suspense fallback={<div>Loading...</div>}><CeoProfile /></Suspense>} />
+        <Route path="/team/cto/hitesh-sarkheliya" element={<Suspense fallback={<div>Loading...</div>}><CtoProfile /></Suspense>} />
 
-        <Route path="/product/one_store" element={<One_store />} />
-        <Route path="/product/wherit" element={<Wherit />} />
+        <Route path="/product/one_store" element={<Suspense fallback={<div>Loading...</div>}><One_store /></Suspense>} />
+        <Route path="/product/wherit" element={<Suspense fallback={<div>Loading...</div>}><Wherit /></Suspense>} />
 
 
       </Routes>

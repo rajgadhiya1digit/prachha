@@ -110,8 +110,6 @@ import { Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { Button } from './ui/button';
-import logo from '../assets/prachha-tech.jpeg'
 import { RiArrowRightSLine } from "react-icons/ri";
 
 const navLinks = [
@@ -138,7 +136,7 @@ const Header = () => {
 
           <div className="flex items-center shrink-0">
               <Link to="/">
-               <img src={'/navbar/prachha-navlogo.jpg'} alt="Prachha Tech" className="h-12 sm:h-14 w-auto" />
+               <img src={'/navbar/prachha-navlogo.jpg'} alt="Prachha Tech" className="h-12 sm:h-14 w-auto" loading="lazy" />
              </Link>
               
           </div>
@@ -151,7 +149,7 @@ const Header = () => {
               <div onClick={()=>setOpen(!open)}
                 className="flex items-center gap-1 cursor-pointer hover:text-red-500">
                 Product
-                <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition" />
+                <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-200 will-change-transform" />
               </div>
 
               {/* DROPDOWN */}
@@ -181,7 +179,7 @@ const Header = () => {
             <Link to="/contact" className="hover:text-red-500">Contact</Link>
 
             <Link to="/contact">
-              <button className="flex items-center bg-gradient-to-r from-red-500 to-orange-400 hover:bg-orange-600 rounded-full pl-7 pr-1.5 py-1.5  transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer">
+              <button className="flex items-center bg-gradient-to-r from-red-500 to-orange-400 hover:bg-orange-600 rounded-full pl-7 pr-1.5 py-1.5  transition-transform duration-200 hover:scale-105 active:scale-95 cursor-pointer">
                 <span className="text-white font-bold text-sm tracking-wide mr-4">Get Started</span>
                 <span className="w-8 h-8 bg-white rounded-full flex items-center justify-center shrink-0">
                   <RiArrowRightSLine />
@@ -208,8 +206,8 @@ const Header = () => {
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-0 right-0 w-full h-full bg-white z-[999] p-6"
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed top-0 right-0 w-full h-full bg-white z-[999] p-6 will-change-transform"
           >
 
             {/* HEADER */}
