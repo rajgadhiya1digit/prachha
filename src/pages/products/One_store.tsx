@@ -17,41 +17,31 @@ const useScrollAnimation = () => {
   return { scale, opacity, y };
 };
 
-// Catalog Item Component - Optimized for Safari
+// Catalog Item Component
 const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: number, onImageClick: (image: string) => void, id?: string }) => {
   const ref = useRef(null);
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const isSafari = typeof window !== "undefined" && /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-  // Simplified scroll animations for better Safari performance
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 95%", "end 10%"] });
-  const scale = useTransform(scrollYProgress, [0, 0.2], [0.95, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
-  // Disable x-axis animation on Safari for better performance
-  const x = useTransform(scrollYProgress, [0, 0.2], isSafari || isMobile ? [0, 0] : [index % 2 === 0 ? -20 : 20, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.3], [0.9, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
+  const x = useTransform(scrollYProgress, [0, 0.7], isMobile ? [0, 0] : [index % 2 === 0 ? -30 : 30, 0]);
 
   return (
     <motion.div
       id={id}
       ref={ref}
-      style={{ 
-        scale, 
-        opacity, 
-        x,
-        transform: "translateZ(0)" // Force GPU acceleration
-      }}
-      className="grid lg:grid-cols-2 gap-10 items-center mb-1"
-      // Optimize for Safari with reduced layout shifts
-      layout={!isSafari}
+      style={{ scale, opacity, x }}
+      className="grid lg:grid-cols-2 gap-10 items-center mb-1 transform-gpu"
+      // layout="position"
     >
       {/* Left Side - Text Content */}
       <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: index * 0.05, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
-          style={{ transform: "translateZ(0)" }}
+          transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 text-sm font-semibold mb-6">
             <Zap className="w-4 h-4 mr-2" />
@@ -71,12 +61,11 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
             {item.features.map((feature: string, featureIndex: number) => (
               <motion.div
                 key={featureIndex}
-                initial={{ opacity: 0, x: -15 }}
+                initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.25, delay: index * 0.02 + featureIndex * 0.01, ease: "easeOut" }}
-                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.3, delay: index * 0.05 + featureIndex * 0.03, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-50px" }}
                 className="flex items-start"
-                style={{ transform: "translateZ(0)" }}
               >
                 <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">{feature}</span>
@@ -89,13 +78,12 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
             {Object.entries(item.stats).map(([key, value], statIndex: number) => (
               <motion.div
                 key={statIndex}
-                initial={{ opacity: 0, y: 8 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.2, delay: index * 0.02 + statIndex * 0.01 }}
-                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.25, delay: index * 0.04 + statIndex * 0.02 }}
+                viewport={{ once: true }}
                 className="p-3 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg 
                           min-h-[90px] flex flex-col items-center justify-center text-center"
-                style={{ transform: "translateZ(0)" }}
               >
                 <div className="text-base sm:text-lg font-bold text-blue-600 leading-none">
                   {String(value)}
@@ -124,12 +112,11 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
       {/* Right Side - Image */}
       <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, delay: index * 0.03 + 0.05, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.4, delay: index * 0.05 + 0.1, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-50px" }}
           className="relative"
-          style={{ transform: "translateZ(0)" }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-3xl blur-xl opacity-10" />
           <div
@@ -692,11 +679,8 @@ const One_store: React.FC = () => {
   const [imageRotation, setImageRotation] = useState(0);
   const [showJumpToTop, setShowJumpToTop] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
-  
-  // Safari detection for performance optimizations
-  const isSafari = typeof window !== "undefined" && /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-  // Add custom animation classes with Safari optimizations
+  // Add custom animation classes
   useEffect(() => {
     const style = document.createElement('style');
     style.textContent = `
@@ -723,28 +707,6 @@ const One_store: React.FC = () => {
       .animation-delay-2000 {
         animation-delay: 2s;
       }
-      /* Safari-specific performance optimizations */
-      @supports (-webkit-appearance: none) {
-        .safari-optimized {
-          -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-          -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-          -webkit-perspective: 1000;
-          perspective: 1000;
-        }
-        .safari-optimized * {
-          -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-        }
-      }
-      /* Reduce motion for better performance */
-      @media (prefers-reduced-motion: reduce) {
-        .animate-gradient,
-        .animate-blob {
-          animation: none !important;
-        }
-      }
     `;
     document.head.appendChild(style);
 
@@ -759,21 +721,13 @@ const One_store: React.FC = () => {
     // Ensure page starts at top on refresh
     window.scrollTo(0, 0);
 
-    // Throttled scroll handler for better Safari performance
-    let ticking = false;
     const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY;
-          setScrollY(currentScrollY);
-          setShowJumpToTop(currentScrollY > 300);
-          ticking = false;
-        });
-        ticking = true;
-      }
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+      setShowJumpToTop(currentScrollY > 300);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -890,7 +844,7 @@ const One_store: React.FC = () => {
   ];
 
   return (
-    <div className={`min-h-screen bg-white relative ${isSafari ? 'safari-optimized' : ''}`}>
+    <div className="min-h-screen bg-white relative">
       {/* Hero Section */}
       <section className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50"></div>
@@ -1009,7 +963,7 @@ const One_store: React.FC = () => {
       </section>
 
       {/* Catalog Section */}
-      <section id="catalog" className={`py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 overflow-hidden ${isSafari ? 'safari-optimized' : ''}`}>
+      <section id="catalog" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-10 sm:mb-16"
@@ -1034,7 +988,7 @@ const One_store: React.FC = () => {
           </motion.div>
 
           {/* Catalog Items */}
-          <div className={`space-y-10 ${isSafari ? 'safari-optimized' : ''}`}>
+          <div className="space-y-10">
             {catalogSolutions.map((item, index) => (
               <CatalogItem
                 key={index}
