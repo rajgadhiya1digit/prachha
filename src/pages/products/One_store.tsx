@@ -25,7 +25,7 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 95%", "end 10%"] });
   const scale = useTransform(scrollYProgress, [0, 0.3], [0.9, 1]);
   const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
-  const x = useTransform(scrollYProgress, [0, 0.7], isMobile ? [0, 0] : [index % 2 === 0 ? -30 : 30, 0]);
+  const x = useTransform(scrollYProgress, [0, 0.9], isMobile ? [0, 0] : [index % 2 === 0 ? -30 : 30, 0]);
 
   return (
     <motion.div
