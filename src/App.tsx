@@ -24,6 +24,7 @@ const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const ContactusPage = lazy(() => import('./pages/ContactusPage'));
 const InqueryPage = lazy(() => import('./pages/InqueryPage'));
 const AboutusPage = lazy(() => import('./pages/AboutusPage'));
+const TeamPage = lazy(() => import('./pages/TeamPage'));
 const BlogPage = lazy(() => import('./pages/BlogPage'));
 const One_store = lazy(() => import('./pages/products/One_store'));
 const Wherit = lazy(() => import('./pages/products/Wherit'));
@@ -55,6 +56,7 @@ export default function App() {
         <Route path="/industries" element={<Industries />} />
         <Route path="/services" element={<Suspense fallback={<div>Loading...</div>}><ServicesPage /></Suspense>} />
         <Route path="/about" element={<Suspense fallback={<div>Loading...</div>}><AboutusPage /></Suspense>} />
+        <Route path="/team" element={<Suspense fallback={<div>Loading...</div>}><TeamPage /></Suspense>} />
         <Route path="/contact" element={<Suspense fallback={<div>Loading...</div>}><ContactusPage /></Suspense>} />
         <Route path="/inquery" element={<Suspense fallback={<div>Loading...</div>}><InqueryPage /></Suspense>} />
         <Route path="/blog" element={<Suspense fallback={<div>Loading...</div>}><BlogPage /></Suspense>} />

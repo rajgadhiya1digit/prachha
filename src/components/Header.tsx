@@ -176,6 +176,7 @@ const Header = () => {
             <Link to="/projects" className="hover:text-red-500">portfolio </Link>
             <Link to="/blog" className="hover:text-red-500">Blog</Link>
             <Link to="/about" className="hover:text-red-500">About</Link>
+            <Link to="/team" className="hover:text-red-500">Team</Link>
             <Link to="/contact" className="hover:text-red-500">Contact</Link>
 
             <Link to="/contact">
