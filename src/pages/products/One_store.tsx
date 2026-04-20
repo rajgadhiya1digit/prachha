@@ -32,7 +32,7 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
       id={id}
       ref={ref}
       style={{ scale, opacity, x }}
-      className="grid lg:grid-cols-2 gap-12 items-center mb-10"
+      className="grid lg:grid-cols-2 gap-10 items-center mb-10"
       layout="position"
     >
       {/* Left Side - Text Content */}
@@ -74,19 +74,25 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
           </div>
           
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 mb-8">
+          <div className="grid grid-cols-3 gap-4">
             {Object.entries(item.stats).map(([key, value], statIndex: number) => (
               <motion.div
                 key={statIndex}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.05 + statIndex * 0.03, ease: "easeOut" }}
-                viewport={{ once: true, margin: "-50px" }}
-                className="text-center p-3 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg"
+                transition={{ duration: 0.25, delay: index * 0.04 + statIndex * 0.02 }}
+                viewport={{ once: true }}
+                className="p-3 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg 
+                          min-h-[90px] flex flex-col items-center justify-center text-center"
               >
-                <div className="text-lg font-bold text-blue-600">{String(value)}</div>
-                <div className="text-xs text-gray-600">{key}</div>
-              </motion.div>
+                <div className="text-base sm:text-lg font-bold text-blue-600 leading-none">
+                  {String(value)}
+                </div>
+
+                <div className="text-xs sm:text-sm text-gray-600 mt-2 leading-snug break-words">
+                  {key}
+                </div>
+      </motion.div>
             ))}
           </div>
           
@@ -117,7 +123,7 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
             className="relative bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 p-4 cursor-pointer group hover:shadow-2xl transition-shadow duration-200 will-change-transform"
             onClick={() => onImageClick(item.image)}
           >
-            <div className="relative w-full h-96">
+            <div className="relative w-full h-80 sm:h-96">
               <img
                 src={item.image}
                 alt={item.title}
@@ -957,10 +963,10 @@ const One_store: React.FC = () => {
       </section>
 
       {/* Catalog Section */}
-      <section id="catalog" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+      <section id="catalog" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div 
-            className="text-center mb-10"
+            className="text-center mb-10 sm:mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -1003,10 +1009,10 @@ const One_store: React.FC = () => {
       </section>
 
       {/* Screenshots Section */}
-      <section id="screenshots" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
+      <section id="screenshots" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto">
           <motion.div 
-            className="text-center mb-20"
+            className="text-center mb-10 sm:mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -1075,10 +1081,10 @@ const One_store: React.FC = () => {
       </section>
 
       {/* Payment Methods */}
-      <section id="payments" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
+      <section id="payments" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -1103,11 +1109,20 @@ const One_store: React.FC = () => {
             {paymentMethods.map((method, index) => (
               <motion.div 
                 key={index} 
-                className="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
-                viewport={{ once: true, margin: "-50px" }}
+                className="bg-white p-6 rounded-2xl border border-gray-100 shadow-md will-change-transform"
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                whileHover={{ 
+                  y: -8, 
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                  borderColor: "rgba(99, 102, 241, 0.3)"
+                }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: index * 0.1, 
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                viewport={{ once: true, margin: "-100px" }}
               >
                 <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 text-white mb-4">
                   {method.icon}
@@ -1155,7 +1170,7 @@ const One_store: React.FC = () => {
 
           {/* Heading */}
           <motion.div
-            className="text-center mb-10 sm:mb-14 lg:mb-16"
+            className="text-center mb-10 sm:mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -1183,11 +1198,20 @@ const One_store: React.FC = () => {
 
             {/* Email Card */}
             <motion.div
-              className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
-              viewport={{ once: true, margin: "-50px" }}
+              className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center shadow-md will-change-transform"
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ 
+                y: -8, 
+                boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                borderColor: "rgba(99, 102, 241, 0.3)"
+              }}
+              transition={{ 
+                duration: 0.5, 
+                delay: 0.1, 
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              viewport={{ once: true, margin: "-100px" }}
             >
               <div className="flex items-center justify-center w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white mx-auto mb-4">
                 <svg className="w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1214,11 +1238,20 @@ const One_store: React.FC = () => {
 
             {/* Call Card */}
             <motion.div
-              className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
-              viewport={{ once: true, margin: "-50px" }}
+              className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center shadow-md will-change-transform"
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ 
+                y: -8, 
+                boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                borderColor: "rgba(34, 197, 94, 0.3)"
+              }}
+              transition={{ 
+                duration: 0.5, 
+                delay: 0.2, 
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              viewport={{ once: true, margin: "-100px" }}
             >
               <div className="flex items-center justify-center w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-white mx-auto mb-4">
                 <svg className="w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1245,11 +1278,20 @@ const One_store: React.FC = () => {
 
             {/* Address Card */}
             <motion.div
-              className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 sm:col-span-2 lg:col-span-1"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
-              viewport={{ once: true, margin: "-50px" }}
+              className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center shadow-md will-change-transform sm:col-span-2 lg:col-span-1"
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ 
+                y: -8, 
+                boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                borderColor: "rgba(168, 85, 247, 0.3)"
+              }}
+              transition={{ 
+                duration: 0.5, 
+                delay: 0.3, 
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              viewport={{ once: true, margin: "-100px" }}
             >
               <div className="flex items-center justify-center w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white mx-auto mb-4">
                 <svg className="w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
