@@ -13,77 +13,89 @@ const useScrollAnimation = () => {
   const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const y = useTransform(scrollYProgress, [0, 0.1], [50, 0]);
-  
+
   return { scale, opacity, y };
 };
 
-// Catalog Item Component
+// Catalog Item Component - Optimized for Safari
 const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: number, onImageClick: (image: string) => void, id?: string }) => {
   const ref = useRef(null);
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const isSafari = typeof window !== "undefined" && /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
+  // Simplified scroll animations for better Safari performance
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 95%", "end 10%"] });
-  const scale = useTransform(scrollYProgress, [0, 0.3], [0.9, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
-  const x = useTransform(scrollYProgress, [0, 0.3], isMobile ? [0, 0] : [index % 2 === 0 ? -30 : 30, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2], [0.95, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
+  // Disable x-axis animation on Safari for better performance
+  const x = useTransform(scrollYProgress, [0, 0.2], isSafari || isMobile ? [0, 0] : [index % 2 === 0 ? -20 : 20, 0]);
 
   return (
     <motion.div
       id={id}
       ref={ref}
-      style={{ scale, opacity, x }}
-      className="grid lg:grid-cols-2 gap-10 items-center mb-10"
-      layout="position"
+      style={{ 
+        scale, 
+        opacity, 
+        x,
+        transform: "translateZ(0)" // Force GPU acceleration
+      }}
+      className="grid lg:grid-cols-2 gap-10 items-center mb-1"
+      // Optimize for Safari with reduced layout shifts
+      layout={!isSafari}
     >
       {/* Left Side - Text Content */}
       <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.3, delay: index * 0.05, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+          style={{ transform: "translateZ(0)" }}
         >
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 text-sm font-semibold mb-6">
             <Zap className="w-4 h-4 mr-2" />
             {item.subtitle}
           </div>
-          
+
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             {item.title}
           </h2>
-          
+
           <p className="text-lg text-gray-600 mb-6 leading-relaxed">
             {item.description}
           </p>
-          
+
           {/* Features List */}
           <div className="space-y-3 mb-8">
             {item.features.map((feature: string, featureIndex: number) => (
               <motion.div
                 key={featureIndex}
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -15 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.05 + featureIndex * 0.03, ease: "easeOut" }}
-                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.25, delay: index * 0.02 + featureIndex * 0.01, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-80px" }}
                 className="flex items-start"
+                style={{ transform: "translateZ(0)" }}
               >
                 <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">{feature}</span>
               </motion.div>
             ))}
           </div>
-          
+
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4">
             {Object.entries(item.stats).map(([key, value], statIndex: number) => (
               <motion.div
                 key={statIndex}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.25, delay: index * 0.04 + statIndex * 0.02 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.2, delay: index * 0.02 + statIndex * 0.01 }}
+                viewport={{ once: true, margin: "-60px" }}
                 className="p-3 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg 
                           min-h-[90px] flex flex-col items-center justify-center text-center"
+                style={{ transform: "translateZ(0)" }}
               >
                 <div className="text-base sm:text-lg font-bold text-blue-600 leading-none">
                   {String(value)}
@@ -92,10 +104,10 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
                 <div className="text-xs sm:text-sm text-gray-600 mt-2 leading-snug break-words">
                   {key}
                 </div>
-      </motion.div>
+              </motion.div>
             ))}
           </div>
-          
+
           {/* <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -108,18 +120,19 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
           </motion.button> */}
         </motion.div>
       </div>
-      
+
       {/* Right Side - Image */}
       <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4, delay: index * 0.05 + 0.1, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.3, delay: index * 0.03 + 0.05, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-80px" }}
           className="relative"
+          style={{ transform: "translateZ(0)" }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-3xl blur-xl opacity-10" />
-          <div 
+          <div
             className="relative bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 p-4 cursor-pointer group hover:shadow-2xl transition-shadow duration-200 will-change-transform"
             onClick={() => onImageClick(item.image)}
           >
@@ -162,7 +175,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, ima
   return (
     <div className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-200 will-change-transform">
       {image && (
-        <div 
+        <div
           className="relative bg-gradient-to-br from-blue-50 to-indigo-100 p-4 cursor-pointer group"
           onClick={handleImageClick}
         >
@@ -215,9 +228,9 @@ const StatCard: React.FC<StatCardProps> = ({ value, label, icon }) => (
 );
 
 // Image Modal Component
-const ImageModal: React.FC<{ 
-  isOpen: boolean; 
-  imageSrc: string | null; 
+const ImageModal: React.FC<{
+  isOpen: boolean;
+  imageSrc: string | null;
   onClose: () => void;
 }> = ({ isOpen, imageSrc, onClose }) => {
   const [zoomLevel, setZoomLevel] = useState(1);
@@ -327,7 +340,7 @@ const ImageModal: React.FC<{
   if (!isOpen || !imageSrc) return null;
 
   return (
-    <div 
+    <div
       className="fixed inset-0 z-50 bg-black flex items-center justify-center overflow-hidden"
       onClick={handleClose}
       onWheel={handleWheel}
@@ -394,7 +407,7 @@ const ImageModal: React.FC<{
 
       {/* Full Screen Image Container */}
       <div className="relative w-full h-full flex items-center justify-center p-4 overflow-hidden">
-        <div 
+        <div
           className="relative select-none w-auto h-auto max-w-[100vw] max-h-[100vh]"
           onClick={(e) => e.stopPropagation()}
           onMouseDown={handleMouseDown}
@@ -442,8 +455,8 @@ const ImageModal: React.FC<{
 };
 
 // Contact Modal Component
-const ContactModal: React.FC<{ 
-  isOpen: boolean; 
+const ContactModal: React.FC<{
+  isOpen: boolean;
   onClose: () => void;
 }> = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -626,11 +639,11 @@ function AnimatedStat({ icon, endValue, suffix, label, gradient, duration }: {
     const updateCount = () => {
       const now = Date.now();
       const progress = Math.min((now - startTime) / 5000, 1);
-      
+
       // Smooth easing function for natural feel
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       const currentCount = endValue * easeOutQuart;
-      
+
       setCount(currentCount);
 
       if (progress < 1) {
@@ -654,7 +667,7 @@ function AnimatedStat({ icon, endValue, suffix, label, gradient, duration }: {
   };
 
   return (
-    <motion.div 
+    <motion.div
       ref={ref}
       className="text-center group flex flex-col items-center justify-center"
       whileHover={{ scale: 1.02 }}
@@ -679,8 +692,11 @@ const One_store: React.FC = () => {
   const [imageRotation, setImageRotation] = useState(0);
   const [showJumpToTop, setShowJumpToTop] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
+  
+  // Safari detection for performance optimizations
+  const isSafari = typeof window !== "undefined" && /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-  // Add custom animation classes
+  // Add custom animation classes with Safari optimizations
   useEffect(() => {
     const style = document.createElement('style');
     style.textContent = `
@@ -707,9 +723,31 @@ const One_store: React.FC = () => {
       .animation-delay-2000 {
         animation-delay: 2s;
       }
+      /* Safari-specific performance optimizations */
+      @supports (-webkit-appearance: none) {
+        .safari-optimized {
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+          -webkit-perspective: 1000;
+          perspective: 1000;
+        }
+        .safari-optimized * {
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+      }
+      /* Reduce motion for better performance */
+      @media (prefers-reduced-motion: reduce) {
+        .animate-gradient,
+        .animate-blob {
+          animation: none !important;
+        }
+      }
     `;
     document.head.appendChild(style);
-    
+
     return () => {
       if (document.head.contains(style)) {
         document.head.removeChild(style);
@@ -720,14 +758,22 @@ const One_store: React.FC = () => {
   useEffect(() => {
     // Ensure page starts at top on refresh
     window.scrollTo(0, 0);
-    
+
+    // Throttled scroll handler for better Safari performance
+    let ticking = false;
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrollY(currentScrollY);
-      setShowJumpToTop(currentScrollY > 300);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          setScrollY(currentScrollY);
+          setShowJumpToTop(currentScrollY > 300);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -767,7 +813,7 @@ const One_store: React.FC = () => {
         event.preventDefault();
       }
     };
-    
+
     if (selectedImage) {
       window.addEventListener('keydown', handleKeyDown);
       // Prevent body scroll when modal is open
@@ -844,22 +890,22 @@ const One_store: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white relative">
+    <div className={`min-h-screen bg-white relative ${isSafari ? 'safari-optimized' : ''}`}>
       {/* Hero Section */}
       <section className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50"></div>
         <div className="absolute top-20 left-10 w-48 h-48 bg-blue-200 rounded-full blur-lg opacity-10"></div>
         <div className="absolute top-40 right-10 w-48 h-48 bg-purple-200 rounded-full blur-lg opacity-10"></div>
-        
+
         <div className="relative max-w-3xl mx-auto">
-          <motion.div 
+          <motion.div
             className="text-center space-y-4"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-                        
-            <motion.h1 
+
+            <motion.h1
               className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -871,8 +917,8 @@ const One_store: React.FC = () => {
               <br />
               <span className="text-gray-900">Business Suite</span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -880,14 +926,14 @@ const One_store: React.FC = () => {
             >
               Complete business management solution for modern retail. From billing to inventory, analytics to e-commerce - everything you need to grow your business.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             >
-              <motion.button 
+              <motion.button
                 whileHover={{ scale: 1.02, boxShadow: "0 10px 20px rgba(59, 130, 246, 0.2)" }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => sendPrompt('Start free trial One Store Business Suite')}
@@ -896,7 +942,7 @@ const One_store: React.FC = () => {
                 <Award className="w-5 h-5 mr-2" />
                 Start Free Trial
               </motion.button>
-              <motion.button 
+              <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => sendPrompt('Watch One Store Business Suite demo')}
@@ -906,14 +952,14 @@ const One_store: React.FC = () => {
                 Watch Demo
               </motion.button>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 pt-6 w-full max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
             >
-              <AnimatedStat 
+              <AnimatedStat
                 icon={<Users className="w-6 h-6 sm:w-8 sm:h-8" />}
                 endValue={50000}
                 suffix="K+"
@@ -921,7 +967,7 @@ const One_store: React.FC = () => {
                 gradient="from-blue-500 to-purple-500"
                 duration={5}
               />
-              <AnimatedStat 
+              <AnimatedStat
                 icon={<FileText className="w-6 h-6 sm:w-8 sm:h-8" />}
                 endValue={10000000}
                 suffix="Cr+"
@@ -929,7 +975,7 @@ const One_store: React.FC = () => {
                 gradient="from-green-500 to-teal-500"
                 duration={5}
               />
-              <AnimatedStat 
+              <AnimatedStat
                 icon={<Star className="w-6 h-6 sm:w-8 sm:h-8" />}
                 endValue={4.8}
                 suffix=""
@@ -963,9 +1009,9 @@ const One_store: React.FC = () => {
       </section>
 
       {/* Catalog Section */}
-      <section id="catalog" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+      <section id="catalog" className={`py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 overflow-hidden ${isSafari ? 'safari-optimized' : ''}`}>
         <div className="max-w-7xl mx-auto">
-          <motion.div 
+          <motion.div
             className="text-center mb-10 sm:mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -986,20 +1032,20 @@ const One_store: React.FC = () => {
               Transform your business with our comprehensive suite of tools designed for modern retail. Each solution is crafted to solve specific business challenges and drive growth.
             </p>
           </motion.div>
-          
+
           {/* Catalog Items */}
-          <div className="space-y-10">
+          <div className={`space-y-10 ${isSafari ? 'safari-optimized' : ''}`}>
             {catalogSolutions.map((item, index) => (
-              <CatalogItem 
-                key={index} 
-                item={item} 
+              <CatalogItem
+                key={index}
+                item={item}
                 index={index}
                 id={
                   index === 0 ? "pos-billing" :
-                  index === 1 ? "inventory-management" :
-                  index === 3 ? "gst-compliance" :
-                  index === 5 ? "e-commerce" :
-                  undefined
+                    index === 1 ? "inventory-management" :
+                      index === 3 ? "gst-compliance" :
+                        index === 5 ? "e-commerce" :
+                          undefined
                 }
                 onImageClick={setSelectedImage}
               />
@@ -1011,7 +1057,7 @@ const One_store: React.FC = () => {
       {/* Screenshots Section */}
       <section id="screenshots" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto">
-          <motion.div 
+          <motion.div
             className="text-center mb-10 sm:mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1032,7 +1078,7 @@ const One_store: React.FC = () => {
               Explore our clean, modern interface designed for maximum efficiency and ease of use.
             </p>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <FeatureCard
               icon={<ShoppingCart className="w-6 h-6" />}
@@ -1083,7 +1129,7 @@ const One_store: React.FC = () => {
       {/* Payment Methods */}
       <section id="payments" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto">
-          <motion.div 
+          <motion.div
             className="text-center mb-10 sm:mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1104,22 +1150,22 @@ const One_store: React.FC = () => {
               From traditional cash to modern digital payments - we support every payment method to make your customers happy and your business grow.
             </p>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {paymentMethods.map((method, index) => (
-              <motion.div 
-                key={index} 
+              <motion.div
+                key={index}
                 className="bg-white p-6 rounded-2xl border border-gray-100 shadow-md will-change-transform"
                 initial={{ opacity: 0, y: 50, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                whileHover={{ 
-                  y: -8, 
+                whileHover={{
+                  y: -8,
                   boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
                   borderColor: "rgba(99, 102, 241, 0.3)"
                 }}
-                transition={{ 
-                  duration: 0.5, 
-                  delay: index * 0.1, 
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -1201,14 +1247,14 @@ const One_store: React.FC = () => {
               className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center shadow-md will-change-transform"
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ 
-                y: -8, 
+              whileHover={{
+                y: -8,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
                 borderColor: "rgba(99, 102, 241, 0.3)"
               }}
-              transition={{ 
-                duration: 0.5, 
-                delay: 0.1, 
+              transition={{
+                duration: 0.5,
+                delay: 0.1,
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
               viewport={{ once: true, margin: "-100px" }}
@@ -1241,14 +1287,14 @@ const One_store: React.FC = () => {
               className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center shadow-md will-change-transform"
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ 
-                y: -8, 
+              whileHover={{
+                y: -8,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
                 borderColor: "rgba(34, 197, 94, 0.3)"
               }}
-              transition={{ 
-                duration: 0.5, 
-                delay: 0.2, 
+              transition={{
+                duration: 0.5,
+                delay: 0.2,
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
               viewport={{ once: true, margin: "-100px" }}
@@ -1281,14 +1327,14 @@ const One_store: React.FC = () => {
               className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center shadow-md will-change-transform sm:col-span-2 lg:col-span-1"
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ 
-                y: -8, 
+              whileHover={{
+                y: -8,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
                 borderColor: "rgba(168, 85, 247, 0.3)"
               }}
-              transition={{ 
-                duration: 0.5, 
-                delay: 0.3, 
+              transition={{
+                duration: 0.5,
+                delay: 0.3,
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
               viewport={{ once: true, margin: "-100px" }}
@@ -1320,16 +1366,16 @@ const One_store: React.FC = () => {
       </section>
 
       {/* Image Modal */}
-      <ImageModal 
-        isOpen={!!selectedImage} 
-        imageSrc={selectedImage} 
-        onClose={() => setSelectedImage(null)} 
+      <ImageModal
+        isOpen={!!selectedImage}
+        imageSrc={selectedImage}
+        onClose={() => setSelectedImage(null)}
       />
 
       {/* Contact Modal */}
-      <ContactModal 
-        isOpen={showContactModal} 
-        onClose={() => setShowContactModal(false)} 
+      <ContactModal
+        isOpen={showContactModal}
+        onClose={() => setShowContactModal(false)}
       />
     </div>
   );

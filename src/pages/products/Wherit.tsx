@@ -251,7 +251,6 @@ const Wherit = () => {
                 <motion.div
                   key={phase.title}
                   variants={itemVariants}
-                  whileHover={{ scale: 1.05 }}
                   className="bg-white rounded-xl p-6 text-center border border-gray-200 hover:border-purple-300 transition-all shadow-lg"
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-purple-600">
@@ -455,7 +454,7 @@ const Wherit = () => {
             initial="hidden"
             animate={contactInView ? "visible" : "hidden"}
             variants={containerVariants}
-            className="space-y-10 sm:space-y-12"
+            className="max-w-6xl space-y-10 sm:space-y-12 mx-auto"
             >
             
             {/* Heading */}
@@ -479,35 +478,50 @@ const Wherit = () => {
 
                 <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl md:max-w-3xl mx-auto">
                 We're here to help. Have questions about Wherit? Get in touch with our team and we'll be happy to assist you.
-                </p>
+              </p>
             </motion.div>
 
             {/* Cards */}
             <motion.div
                 variants={itemVariants}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8"
             >
                 
                 {/* Email Card */}
                 <motion.div
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-2xl p-5 sm:p-6 lg:p-8 border border-gray-200 hover:border-blue-300 transition-all shadow-md hover:shadow-xl"
+                className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center shadow-md will-change-transform"
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                whileHover={{ 
+                    y: -8, 
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                    borderColor: "rgba(99, 102, 241, 0.3)"
+                }}
+                transition={{ 
+                    duration: 0.5, 
+                    delay: 0.1, 
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                viewport={{ once: true, margin: "-100px" }}
                 >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center mb-4 sm:mb-6">
-                    <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
+                <div className="flex items-center justify-center w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white mx-auto mb-4">
+                    <svg className="w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                            d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
                     Send Email
                 </h3>
 
-                <p className="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4">
+                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
                     Get in touch via email
                 </p>
 
                 <a
                     href="mailto:contact@1digittechnology.com"
-                    className="text-blue-600 font-medium hover:text-blue-700 transition-colors text-sm sm:text-base break-all"
+                    className="text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base break-all"
                 >
                     contact@1digittechnology.com
                 </a>
@@ -515,24 +529,39 @@ const Wherit = () => {
 
                 {/* Call Card */}
                 <motion.div
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-2xl p-5 sm:p-6 lg:p-8 border border-gray-200 hover:border-blue-300 transition-all shadow-md hover:shadow-xl"
+                className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center shadow-md will-change-transform"
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                whileHover={{ 
+                    y: -8, 
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                    borderColor: "rgba(34, 197, 94, 0.3)"
+                }}
+                transition={{ 
+                    duration: 0.5, 
+                    delay: 0.2, 
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                viewport={{ once: true, margin: "-100px" }}
                 >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center mb-4 sm:mb-6">
-                    <Activity className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
+                <div className="flex items-center justify-center w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-white mx-auto mb-4">
+                    <svg className="w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
                     Call Us
                 </h3>
 
-                <p className="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4">
-                    Call us for immediate support
+                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
+                    Call for immediate support
                 </p>
 
                 <a
                     href="tel:9898386870"
-                    className="text-green-600 font-medium hover:text-green-700 transition-colors text-base sm:text-lg"
+                    className="text-green-600 hover:text-green-700 font-medium text-base sm:text-lg"
                 >
                     9898386870
                 </a>
@@ -540,18 +569,35 @@ const Wherit = () => {
 
                 {/* Address Card */}
                 <motion.div
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-2xl p-5 sm:p-6 lg:p-8 border border-gray-200 hover:border-blue-300 transition-all shadow-md hover:shadow-xl sm:col-span-2 lg:col-span-1"
+                className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center shadow-md will-change-transform sm:col-span-2 lg:col-span-1"
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                whileHover={{ 
+                    y: -8, 
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                    borderColor: "rgba(168, 85, 247, 0.3)"
+                }}
+                transition={{ 
+                    duration: 0.5, 
+                    delay: 0.3, 
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                viewport={{ once: true, margin: "-100px" }}
                 >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-xl flex items-center justify-center mb-4 sm:mb-6">
-                    <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
+                <div className="flex items-center justify-center w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white mx-auto mb-4">
+                    <svg className="w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
                     Address
                 </h3>
 
-                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                <p className="text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed">
                     7/4003, 4004(1), Prachha House,<br />
                     Baman Ji Ni Sheri,<br />
                     Beside - Diamond City Restaurant,<br />
@@ -567,7 +613,7 @@ const Wherit = () => {
         </div>
     </motion.section>
 
-    {/* Footer Section */}
+    {/* ... */}
     <section className="relative z-10 bg-gradient-to-br from-green-100 to-orange-100 text-gray-800 py-16">
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center space-y-8 max-w-xl mx-auto">
