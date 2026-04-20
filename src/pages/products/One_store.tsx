@@ -96,7 +96,7 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
             ))}
           </div>
           
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => sendPrompt(`Show me ${item.title} demo`)}
@@ -105,7 +105,7 @@ const CatalogItem = ({ item, index, onImageClick, id }: { item: any, index: numb
           >
             Learn More
             <ArrowRight className="w-4 h-4 ml-2" />
-          </motion.button>
+          </motion.button> */}
         </motion.div>
       </div>
       
