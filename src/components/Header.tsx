@@ -223,7 +223,7 @@ const Header = () => {
             <div className="flex flex-col gap-6 text-lg font-medium">
 
               <Link onClick={() => setMenuOpen(false)} to="/">Home</Link>
-              <Link onClick={() => setMenuOpen(false)} to="/about">About</Link>
+              <Link onClick={() => setMenuOpen(false)} to="/services">Services</Link>
 
               {/* PRODUCT MOBILE DROPDOWN */}
               <div>
@@ -249,9 +249,10 @@ const Header = () => {
                 )}
               </div>
 
-              <Link onClick={() => setMenuOpen(false)} to="/services">Services</Link>
-              <Link onClick={() => setMenuOpen(false)} to="/projects">Projects</Link>
+              <Link onClick={() => setMenuOpen(false)} to="/projects">Portfolio</Link> 
               <Link onClick={() => setMenuOpen(false)} to="/blog">Blog</Link>
+              <Link onClick={() => setMenuOpen(false)} to="/about">About</Link>
+              <Link onClick={() => setMenuOpen(false)} to="/team" className="hover:text-red-500">Team</Link>
               <Link onClick={() => setMenuOpen(false)} to="/contact">Contact Us</Link>
 
             </div>

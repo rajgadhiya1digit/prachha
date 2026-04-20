@@ -119,10 +119,10 @@ const TeamPage = () => {
                     </p>
 
                     {/* Stats */}
-                    <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 lg:gap-10 mt-10 text-sm text-gray-400">
+                    <div className="flex flex-row justify-center gap-4 sm:gap-8 lg:gap-10 mt-10 text-sm text-gray-400">
                         <div className="text-center">
                             <p className="text-white text-xl sm:text-2xl lg:text-3xl font-bold">50+</p>
-                            <p className="text-gray-300 text-xs sm:text-sm font-medium">Years Combined Experience</p>
+                            <p className="text-gray-300 text-xs sm:text-sm font-medium">Years Of Experience</p>
                         </div>
                         <div className="text-center">
                             <p className="text-white text-xl sm:text-2xl lg:text-3xl font-bold">100+</p>

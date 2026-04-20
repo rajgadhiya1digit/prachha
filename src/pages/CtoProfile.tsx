@@ -232,9 +232,9 @@ const CtoProfile = () => {
                        
                     </div>
 
-                    <div className=''>
+                    {/* <div className=''>
                         <img src={data.signature} className='w-52' alt="" />
-                    </div>
+                    </div> */}
 
                     <div className='mt-[30px] flex justify-center text-center xs:text-start xs:justify-end'>
                         <div >
