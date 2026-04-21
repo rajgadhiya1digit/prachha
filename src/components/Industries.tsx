@@ -1,6 +1,7 @@
 import { Card } from './ui/card';
 import { Building2, ShoppingCart, GraduationCap, HeartPulse, TrendingUp, Truck } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Stack from '../hooks/Stack'
 
 export function Industries() {
   const industries = [
@@ -54,13 +55,33 @@ export function Industries() {
     },
   ];
 
+  //mobile view cards
+  const stackCards = industries.map((industry, index) => (
+    <div
+      key={index}
+      className={`w-full h-full p-4 sm:p-5 flex flex-col justify-center items-center text-center ${industry.gradient}`}
+    >
+      <div className={`flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl ${industry.color} mb-2 sm:mb-3`}>
+        <industry.icon className={`h-6 w-6 sm:h-7 sm:w-7 ${industry.iconColor}`} />
+      </div>
+
+      <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
+        {industry.title}
+      </h3>
+
+      <p className="text-sm xs:text-base text-gray-600 leading-relaxed">
+        {industry.description}
+      </p>
+    </div>
+  ));
+
   return (
     <section className="relative py-12 sm:py-14 lg:py-20 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden" id="industries">
       <div className="pointer-events-none absolute -left-14 top-10 h-52 w-52 rounded-full bg-blue-100/60 blur-2xl" />
       <div className="pointer-events-none absolute right-0 top-1/3 h-72 w-72 rounded-full bg-red-100/50 blur-2xl" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-10 lg:mb-16">
           <span className="inline-block px-4 py-2 text-sm font-semibold tracking-wider uppercase text-[#ff0000] rounded-full">
             Industries We Transform
           </span>
@@ -84,7 +105,7 @@ export function Industries() {
           </motion.p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="hidden md:grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {industries.map((industry, index) => (
             <Card
               key={index}
@@ -106,6 +127,20 @@ export function Industries() {
             </Card>
           ))}
         </div>
+
+        {/* cards in mobile */}
+        <div className='block md:hidden w-full h-[280px] xs:h-[300px] sm:h-[350px] pr-8' >
+          <Stack
+            cards={stackCards}
+            randomRotation={false}
+            sensitivity={200}
+            sendToBackOnClick={true}
+            autoplay={false}
+            autoplayDelay={3000}
+            pauseOnHover={false}
+          />
+        </div>
+
       </div>
     </section>
   );

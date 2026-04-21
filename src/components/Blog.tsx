@@ -11,7 +11,7 @@ export function Blog() {
 
   return (
     <section
-      className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden"
+      className="py-16 sm:py-20  bg-gradient-to-b from-gray-50 to-white overflow-hidden"
       id="blog"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

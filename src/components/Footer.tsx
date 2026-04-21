@@ -37,7 +37,7 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <img src={'/navbar/prachha-navlogo.jpg'} alt="Prachha Tech" className="h-12 w-auto mb-6 rounded-md" />
+            <img src={'/navbar/prachhalogo.png'} alt="Prachha Tech" className="h-12 w-auto mb-6 rounded-md" />
             <p className="text-gray-400 mb-6 leading-relaxed">
               Turning ideas into digital success. We deliver innovative technology solutions that 
               transform businesses and drive growth.

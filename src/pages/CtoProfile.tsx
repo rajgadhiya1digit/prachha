@@ -23,7 +23,7 @@ const data = {
 
     social: {
         linkedin: "https://www.linkedin.com/in/hitesh-gs/",
-        twitter: "https://twitter.com/username",
+        twitter: "https://x.com/hiteshgs",
         email: "mailto:hitesh@prachha.tech"
     },
 
@@ -227,7 +227,7 @@ const CtoProfile = () => {
 
                     <div className='text-[14px] sm:text-[15px] text-[#555555]  leading-relaxed tracking-wide'>
                         {data.about.map((item, index)=>(
-                            <p className='mb-3]' key={index}> {item} </p>
+                            <p className='mb-3' key={index}> {item} </p>
                         ))}
                        
                     </div>

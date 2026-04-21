@@ -136,7 +136,7 @@ const Header = () => {
 
           <div className="flex items-center shrink-0">
               <Link to="/">
-               <img src={'/navbar/prachha-navlogo.jpg'} alt="Prachha Tech" className="h-12 sm:h-14 w-auto" loading="lazy" />
+               <img src={'/navbar/prachhalogo.png'} alt="Prachha Tech" className="h-12 sm:h-14 w-auto" loading="lazy" />
              </Link>
               
           </div>

@@ -139,7 +139,7 @@ const HomeHero = () => {
               className="flex  justify-center lg:justify-start gap-6 sm:gap-10 mt-10 text-sm text-gray-400"
             >
               <div>
-                <p className="text-white text-lg sm:text-2xl font-bold">50+</p>
+                <p className="text-white text-lg sm:text-2xl font-bold">25+</p>
                 Projects Delivered
               </div>
               <div>
@@ -148,7 +148,7 @@ const HomeHero = () => {
               </div>
               <div>
                 <p className="text-white text-lg sm:text-2xl font-bold">10+</p>
-                Years Experience
+                Satisfied Clients
               </div>
             </motion.div>
           </div>

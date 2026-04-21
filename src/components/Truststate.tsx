@@ -5,25 +5,20 @@ import { useInView } from 'react-intersection-observer';
 const Truststate = () => {
     const trustData = [
         {
-            value: "50",
+            value: "25",
             title: "Projects Completed",
             suffix: "+"
         },
         { 
-            value: "100",
+            value: "10",
             title: "Satisfied Clients",
             suffix: "+"
         },  
         {
-            value: "50",
+            value: "20",
             title: "Team Members",
             suffix: "+"
         },
-        {
-            value: "10",
-            title: "Years of Experience",
-            suffix: "+"
-        }
     ];
 
     const {ref, inView} = useInView({
@@ -34,7 +29,7 @@ const Truststate = () => {
   return (
     <section className='py-12 sm:py-16 bg-[#F3F3F6]'>
         <section className='container mx-auto px-4'>
-            <div ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 items-center">
+            <div ref={ref} className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-12 items-center max-w-6xl mx-auto">
                 {trustData.map((item, index) => (
                 <div className='text-center shadow-md rounded-md py-10 bg-white' key={index}>
                     

@@ -57,7 +57,7 @@ const AboutusPage = () => {
       </section>
 
       <section className="py-12 sm:py-20 bg-gray-50 overflow-hidden" id="about">
-        <div className="container mx-auto px-4">
+        <div className="containers mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
             {/* Left Content */}
             <div>

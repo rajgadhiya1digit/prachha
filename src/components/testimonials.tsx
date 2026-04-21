@@ -143,26 +143,28 @@ const Testimonials = () => {
                             <SwiperSlide key={testimonial.id} className="h-auto">
                                 <div className="w-full h-full bg-gray-100 border-gray-200 hover:shadow-lg transition-shadow duration-300 flex flex-col">
 
-                                    <div className="p-6 flex flex-col h-full">
+                                    <div className="p-4 xs:p-5 sm:p-6 flex flex-col h-full">
 
                                         <div className="flex items-start justify-between mb-3 xs:mb-4">
-                                            <Quote className="w-6 xs:w-7 sm:w-8 h-6 xs:h-7 sm:h-8 text-blue-500 opacity-50" />
+                                            <Quote className="w-5 xs:w-6 sm:w-7 h-5 xs:h-6 sm:h-7 text-blue-500 opacity-50" />
                                             <StarRating rating={testimonial.rating} />
                                         </div>
 
-                                        <blockquote className="text-sm xs:text-base sm:text-lg text-gray-700 mb-4 xs:mb-6 flex-grow italic">
+                                        <blockquote className="text-xs xs:text-sm sm:text-base lg:text-lg text-gray-700 mb-3 xs:mb-4 sm:mb-6 flex-grow italic leading-relaxed">
                                             "{testimonial.content}"
                                         </blockquote>
 
                                         <div className="flex items-center gap-2 xs:gap-3 mt-auto">
-                                            <div className="w-10 xs:w-12 h-10 xs:h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
-                                                {testimonial.name.split(' ').map(n => n[0]).join('')}
+                                            <div className="w-8 xs:w-10 sm:w-12 h-8 xs:h-10 sm:h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold flex-shrink-0">
+                                                <span className="text-xs xs:text-sm sm:text-base font-bold">
+                                                    {testimonial.name.split(' ').map(n => n[0]).join('')}
+                                                </span>
                                             </div>
-                                            <div>
-                                                <div className="text-sm xs:text-base sm:text-lg font-semibold text-gray-900">
+                                            <div className="flex-1 min-w-0 text-left">
+                                                <div className="text-xs xs:text-sm sm:text-base lg:text-lg font-semibold text-gray-900 truncate">
                                                     {testimonial.name}
                                                 </div>
-                                                <div className="text-xs xs:text-sm text-gray-600">
+                                                <div className="text-xs xs:text-xs sm:text-sm text-gray-600 truncate">
                                                     {testimonial.role} at {testimonial.company}
                                                 </div>
                                             </div>

@@ -33,7 +33,7 @@ const CeoProfile = () => {
         social: {
             linkedin: "https://www.linkedin.com/in/vijaysarkheliya/",
             instagram: "https://www.instagram.com/jewelsbyvijay/",
-            twitter: "https://twitter.com/username",
+            twitter: "https://x.com/vijaysarkheliya",
             email: "mailto:info@vijaysarkheliya.com"
         },
 
@@ -153,7 +153,7 @@ const CeoProfile = () => {
                             animate={{ opacity: 1, y: 0, }}
                             transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
                             className='mt-2 bg-gradient-to-r from-[#bc0100] to-red-600 tracking-widest text-[12px] md:text-[13px] lg:text-[13px] 
-                        bg-red-400 text-white font-[600] py-[6px] px-[15px] rounded-md'>
+                            bg-red-400 text-white font-[600] py-[6px] px-[15px] rounded-md'>
                             {data.role}
                         </motion.span>
 

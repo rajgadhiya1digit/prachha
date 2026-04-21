@@ -7,12 +7,12 @@ const founder = [
     {
         name: 'Vijay Sarkheliya',
         role: 'Chief Executive Officer',
-        image: '/api/placeholder/300/300',
+        image: '/team/vijaysirprofile.jpg',
         bio: 'Visionary leader with 15+ years of experience in scaling tech startups and driving digital transformation.',
         profileLink: '/team/ceo/vijay-sarkheliya',
         social: {
             linkedin: 'https://www.linkedin.com/in/vijaysarkheliya/',
-            twitter: '#',
+            twitter: 'https://x.com/vijaysarkheliya',
             email: 'mailto:info@vijaysarkheliya.com'
         },
 
@@ -20,29 +20,38 @@ const founder = [
     {
         name: 'Hitesh Sarkheliya',
         role: 'Chief Technology Officer',
-        image: '/api/placeholder/300/300',
+        image: '/team/hiteshsirprofile.jpg',
         bio: 'Tech architect specializing in AI, cloud solutions, and scalable enterprise systems.',
         profileLink: '/team/cto/hitesh-sarkheliya',
         social: {
             linkedin: 'https://www.linkedin.com/in/hitesh-gs/',
-            twitter: '#',
+            twitter: 'https://x.com/hiteshgs',
             email: 'info@vijaysarkheliya.com'
         },
-
     },
 ];
 
 const teamMembers = [
     {
-        name: 'Twinkal',
+        name: 'Twinkal Goyani',
         role: 'Human Resources (HR)',
         image: '/api/placeholder/300/300',
         bio: 'Dedicated HR professional focused on building strong teams and fostering a positive work culture.',
         social: {
-            linkedin: '#',
+            linkedin: 'https://www.linkedin.com/in/twinkle-goyani-278a1a304/',
             email: 'twinkal@company.com'
         },
 
+    },
+    {
+        name: 'Pratham Thakkar',
+        role: 'Development Team Leader',
+        image: '/api/placeholder/300/300',
+        bio: 'Leads the development team with expertise in scalable systems, clean architecture, and delivering high-performance web applications.',
+        social: {
+            linkedin: 'https://www.linkedin.com/in/pratham-thakkar-11b659244/',
+            email: 'pratham.1digit@gmail.com'
+        },
     },
     {
         name: 'Raj Bhatt',
@@ -50,22 +59,33 @@ const teamMembers = [
         image: '/api/placeholder/300/300',
         bio: 'Experienced team leader guiding projects with strong leadership, coordination, and technical expertise.',
         social: {
-            linkedin: '#',
-            email: 'raj@company.com'
+            linkedin: 'https://www.linkedin.com/in/raj-bhatt-dm/',
+            email: 'rajbhatt.seo@gmail.com'
         },
 
     },
-    
     {
-        name: 'Pratham Thakkar',
+        name: 'Yash Makwana',
         role: 'Development Team Leader',
         image: '/api/placeholder/300/300',
         bio: 'Skilled development leader specializing in building scalable applications and guiding the tech team.',
         social: {
-            linkedin: '#',
-            email: 'pratham@company.com'
+            linkedin: 'https://www.linkedin.com/in/yash-makwana-b2a858287/',
+            email: 'yash.1digit@gmail.com'
         },
-    }
+    },
+    {
+        name: 'Janvi Goyani',
+        role: 'Team Leader (UI/UX design)',
+        image: '/api/placeholder/300/300',
+        bio: 'Experienced team leader guiding projects with strong leadership, coordination, and technical expertise.',
+        social: {
+            linkedin: 'https://www.linkedin.com/in/janvikajavadara/',
+            email: 'janvi.ouros@gmail.com'
+        },
+
+    },
+    
 ]
 
 const containerVariants = {
@@ -129,7 +149,7 @@ const TeamPage = () => {
                             <p className="text-gray-300 text-xs sm:text-sm font-medium">Projects Delivered</p>
                         </div>
                         <div className="text-center">
-                            <p className="text-white text-xl sm:text-2xl lg:text-3xl font-bold">15+</p>
+                            <p className="text-white text-xl sm:text-2xl lg:text-3xl font-bold">50+</p>
                             <p className="text-gray-300 text-xs sm:text-sm font-medium">Team Members</p>
                         </div>
                     </div>
@@ -172,9 +192,9 @@ const TeamPage = () => {
                                             <div className="flex items-center gap-3 sm:gap-4 lg:gap-6 mb-4 sm:mb-6">
                                                 <div className="relative flex-shrink-0">
                                                     <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-red-500 to-orange-500 p-[2px]">
-                                                        <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
+                                                        <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
                                                             <span className="text-lg sm:text-2xl font-bold text-gray-800">
-                                                                {member.name.split(' ').map(n => n[0]).join('')}
+                                                                <img src={member.image} alt="" />
                                                             </span>
                                                         </div>
                                                     </div>
@@ -200,17 +220,17 @@ const TeamPage = () => {
 
                                         <div className="flex gap-2 sm:gap-3 mt-auto">
                                             {member.social.linkedin && (
-                                                <a href={member.social.linkedin} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
+                                                <a href={member.social.linkedin} target='_blank' className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
                                                     <Linkedin className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 group-hover:text-red-600" />
                                                 </a>
                                             )}
                                             {member.social.twitter && (
-                                                <a href={member.social.twitter} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
+                                                <a href={member.social.twitter} target='_blank' className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
                                                     <Twitter className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 group-hover:text-red-600" />
                                                 </a>
                                             )}
                                             {member.social.email && (
-                                                <a href={`mailto:${member.social.email}`} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
+                                                <a href={`mailto:${member.social.email}`} target='_blank' className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
                                                     <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 group-hover:text-red-600" />
                                                 </a>
                                             )}
@@ -279,12 +299,12 @@ const TeamPage = () => {
 
                                         <div className="flex gap-2 mt-auto">
                                             {member.social.linkedin && (
-                                                <a href={member.social.linkedin} className="w-8 h-8 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
+                                                <a href={member.social.linkedin} target='_blank' className="w-8 h-8 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
                                                     <Linkedin className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
                                                 </a>
                                             )}
                                             {member.social.email && (
-                                                <a href={`mailto:${member.social.email}`} className="w-8 h-8 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
+                                                <a href={`mailto:${member.social.email}`} target='_blank' className="w-8 h-8 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
                                                     <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
                                                 </a>
                                             )}
