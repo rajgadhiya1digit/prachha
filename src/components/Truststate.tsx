@@ -27,9 +27,9 @@ const Truststate = () => {
     });
 
   return (
-    <section className='py-12 sm:py-16 bg-[#F3F3F6]'>
+    <section className='py-12 sm:py-14 lg:py-20 bg-[#F3F3F6]'>
         <section className='container mx-auto px-4'>
-            <div ref={ref} className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-12 items-center max-w-6xl mx-auto">
+            <div ref={ref} className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-12 items-center max-w-7xl mx-auto">
                 {trustData.map((item, index) => (
                 <div className='text-center shadow-md rounded-md py-10 bg-white' key={index}>
                     

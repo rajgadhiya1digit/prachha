@@ -108,7 +108,7 @@ const ContactusPage = () => {
 
       <div className="absolute inset-0">
         <img src='/contact/contactbg.jpg' alt="Service Background" 
-        className='w-full h-full object-cover bg-center bg-no-repeat' />
+        className='w-full h-full object-cover bg-center bg-no-repeat' loading="lazy" />
       </div>
 
       <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F19]/40 via-[#0B0F19]/45 to-[#0B0F19]/60" />

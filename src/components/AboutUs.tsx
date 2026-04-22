@@ -3,7 +3,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 
 export function AboutUs() {
   return (
-    <section className="relative py-10 sm:py-12 md:py-14 lg:py-20 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden" id="about">
+    <section className="relative py-12 sm:py-14 lg:py-20 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden" id="about">
       
       {/* background glow */}
       <div className="absolute top-10 left-10 w-72 h-72 bg-red-100 blur-3xl opacity-40 rounded-full"></div>

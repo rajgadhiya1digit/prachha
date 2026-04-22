@@ -9,53 +9,9 @@ import { GoArrowRight } from "react-icons/go";
 
 export function Services() {
   const ServiceData = services;
-  // const services = [
-  //   {
-  //     icon: Code,
-  //     title: 'Custom Software Development',
-  //     description: 'Bespoke software solutions tailored to your business needs with scalable architecture and modern tech stack.',
-  //     image: 'https://images.unsplash.com/photo-1712159018726-4564d92f3ec2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBvZmZpY2UlMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzYxNzI5MTg1fDA&ixlib=rb-4.1.0&q=80&w=1080',
-  //     features: ['Full-Stack Development', 'API Integration', 'Database Design'],
-  //   },
-  //   {
-  //     icon: Smartphone,
-  //     title: 'Enterprise Mobility Solutions',
-  //     description: 'Comprehensive mobile solutions that streamline business operations and enhance productivity across all devices.',
-  //     image: 'https://images.unsplash.com/photo-1431540015161-0bf868a2d407?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMG1lZXRpbmclMjByb29tfGVufDF8fHx8MTc2MTY4MDQwOHww&ixlib=rb-4.1.0&q=80&w=1080',
-  //     features: ['Mobile Strategy', 'Cross-Platform Apps', 'Enterprise Integration'],
-  //   },
-  //   {
-  //     icon: Cloud,
-  //     title: 'Cloud Solutions',
-  //     description: 'Comprehensive cloud services including migration, deployment, and management on AWS, Azure, and GCP.',
-  //     image: 'https://images.unsplash.com/photo-1758813240178-19ef760ded2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBvZmZpY2UlMjBidWlsZGluZ3xlbnwxfHx8fDE3NjE3MTgyNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-  //     features: ['Cloud Migration', 'DevOps', 'Infrastructure Setup'],
-  //   },
-  //   {
-  //     icon: Brain,
-  //     title: 'AI & Machine Learning',
-  //     description: 'Intelligent solutions powered by artificial intelligence, machine learning, and data analytics.',
-  //     image: 'https://images.unsplash.com/photo-1690264459607-a90b23d887f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvZmZpY2UlMjB0ZWFtJTIwY29sbGFib3JhdGlvbnxlbnwxfHx8fDE3NjE2Mzk1OTN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-  //     features: ['Predictive Analytics', 'NLP Solutions', 'Computer Vision'],
-  //   },
-  //   {
-  //     icon: Shield,
-  //     title: 'Cybersecurity',
-  //     description: 'Advanced security solutions to protect your digital assets, data, and infrastructure from threats.',
-  //     image: 'https://images.unsplash.com/photo-1549923746-1d28f336cc41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHByZXNlbnRhdGlvbiUyMG9mZmljZXxlbnwxfHx8fDE3NjE3MDg0MTN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-  //     features: ['Security Audits', 'Penetration Testing', 'Compliance'],
-  //   },
-  //   {
-  //     icon: Palette,
-  //     title: 'UI/UX Design',
-  //     description: 'User-centric design solutions that create engaging and intuitive digital experiences.',
-  //     image: 'https://images.unsplash.com/photo-1628017973088-8feb5de8dddd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwb2ZmaWNlJTIwZW52aXJvbm1lbnR8ZW58MXx8fHwxNzYxNzI5MTg2fDA&ixlib=rb-4.1.0&q=80&w=1080',
-  //     features: ['User Research', 'Wireframing', 'Prototyping'],
-  //   },
-  // ];
 
   return (
-    <section className="py-14 bg-white overflow-hidden" id="services">
+    <section className="py-12 sm:py-14 lg:py-20 bg-white overflow-hidden" id="services">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 text-sm font-semibold tracking-wider uppercase text-[#ff0000] rounded-full">

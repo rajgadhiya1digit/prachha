@@ -163,6 +163,7 @@ const Wherit = () => {
                     alt="Assets Inventory Dashboard"
                     className="w-full h-auto object-contain"
                     style={{ maxHeight: "520px" }}
+                    loading="lazy"
                   />
                 </div>
                 <motion.div
@@ -229,6 +230,7 @@ const Wherit = () => {
                     alt="Asset Lifecycle Tracking"
                     className="w-full h-auto object-contain"
                     style={{ maxHeight: "520px" }}
+                    loading="lazy"
                   />
                 </div>
                 <motion.div
@@ -295,6 +297,7 @@ const Wherit = () => {
                     alt="Assets Tracking List"
                     className="w-full h-auto object-contain"
                     style={{ maxHeight: "520px" }}
+                    loading="lazy"
                   />
                 </div>
                 <motion.div
@@ -362,6 +365,7 @@ const Wherit = () => {
                     alt="User Assignments"
                     className="w-full h-auto object-contain"
                     style={{ maxHeight: "520px" }}
+                    loading="lazy"
                   />
                 </div>
                 <motion.div
@@ -428,6 +432,7 @@ const Wherit = () => {
                     alt="Users List"
                     className="w-full h-auto object-contain"
                     style={{ maxHeight: "520px" }}
+                    loading="lazy"
                   />
                 </div>
                 <motion.div

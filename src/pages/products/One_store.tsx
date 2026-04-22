@@ -1,11 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ChevronRight, Star, Check, CreditCard, QrCode, BarChart3, Package, ShoppingCart, FileText, Users, Shield, Zap, Globe, ArrowRight, Menu, X, Maximize2, ZoomIn, ZoomOut, RotateCw, TrendingUp, Award, Clock, Target, Monitor } from "lucide-react";
-
-// Define sendPrompt function to prevent runtime errors
-const sendPrompt = (prompt: string) => {
-  // console.log('Prompt:', prompt);
-};
 
 // Scroll Animation Hook - Optimized for Safari
 const useScrollAnimation = () => {
@@ -152,12 +147,12 @@ interface FeatureCardProps {
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, image, onImageClick }) => {
-  const handleImageClick = () => {
+  const handleImageClick = useCallback(() => {
     if (image && onImageClick) {
       // console.log('Image clicked:', image);
       onImageClick(image);
     }
-  };
+  }, [image, onImageClick]);
 
   return (
     <div className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-200 will-change-transform">
@@ -415,6 +410,7 @@ const ImageModal: React.FC<{
             alt="Full size screenshot"
             className="max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain block"
             draggable={false}
+            loading="lazy"
           />
         </div>
       </div>
@@ -890,7 +886,6 @@ const One_store: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.02, boxShadow: "0 10px 20px rgba(59, 130, 246, 0.2)" }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => sendPrompt('Start free trial One Store Business Suite')}
                 className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-lg flex items-center"
               >
                 <Award className="w-5 h-5 mr-2" />
@@ -899,7 +894,6 @@ const One_store: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => sendPrompt('Watch One Store Business Suite demo')}
                 className="px-8 py-4 border-2 border-gray-200 text-gray-700 font-bold rounded-xl hover:border-blue-600 hover:text-blue-600 transition-all duration-300 flex items-center"
               >
                 <Target className="w-5 h-5 mr-2" />

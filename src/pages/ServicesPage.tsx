@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { Code, Smartphone, Cloud, Brain, Shield, Palette, Megaphone, Search, ShoppingCart, Puzzle, View } from 'lucide-react';
 import { RiLoaderFill } from "react-icons/ri";
 import {motion } from "framer-motion"
@@ -15,30 +15,28 @@ const ServicesPage = () => {
   const [visibleCount, setVisibleCount] = useState(3);
   const [loading, setLoading] = useState(false);
 
-  const handleLoadMore = () => {
+  const handleLoadMore = useCallback(() => {
     setLoading(true);
 
     setTimeout(()=>{
-      setVisibleCount((prev) => prev + 3);
-      setLoading(false);
+      setVisibleCount(prev=>prev+3)
+      setLoading(false)
     },1000)
-  }
-   
+  }, [])
 
-  const handleViewServices = () => {
+  const handleViewServices = useCallback(() => {
     document.getElementById("services")?.scrollIntoView({
       behavior: "smooth"
     })
-  }
+  }, [])
 
-  
   return (
     <>
     <section className='relative min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-72px)] flex items-center justify-center overflow-hidden text-white'>
 
         <div className="absolute inset-0">
           <img src='/servicess/servicesbg.png' alt="Service Background" 
-          className='w-full h-full object-cover bg-center bg-no-repeat' />
+          className='w-full h-full object-cover bg-center bg-no-repeat' loading="lazy" />
         </div>
 
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F19]/40 via-[#0B0F19]/45 to-[#0B0F19]/60" />
@@ -128,6 +126,7 @@ const ServicesPage = () => {
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
                 />
 
                 {/* Gradient Overlay */}

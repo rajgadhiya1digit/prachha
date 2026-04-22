@@ -67,9 +67,9 @@ const StarRating = ({ rating }: { rating: number }) => {
 }
 const Testimonials = () => {
     return (
-        <section className="py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 px-4 xs:px-6 sm:px-8 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-            <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-16">
+        <section className="py-8 xs:py-10 sm:py-12 md:py-14 lg:py-20  bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+            <div className="container max-w-7xl mx-auto px-4">
+                <div className="text-center mb-10">
                     <span className="inline-block px-4 py-2 text-sm font-semibold tracking-wider uppercase text-red-500 rounded-full">
                         Testimonials
                     </span>
@@ -137,7 +137,7 @@ const Testimonials = () => {
                                 spaceBetween: 32,
                             },
                         }}
-                        className=".custom-pagination pb-12 xs:pb-14 sm:pb-16 px-1 xs:px-2"
+                        className=".custom-pagination pb-12 xs:pb-14 sm:pb-16 cursor-pointer"
                     >
                         {testimonials.map((testimonial) => (
                             <SwiperSlide key={testimonial.id} className="h-auto">

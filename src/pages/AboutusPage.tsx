@@ -9,6 +9,7 @@ import visionimg2 from '../assets/visionimg-1.webp'
 import { motion } from 'framer-motion'
 import Newsletter from '../components/Newsletter'
 import Testimonials from '../components/testimonials'
+import FAQ from '../components/FAQ'
 
 const AboutusPage = () => {
 
@@ -56,8 +57,8 @@ const AboutusPage = () => {
         </motion.div>
       </section>
 
-      <section className="py-12 sm:py-20 bg-gray-50 overflow-hidden" id="about">
-        <div className="containers mx-auto px-4">
+      <section className="py-12 sm:py-14 lg:py-20 bg-gray-50 overflow-hidden" id="about">
+        <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
             {/* Left Content */}
             <div>
@@ -117,7 +118,7 @@ const AboutusPage = () => {
 
       <Truststate />
 
-      <section className="py-16 sm:py-20 bg-gray-50 overflow-hidden">
+      <section className="py-12 sm:py-14 lg:py-20 bg-gray-50 overflow-hidden">
         <div className="container mx-auto px-4 space-y-20">
 
           <motion.div 
@@ -159,7 +160,7 @@ const AboutusPage = () => {
             className="grid md:grid-cols-2 gap-10 items-center">
 
             {/* Content */}
-            <div className="text-center md:text-left order-2 md:order-2">
+            <div className=" md:text-left order-2 md:order-2">
               <span className="text-red-500  uppercase tracking-wide font-bold text-sm">
                 Our Vision
               </span>
@@ -190,6 +191,7 @@ const AboutusPage = () => {
       <Services />
       <WhyChoose />
       <Testimonials />
+      <FAQ />
       <Newsletter />
     </>
   )

@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform, type PanInfo } from 'motion/react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo, useCallback } from 'react';
 
 interface CardRotateProps {
   children: React.ReactNode;
@@ -8,20 +8,20 @@ interface CardRotateProps {
   disableDrag?: boolean;
 }
 
-function CardRotate({ children, onSendToBack, sensitivity, disableDrag = false }: CardRotateProps) {
+const CardRotate = memo(function CardRotate({ children, onSendToBack, sensitivity, disableDrag = false }: CardRotateProps) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-100, 100], [60, -60]);
   const rotateY = useTransform(x, [-100, 100], [-60, 60]);
 
-  function handleDragEnd(_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) {
+  const handleDragEnd = useCallback((_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     if (Math.abs(info.offset.x) > sensitivity || Math.abs(info.offset.y) > sensitivity) {
       onSendToBack();
     } else {
       x.set(0);
       y.set(0);
     }
-  }
+  }, [onSendToBack, sensitivity, x, y]);
 
   if (disableDrag) {
     return (
@@ -44,7 +44,7 @@ function CardRotate({ children, onSendToBack, sensitivity, disableDrag = false }
       {children}
     </motion.div>
   );
-}
+});
 
 interface StackProps {
   randomRotation?: boolean;
@@ -59,7 +59,7 @@ interface StackProps {
   mobileBreakpoint?: number;
 }
 
-export default function Stack({
+const Stack = memo(function Stack({
   randomRotation = false,
   sensitivity = 200,
   cards = [],
@@ -74,15 +74,15 @@ export default function Stack({
   const [isMobile, setIsMobile] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < mobileBreakpoint);
-    };
+  const checkMobile = useCallback(() => {
+    setIsMobile(window.innerWidth < mobileBreakpoint);
+  }, [mobileBreakpoint]);
 
+  useEffect(() => {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
-  }, [mobileBreakpoint]);
+  }, [checkMobile]);
 
   const shouldDisableDrag = mobileClickOnly && isMobile;
   const shouldEnableClick = sendToBackOnClick || shouldDisableDrag;
@@ -142,7 +142,7 @@ export default function Stack({
     }
   }, [cards]);
 
-  const sendToBack = (id: number) => {
+  const sendToBack = useCallback((id: number) => {
     setStack(prev => {
       const newStack = [...prev];
       const index = newStack.findIndex(card => card.id === id);
@@ -150,7 +150,7 @@ export default function Stack({
       newStack.unshift(card);
       return newStack;
     });
-  };
+  }, []);
 
   useEffect(() => {
     if (autoplay && stack.length > 1 && !isPaused) {
@@ -161,7 +161,7 @@ export default function Stack({
 
       return () => clearInterval(interval);
     }
-  }, [autoplay, autoplayDelay, stack, isPaused]);
+  }, [autoplay, autoplayDelay, isPaused]);
 
   return (
     <div
@@ -170,8 +170,8 @@ export default function Stack({
         perspective: 600,
         transform: 'translateZ(0)'
       }}
-      onMouseEnter={() => pauseOnHover && setIsPaused(true)}
-      onMouseLeave={() => pauseOnHover && setIsPaused(false)}
+      onMouseEnter={useCallback(() => pauseOnHover && setIsPaused(true), [pauseOnHover, setIsPaused])}
+      onMouseLeave={useCallback(() => pauseOnHover && setIsPaused(false), [pauseOnHover, setIsPaused])}
     >
       {stack.map((card, index) => {
         const randomRotate = randomRotation ? Math.random() * 10 - 5 : 0;
@@ -184,7 +184,7 @@ export default function Stack({
           >
             <motion.div
               className="rounded-2xl overflow-hidden w-full h-full"
-              onClick={() => shouldEnableClick && sendToBack(card.id)}
+              onClick={useCallback(() => shouldEnableClick && sendToBack(card.id), [shouldEnableClick, sendToBack, card.id])}
               animate={{
                 rotateZ: (stack.length - index - 1) * 4 + randomRotate,
                 scale: 1 + index * 0.06 - stack.length * 0.06,
@@ -205,4 +205,6 @@ export default function Stack({
       })}
     </div>
   );
-}
+});
+
+export default Stack;

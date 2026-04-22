@@ -23,7 +23,7 @@ const BlogDetailPage = () => {
 
   //previous ansd next blog logic
   const sortedBlogs = [...blogData].sort((a, b) => a.id - b.id);
-  const currentIndex   = sortedBlogs.findIndex(blog => blog.id === parseInt(id));
+  const currentIndex   = sortedBlogs.findIndex(blog => blog.id === parseInt(id!));
   
   const prevBlog  = sortedBlogs[currentIndex - 1];
   const nextBlog  = sortedBlogs[currentIndex + 1];
@@ -42,11 +42,10 @@ const BlogDetailPage = () => {
         
         <div className="relative max-w-3xl mx-auto px-4 text-center bg-gradient-to-r from-red-500 to-orange-300 bg-clip-text text-transparent">
           
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
-            <span className="bg-red-500/20 text-red-300 px-4 py-1 rounded-full text-sm border border-red-500/30 tracking-wider">
-              {blog.category}
-            </span>
-        
+          <div className="mb-6">
+              <span className="inline-block text-xs sm:text-sm font-[600] tracking-widest uppercase bg-red-500/10 text-white px-5 py-2 rounded-full border border-orange-400 backdrop-blur-md">
+                {blog.category}
+              </span>
           </div>
           
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-8">

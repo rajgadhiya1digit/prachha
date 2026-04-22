@@ -50,7 +50,7 @@ export function WhyChoose() {
   ];
 
   return (
-    <section className="relative py-10 sm:py-12 md:py-14 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
+    <section className="relative py-12 sm:py-14 lg:py-20 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
       
       {/* Background Glow */}
       <div className="absolute inset-0">
@@ -91,7 +91,7 @@ export function WhyChoose() {
         </div>
 
         {/* Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 items-stretch">
           {reasons.map((item, index) => (
             <motion.div
               key={index}
@@ -101,7 +101,7 @@ export function WhyChoose() {
               viewport={{ once: true }}
               className="float-slow"
             >
-              <Card className="relative group p-8 h-full rounded-2xl border border-gray-100 bg-white/70 backdrop-blur-xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden">
+              <Card className="relative group p-4 sm:p-6 lg:p-8 h-full rounded-xl border border-gray-100 bg-white backdrop-blur-xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer overflow-hidden">
 
                 {/* Glow Effect */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-red-500/10 to-pink-500/10 blur-2xl"></div>
@@ -115,18 +115,18 @@ export function WhyChoose() {
                 <motion.div
                   whileHover={{ rotate: 8, scale: 1.15 }}
                   transition={{ type: "spring", stiffness: 200 }}
-                  className="w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 shadow-lg"
+                  className="w-12 h-12 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-4 rounded-2xl flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 shadow-lg"
                 >
-                  <item.icon className="w-7 h-7 text-white" />
+                  <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </motion.div>
 
                 {/* Title */}
-                <h3 className="text-xl font-semibold text-gray-900 text-center mb-3 group-hover:text-red-600 transition">
+                <h3 className="text-sm sm:text-lg font-semibold text-gray-900 text-center group-hover:text-red-600 transition">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-600 text-center leading-relaxed text-sm md:text-base">
+                <p className="text-gray-600 text-center leading-relaxed text-sm md:text-base line-clamp-3">
                   {item.description}
                 </p>
 

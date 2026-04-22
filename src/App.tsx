@@ -6,7 +6,6 @@ import { Industries } from './components/Industries';
 import { Clients } from './components/Clients';
 import { Services } from './components/Services';
 import { DevelopmentProcess } from './components/DevelopmentProcess';
-import { Projects } from './components/Projects';
 import { WhyChoose } from './components/WhyChoose';
 import { AboutUs } from './components/AboutUs';
 import { Blog } from './components/Blog';
@@ -16,6 +15,8 @@ import { ProjectDetails } from './components/ProjectDetails';
 import ScrollToTop from './components/ScrollToTop';
 import { Hero } from './components/Hero';
 import Homehero from './components/Homehero';
+import Portfolio from './components/Portfolio';
+
 
 // Lazy load route components
 const CeoProfile = lazy(() => import('./pages/CeoProfile'));
@@ -30,6 +31,7 @@ const One_store = lazy(() => import('./pages/products/One_store'));
 const Wherit = lazy(() => import('./pages/products/Wherit'));
 const BlogDetailPage = lazy(() => import('./pages/BlogDetailsPage'));
 const ProjectPage = lazy(() => import('./pages/ProjectPage'));
+const TeamdetailsPage = lazy(() => import('./pages/TeamdetailsPage'));
 
 export default function App() {
   return (
@@ -46,7 +48,7 @@ export default function App() {
             <Clients />
             <Services />
             <DevelopmentProcess />
-            <Projects />
+            <Portfolio />
             <WhyChoose />
             <AboutUs />
             <Blog />
@@ -69,7 +71,7 @@ export default function App() {
 
         <Route path="/product/one_store" element={<Suspense fallback={<div>Loading...</div>}><One_store /></Suspense>} />
         <Route path="/product/wherit" element={<Suspense fallback={<div>Loading...</div>}><Wherit /></Suspense>} />
-
+        <Route path="/team/details" element={<Suspense fallback={<div>Loading...</div>}><TeamdetailsPage /></Suspense>} />
 
       </Routes>
       <Footer />

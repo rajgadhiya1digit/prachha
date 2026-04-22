@@ -4,13 +4,15 @@ import { ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { projectData } from "../data/projectData";
 
-export function Projects() {
+import React from 'react'
+
+const Portfolio = () => {
   const navigate = useNavigate();
   const projects = projectData;
 
   return (
     <section
-      className="py-10 sm:py-12 md:py-14 bg-gradient-to-b from-gray-50 via-white to-gray-50"
+      className="py-12 sm:py-14 lg:py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50"
       id="projects"
     >
       <div className="container mx-auto px-4">
@@ -107,5 +109,8 @@ export function Projects() {
 
       </div>
     </section>
-  );
+  )
 }
+
+
+export default Portfolio;

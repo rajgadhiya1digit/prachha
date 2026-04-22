@@ -11,7 +11,7 @@ export function Blog() {
 
   return (
     <section
-      className="py-16 sm:py-20  bg-gradient-to-b from-gray-50 to-white overflow-hidden"
+      className="py-12 sm:py-14 lg:py-20  bg-gradient-to-b from-gray-50 to-white overflow-hidden"
       id="blog"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,7 +126,7 @@ export function Blog() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center pt-8">
+          className="text-center pt-4 sm:pt-8">
           <Link
             to="/blog"
             className="group inline-flex items-center gap-2 text-[#FF0000] font-semibold hover:gap-3 transition-all duration-300"

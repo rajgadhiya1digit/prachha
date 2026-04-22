@@ -35,7 +35,7 @@ const teamMembers = [
     {
         name: 'Twinkal Goyani',
         role: 'Human Resources (HR)',
-        image: '/api/placeholder/300/300',
+        image: '',
         bio: 'Dedicated HR professional focused on building strong teams and fostering a positive work culture.',
         social: {
             linkedin: 'https://www.linkedin.com/in/twinkle-goyani-278a1a304/',
@@ -46,7 +46,7 @@ const teamMembers = [
     {
         name: 'Pratham Thakkar',
         role: 'Development Team Leader',
-        image: '/api/placeholder/300/300',
+        image: '',
         bio: 'Leads the development team with expertise in scalable systems, clean architecture, and delivering high-performance web applications.',
         social: {
             linkedin: 'https://www.linkedin.com/in/pratham-thakkar-11b659244/',
@@ -56,7 +56,7 @@ const teamMembers = [
     {
         name: 'Raj Bhatt',
         role: 'Team Leader (SEO)',
-        image: '/api/placeholder/300/300',
+        image: '',
         bio: 'Experienced team leader guiding projects with strong leadership, coordination, and technical expertise.',
         social: {
             linkedin: 'https://www.linkedin.com/in/raj-bhatt-dm/',
@@ -67,7 +67,7 @@ const teamMembers = [
     {
         name: 'Yash Makwana',
         role: 'Development Team Leader',
-        image: '/api/placeholder/300/300',
+        image: '',
         bio: 'Skilled development leader specializing in building scalable applications and guiding the tech team.',
         social: {
             linkedin: 'https://www.linkedin.com/in/yash-makwana-b2a858287/',
@@ -77,13 +77,12 @@ const teamMembers = [
     {
         name: 'Janvi Goyani',
         role: 'Team Leader (UI/UX design)',
-        image: '/api/placeholder/300/300',
+        image: '',
         bio: 'Experienced team leader guiding projects with strong leadership, coordination, and technical expertise.',
         social: {
             linkedin: 'https://www.linkedin.com/in/janvikajavadara/',
             email: 'janvi.ouros@gmail.com'
         },
-
     },
     
 ]
@@ -110,6 +109,7 @@ const TeamPage = () => {
                     src={'/team/teambg.png'}
                     alt="Blog Background"
                     className="w-full h-full object-cover "
+                    loading="lazy"
                     />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F19]/40 via-[#0B0F19]/45 to-[#0B0F19]/60" />
@@ -140,16 +140,16 @@ const TeamPage = () => {
 
                     {/* Stats */}
                     <div className="flex flex-row justify-center gap-4 sm:gap-8 lg:gap-10 mt-10 text-sm text-gray-400">
-                        <div className="text-center">
+                        {/* <div className="text-center">
                             <p className="text-white text-xl sm:text-2xl lg:text-3xl font-bold">50+</p>
                             <p className="text-gray-300 text-xs sm:text-sm font-medium">Years Of Experience</p>
-                        </div>
+                        </div> */}
                         <div className="text-center">
-                            <p className="text-white text-xl sm:text-2xl lg:text-3xl font-bold">100+</p>
+                            <p className="text-white text-xl sm:text-2xl lg:text-3xl font-bold">25+</p>
                             <p className="text-gray-300 text-xs sm:text-sm font-medium">Projects Delivered</p>
                         </div>
                         <div className="text-center">
-                            <p className="text-white text-xl sm:text-2xl lg:text-3xl font-bold">50+</p>
+                            <p className="text-white text-xl sm:text-2xl lg:text-3xl font-bold">20+</p>
                             <p className="text-gray-300 text-xs sm:text-sm font-medium">Team Members</p>
                         </div>
                     </div>
@@ -194,7 +194,7 @@ const TeamPage = () => {
                                                     <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-red-500 to-orange-500 p-[2px]">
                                                         <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
                                                             <span className="text-lg sm:text-2xl font-bold text-gray-800">
-                                                                <img src={member.image} alt="" />
+                                                                <img src={member.image} alt={member.image} loading="lazy" />
                                                             </span>
                                                         </div>
                                                     </div>

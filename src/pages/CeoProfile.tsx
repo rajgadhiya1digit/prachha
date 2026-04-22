@@ -233,7 +233,7 @@ const CeoProfile = () => {
                     <div className='flex flex-col h-full animate-slide-in'>
                         <div className='group rounded-2xl overflow-hidden shadow-lg flex-1'>
                             <img src={data.profileImage}
-                                className='w-full h-full rounded-md object-cover transition-transform duration-500 group-hover:scale-105 ' alt="" />
+                                className='w-full h-full rounded-md object-cover transition-transform duration-500 group-hover:scale-105 ' alt="" loading="lazy" />
 
                         </div>
                     </div>

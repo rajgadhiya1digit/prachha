@@ -280,7 +280,7 @@ const CtoProfile = () => {
             
                 <div className='flex flex-col h-full animate-slide-in' >          
                     <div className='group rounded-2xl overflow-hidden shadow-lg flex-1'>
-                        <img src={data.profileImage} className='w-full h-full rounded-md object-cover transition-transform duration-500 group-hover:scale-105 ' alt="" />
+                        <img src={data.profileImage} alt={data.profileImage} className='w-full h-full rounded-md object-cover transition-transform duration-500 group-hover:scale-105 ' loading="lazy" />
                     </div>  
                 </div>    
 
