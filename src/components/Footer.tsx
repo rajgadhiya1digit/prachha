@@ -1,4 +1,5 @@
-import { Facebook, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Linkedin, Instagram, Mail, Phone, MapPin, } from 'lucide-react';
+import { FaXTwitter } from "react-icons/fa6";
 import logo from '../assets/prachha-tech.jpeg'
 import { Link } from 'react-router-dom';
 
@@ -62,7 +63,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-white mb-6">Services</h3>
+            <h3 className="text-white mb-6 uppercase font-semibold">Services</h3>
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
@@ -76,7 +77,7 @@ export function Footer() {
 
           {/* Industries */}
           <div>
-            <h3 className="text-white mb-6">Industries</h3>
+            <h3 className="text-white mb-6 uppercase font-semibold">Industries</h3>
             <ul className="space-y-3">
               {industries.map((industry, index) => (
                 <li key={index}>
@@ -90,7 +91,7 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-white mb-6">Company</h3>
+            <h3 className="text-white mb-6 uppercase font-semibold">Company</h3>
             <ul className="space-y-3">
               {company.map((item, index) => (
                 <li key={index}>
@@ -136,18 +137,19 @@ export function Footer() {
             </div>
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF0000] transition-colors">
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-5 h-5" aria-label="Facebook" />
               </a>
               <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF0000] transition-colors">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <FaXTwitter className="w-5 h-5" aria-label="Twitter"/>
+                {/* <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
+                </svg> */}
               </a>
               <a href="https://www.linkedin.com/company/prachhatech/" target="_blank" rel="noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF0000] transition-colors">
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-5 h-5" aria-label="Linkedin"/>
               </a>
               <a href="https://www.instagram.com/prachhatech/" target="_blank" rel="noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF0000] transition-colors">
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-5 h-5" aria-label="Instragram"/>
               </a>
             </div>
           </div>

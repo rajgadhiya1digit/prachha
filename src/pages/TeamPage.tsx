@@ -78,7 +78,7 @@ const teamMembers = [
         name: 'Janvi Goyani',
         role: 'Team Leader (UI/UX design)',
         image: '',
-        bio: 'Experienced team leader guiding projects with strong leadership, coordination, and technical expertise.',
+        bio: 'UI/UX design leader focused on creating intuitive user experiences, modern interfaces, and visually engaging digital products.',
         social: {
             linkedin: 'https://www.linkedin.com/in/janvikajavadara/',
             email: 'janvi.ouros@gmail.com'
@@ -251,7 +251,7 @@ const TeamPage = () => {
                         <h2 className="text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold leading-tight mb-6 fade-up-text">
                             Meet Our 
                             <span className="block bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
-                               Our Dedicated Team
+                               Dedicated Team
                             </span>
                         </h2>
                         <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto fade-up-text" style={{ animationDelay: '0.2s' }}>
