@@ -53,14 +53,16 @@ export function FAQ() {
                 </button>
                 
                 <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    activeItem === faq.id ? 'max-h-96' : 'max-h-0'
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    activeItem === faq.id ? 'grid grid-rows-[1fr] opacity-100' : 'grid grid-rows-[0fr] opacity-0'
                   }`}
                 >
-                  <div className="px-6 py-4 pb-4 bg-orange-100">
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                      {faq.answer}
-                    </p>
+                  <div className="overflow-hidden">
+                    <div className="px-6 py-4 pb-4 bg-orange-100">
+                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

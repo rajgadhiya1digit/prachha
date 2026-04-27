@@ -100,6 +100,7 @@ const Testimonials = () => {
                         spaceBetween={16}
                         loop={true}
                         slidesPerView={1}
+                        speed={1100}
                         autoplay={{
                             delay: 3000,
                             disableOnInteraction: false,

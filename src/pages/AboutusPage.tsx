@@ -8,7 +8,7 @@ import { WhyChoose } from '../components/WhyChoose'
 import visionimg2 from '../assets/visionimg-1.webp'
 import { motion } from 'framer-motion'
 import Newsletter from '../components/Newsletter'
-import Testimonials from '../components/testimonials'
+import Testimonials from '../components/Testimonials'
 import FAQ from '../components/FAQ'
 
 const AboutusPage = () => {
@@ -43,7 +43,7 @@ const AboutusPage = () => {
 
           {/* Heading */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            We Build Digital Experiencesa
+            We Build Digital Experiences
             <span className="block bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent leading">
               That Drive Growth
             </span>
@@ -77,7 +77,7 @@ const AboutusPage = () => {
               helping businesses across the globe transform their operations and achieve remarkable growth. */}
               </p>
               <p className="text-base text-gray-600 mb-6 leading-relaxed">
-                With over 15 years of experience and 500+ successful projects, we've established
+                We have done 25+ successful projects, we've established
                 ourselves as a trusted partner for enterprises, startups, and everything in between.
               </p>
               <div className="space-y-4 text-base">
@@ -125,7 +125,7 @@ const AboutusPage = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="grid md:grid-cols-2 gap-10"
+            className="grid md:grid-cols-2 items-center gap-10"
           >
   
             <div>
@@ -147,7 +147,7 @@ const AboutusPage = () => {
               </h2>
 
               <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-                our mission is to deliver innovative, reliable, and scalable IT solutions that help businesses grow in the digital world. We are committed to understanding our clients’ needs and transforming their ideas into powerful digital products.By combining modern technology, creativity, and strategic thinking, we aim to provide solutions that not only meet expectations but create real business value.
+                Our mission is to deliver innovative, reliable, and scalable IT solutions that help businesses grow in the digital world. We are committed to understanding our clients’ needs and transforming their ideas into powerful digital products.By combining modern technology, creativity, and strategic thinking, we aim to provide solutions that not only meet expectations but create real business value.
               </p>
             </div>
 
