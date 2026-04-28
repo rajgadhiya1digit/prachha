@@ -13,7 +13,7 @@ const founder = [
         social: {
             linkedin: 'https://www.linkedin.com/in/vijaysarkheliya/',
             twitter: 'https://x.com/vijaysarkheliya',
-            email: 'mailto:info@vijaysarkheliya.com'
+            email: 'info@vijaysarkheliya.com'
         },
 
     },
@@ -26,7 +26,7 @@ const founder = [
         social: {
             linkedin: 'https://www.linkedin.com/in/hitesh-gs/',
             twitter: 'https://x.com/hiteshgs',
-            email: 'info@vijaysarkheliya.com'
+            email: 'hitesh@prachha.tech'
         },
     },
 ];
@@ -106,7 +106,7 @@ const TeamPage = () => {
                
                 <div className="absolute inset-0">
                     <img
-                    src={'/team/teambg.png'}
+                    src={'/team/teambg.webp'}
                     alt="Blog Background"
                     className="w-full h-full object-cover "
                     loading="lazy"
@@ -220,17 +220,20 @@ const TeamPage = () => {
 
                                         <div className="flex gap-2 sm:gap-3 mt-auto">
                                             {member.social.linkedin && (
-                                                <a href={member.social.linkedin} target='_blank' className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
+                                                <a href={member.social.linkedin} target='_blank' rel='noopener noreferrer' aria-label='Linkedin'
+                                                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
                                                     <Linkedin className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 group-hover:text-red-600" />
                                                 </a>
                                             )}
                                             {member.social.twitter && (
-                                                <a href={member.social.twitter} target='_blank' className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
+                                                <a href={member.social.twitter} target='_blank' rel='noopener noreferrer' aria-label='Twitter'
+                                                 className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
                                                     <Twitter className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 group-hover:text-red-600" />
                                                 </a>
                                             )}
                                             {member.social.email && (
-                                                <a href={`mailto:${member.social.email}`} target='_blank' className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
+                                                <a href={`mailto:${member.social.email}`} target='_blank' rel='noopener noreferrer' aria-label='Email'
+                                                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
                                                     <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 group-hover:text-red-600" />
                                                 </a>
                                             )}
@@ -298,13 +301,15 @@ const TeamPage = () => {
                                         </p>
 
                                         <div className="flex gap-2 mt-auto">
-                                            {member.social.linkedin && (
-                                                <a href={member.social.linkedin} target='_blank' className="w-8 h-8 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
+                                            {member.social.linkedin  && ( 
+                                                <a href={member.social.linkedin} target='_blank' aria-label='Linkedin' rel='noopener noreferrer'
+                                                 className="w-8 h-8 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
                                                     <Linkedin className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
                                                 </a>
                                             )}
                                             {member.social.email && (
-                                                <a href={`mailto:${member.social.email}`} target='_blank' className="w-8 h-8 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
+                                                <a href={`mailto:${member.social.email}`} target='_blank' aria-label='Email' rel='noopener noreferrer'
+                                                className="w-8 h-8 rounded-full bg-gray-100 hover:bg-red-100 flex items-center justify-center transition-colors">
                                                     <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
                                                 </a>
                                             )}

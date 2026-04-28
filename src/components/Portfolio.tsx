@@ -1,7 +1,7 @@
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { ArrowUpRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { projectData } from "../data/projectData";
 
 import React from 'react'
@@ -101,10 +101,10 @@ const Portfolio = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <button className="text-red-500 font-semibold hover:text-red-600 inline-flex items-center gap-2 group transition">
+          <Link to={'/projects'} className="text-red-500 font-semibold hover:text-red-600 inline-flex items-center gap-2 group transition">
             View All Projects
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition" />
-          </button>
+          </Link>
         </div>
 
       </div>

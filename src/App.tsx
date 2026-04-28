@@ -32,6 +32,7 @@ const Wherit = lazy(() => import('./pages/products/Wherit'));
 const BlogDetailPage = lazy(() => import('./pages/BlogDetailsPage'));
 const ProjectPage = lazy(() => import('./pages/ProjectPage'));
 const TeamdetailsPage = lazy(() => import('./pages/TeamdetailsPage'));
+const Newsletter = lazy(() => import('./components/Newsletter'));
 
 export default function App() {
   return (
@@ -53,6 +54,7 @@ export default function App() {
             <AboutUs />
             <Blog />
             <CTA />
+            <Newsletter />
           </>
         } />
         <Route path="/industries" element={<Industries />} />
