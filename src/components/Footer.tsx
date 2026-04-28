@@ -105,7 +105,7 @@ export function Footer() {
         </div>
 
         {/* Newsletter */}
-        <div className="bg-gray-800 rounded-2xl p-8 mb-12">
+        {/* <div className="bg-gray-800 rounded-2xl p-8 mb-12">
           <div className="grid md:grid-cols-2 gap-6 items-center">
             <div>
               <h3 className="text-white text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] mb-2">Subscribe to Our Newsletter</h3>
@@ -122,7 +122,7 @@ export function Footer() {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-800">

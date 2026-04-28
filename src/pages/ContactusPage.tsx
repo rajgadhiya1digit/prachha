@@ -65,7 +65,7 @@ const ContactusPage = () => {
     setMessage('');
 
     try {
-      const response = await fetch('http://192.168.1.235:3004/api/company-inquiry', {
+      const response = await fetch('https://ouros.1digit.technlogy/api/company-inquiry', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

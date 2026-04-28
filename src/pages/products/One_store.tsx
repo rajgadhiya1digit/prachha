@@ -184,7 +184,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, ima
         <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
         <p className="text-gray-600 leading-relaxed">{description}</p>
         {image && (
-          <p className="text-sm text-blue-600 mt-3 cursor-pointer hover:text-blue-700 transition-colors" onClick={handleImageClick}>
+          <p className="text-sm text-blue-600 mt-3 cursor-pointer group-hover:text-purple-500 transition-colors font-semibold" onClick={handleImageClick}>
             Click to view full image
           </p>
         )}
@@ -1262,12 +1262,12 @@ const One_store: React.FC = () => {
                 Call for immediate support
               </p>
 
-              <button
-                onClick={() => setShowContactModal(true)}
+              <a
+                href="tel:9898386870"
                 className="text-green-600 hover:text-green-700 font-medium text-base sm:text-lg"
               >
                 9898386870
-              </button>
+              </a>
             </motion.div>
 
             {/* Address Card */}

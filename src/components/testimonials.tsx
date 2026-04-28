@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Card, CardContent } from './ui/card'
-import { Star, Quote } from 'lucide-react'
+import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination } from 'swiper/modules'
+import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import { motion } from 'framer-motion'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 const testimonials = [
     {
@@ -66,10 +67,12 @@ const StarRating = ({ rating }: { rating: number }) => {
     )
 }
 const Testimonials = () => {
+    const swiperRef = useRef<any>(null);
+
     return (
         <section className="py-8 xs:py-10 sm:py-12 md:py-14 lg:py-20  bg-gradient-to-b from-gray-50 to-white overflow-hidden">
             <div className="container max-w-7xl mx-auto px-4">
-                <div className="text-center mb-10">
+                <div className="text-center mb-16 lg:mb-10">
                     <span className="inline-block px-4 py-2 text-sm font-semibold tracking-wider uppercase text-red-500 rounded-full">
                         Testimonials
                     </span>
@@ -94,9 +97,10 @@ const Testimonials = () => {
                 </div>
 
 
-                <div className="">
+                <div className="relative">
                     <Swiper
-                        modules={[Autoplay, Pagination]}
+                        ref={swiperRef}
+                        modules={[Autoplay, Pagination, Navigation]}
                         spaceBetween={16}
                         loop={true}
                         slidesPerView={1}
@@ -111,6 +115,10 @@ const Testimonials = () => {
                             dynamicBullets: true,
                             bulletClass: 'swiper-pagination-bullet',
                             bulletActiveClass: 'swiper-pagination-bullet-active',
+                        }}
+                        navigation={{
+                            prevEl: '.custom-prev-button',
+                            nextEl: '.custom-next-button',
                         }}
                         breakpoints={{
                             320: {
@@ -176,6 +184,45 @@ const Testimonials = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
+
+                    {/* Custom Navigation Buttons */}
+                    {/* Prev Button */}
+                    <button
+                        className="
+                        custom-prev-button
+                        absolute z-10
+                          w-8 h-8 sm:w-10 sm:h-10
+                        rounded-full bg-white hover:bg-red-500 hover:text-white shadow-lg border border-gray-200
+                        flex items-center justify-center
+                        transition-all duration-300
+
+                        right-14 top-[-50px]
+
+                        lg:left-[-60px] lg:right-auto lg:top-1/2 lg:-translate-y-1/2
+                    "
+                        onClick={() => swiperRef.current?.swiper.slidePrev()}
+                    >
+                        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </button>
+
+                    {/* Next Button */}
+                    <button
+                        className="
+                        custom-next-button
+                        absolute z-10
+                        w-8 h-8 sm:w-10 sm:h-10
+                        rounded-full bg-white hover:bg-red-500 hover:text-white  shadow-lg border border-gray-200
+                        flex items-center justify-center
+                        transition-all duration-300
+                       
+                        right-0 top-[-50px]
+
+                        lg:right-[-60px] lg:top-1/2 lg:-translate-y-1/2
+                    "
+                        onClick={() => swiperRef.current?.swiper.slideNext()}
+                    >
+                        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </button>
                 </div>
             </div>
         </section>

@@ -20,9 +20,10 @@ const AboutusPage = () => {
         {/* Background */}
         <div className="absolute inset-0">
           <img
-            src={'/about/aboutbg.jpg'}
+            src={'/about/aboutbg.webp'}
             alt="About Background"
             className="w-full h-full object-cover"
+            loading='eager'
           />
         </div>
 
