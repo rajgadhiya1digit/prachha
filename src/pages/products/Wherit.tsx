@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Package, Users, BarChart3, Shield, TrendingUp, Clock, CheckCircle2, Database, Eye, Settings, FileText, Activity } from "lucide-react";
 
@@ -33,98 +33,101 @@ const Wherit = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const containerVariants = {
+  const containerVariants = useMemo(() => ({
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
       },
     },
-  };
+  }), []);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+  const itemVariants = useMemo(() => ({
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         type: "spring" as const,
-        stiffness: 100,
-        damping: 12,
+        stiffness: 150,
+        damping: 15,
+        duration: 0.4,
       },
     },
-  };
+  }), []);
 
-  const slideInLeft = {
-    hidden: { opacity: 0, x: -100 },
+  const slideInLeft = useMemo(() => ({
+    hidden: { opacity: 0, x: -50 },
     visible: {
       opacity: 1,
       x: 0,
       transition: {
         type: "spring" as const,
-        stiffness: 100,
-        damping: 12,
+        stiffness: 120,
+        damping: 15,
+        duration: 0.5,
       },
     },
-  };
+  }), []);
 
-  const slideInRight = {
-    hidden: { opacity: 0, x: 100 },
+  const slideInRight = useMemo(() => ({
+    hidden: { opacity: 0, x: 50 },
     visible: {
       opacity: 1,
       x: 0,
       transition: {
         type: "spring" as const,
-        stiffness: 100,
-        damping: 12,
+        stiffness: 120,
+        damping: 15,
+        duration: 0.5,
       },
     },
-  };
+  }), []);
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 text-gray-900">
+    <section className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 text-gray-900 overflow-hidden">
 
       <motion.section ref={heroRef} className="relative z-10 pt-16 pb-16 ">
         <div className="container mx-auto px-4 text-center">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={heroInView ? "visible" : "hidden"}
-            className="space-y-8 max-w-6xl mx-auto"
-          >
-            <motion.h1 variants={itemVariants} className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+          <div className="space-y-8 max-w-6xl mx-auto">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
               Complete
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 {" "} Asset Management
               </span>
               <br />
               Platform Showcase
-            </motion.h1>
+            </h1>
 
-            <motion.p variants={itemVariants} className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Explore the comprehensive features of Wherit&apos;s enterprise asset management system.
               From inventory tracking to user assignments, see how modern businesses manage their IT infrastructure.
-            </motion.p>
+            </p>
 
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all"
               >
                 Get Started <ArrowRight className="inline-block w-5 h-5 ml-2" />
               </motion.button>
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 className="w-full sm:w-auto bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold border border-gray-200 hover:border-gray-300 transition-all"
               >
                 View Demo
               </motion.button>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </motion.section>
 
@@ -156,10 +159,10 @@ const Wherit = () => {
             </motion.div>
 
             <motion.div variants={slideInLeft} className="relative w-full">
-              <div className="bg-gradient-to-br from-blue-100 to-indigo-100 rounded-3xl p-4 md:p-8 shadow-2xl">
+              <div className="bg-gradient-to-br from-blue-100 to-indigo-100 rounded-3xl p-4 md:p-6 shadow-2xl">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-xl p-4">
                   <img
-                    src="/product/wherit/Assets inventry.png"
+                    src="/product/wherit/Assets inventry.webp"
                     alt="Assets Inventory Dashboard"
                     className="w-full h-auto object-contain"
                     style={{ maxHeight: "520px" }}
@@ -169,9 +172,9 @@ const Wherit = () => {
                 <motion.div
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -bottom-6 -right-3 sm:-right-6 w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg"
+                  className="absolute -bottom-4 -right-2   w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg"
                 >
-                  <Database className="w-6 sm:w-10 h-8 sm:h-10 text-white" />
+                  <Database className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
                 </motion.div>
               </div>
             </motion.div>
@@ -185,7 +188,7 @@ const Wherit = () => {
                 <motion.div
                   key={feature.title}
                   variants={itemVariants}
-                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileHover={{ scale: 1.02, y: -2 }}
                   className="bg-white rounded-xl p-6 border border-gray-200 hover:border-blue-300 transition-all shadow-lg"
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg flex items-center justify-center mb-4">
@@ -223,22 +226,24 @@ const Wherit = () => {
             </motion.div>
 
             <motion.div variants={slideInRight} className="relative w-full">
-              <div className="bg-gradient-to-br from-purple-100 to-indigo-100 rounded-3xl p-4 md:p-8 shadow-2xl">
+              <div className="bg-gradient-to-br from-purple-100 to-indigo-100 rounded-3xl p-4 md:p-6 shadow-2xl">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-xl p-4">
+                  
                   <img
-                    src="/product/wherit/wherit_asset_lifecycle_tracking.png"
-                    alt="Asset Lifecycle Tracking"
+                    src="/product/wherit/wherit_asset_lifecycle_tracking.webp"
+                    alt="Assets Inventory Dashboard"
                     className="w-full h-auto object-contain"
                     style={{ maxHeight: "520px" }}
                     loading="lazy"
                   />
+               
                 </div>
                 <motion.div
                   animate={{ rotate: [0, 360] }}
                   transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                  className="absolute -top-6 -left-3 sm:-left-6 w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg"
+                  className="absolute -top-2 -left-2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg"
                 >
-                  <Clock className="w-6 sm:w-10 h-8 sm:h-10 text-white" />
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
                 </motion.div>
               </div>
             </motion.div>
@@ -290,22 +295,22 @@ const Wherit = () => {
             </motion.div>
 
             <motion.div variants={slideInLeft} className="relative w-full">
-              <div className="bg-gradient-to-br from-green-100 to-blue-100 rounded-3xl p-4 md:p-8 shadow-2xl">
+              <div className="bg-gradient-to-br from-green-100 to-blue-100 rounded-3xl p-4 md:p-6 shadow-2xl">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-xl p-4">
                   <img
-                    src="/product/wherit/wherit_assets_tracking_list.png"
-                    alt="Assets Tracking List"
+                    src="/product/wherit/wherit_assets_tracking_list.webp"
+                    alt="Assets Inventory Dashboard"
                     className="w-full h-auto object-contain"
                     style={{ maxHeight: "520px" }}
                     loading="lazy"
                   />
                 </div>
                 <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
+                  animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -bottom-4 sm:-bottom-6 -right-3 sm:-right-6 w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg"
+                  className="absolute -bottom-4 -right-2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg"
                 >
-                  <Eye className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
+                  <Eye className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
                 </motion.div>
               </div>
             </motion.div>
@@ -320,7 +325,7 @@ const Wherit = () => {
                 <motion.div
                   key={feature.title}
                   variants={itemVariants}
-                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileHover={{ scale: 1.02, y: -2 }}
                   className="bg-white rounded-xl p-6 border border-gray-200 hover:border-green-300 transition-all shadow-lg"
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center mb-4">
@@ -358,11 +363,12 @@ const Wherit = () => {
             </motion.div>
 
             <motion.div variants={slideInRight} className="relative w-full">
-              <div className="bg-gradient-to-br from-orange-100 to-red-100 rounded-3xl p-4 md:p-8 shadow-2xl">
+              <div className="bg-gradient-to-br from-orange-100 to-red-100 rounded-3xl p-4 md:p-6 shadow-2xl">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-xl p-4">
+                 
                   <img
-                    src="/product/wherit/wherit_user_assignments.png"
-                    alt="User Assignments"
+                    src="/product/wherit/wherit_user_assignments.webp"
+                    alt="Assets Inventory Dashboard"
                     className="w-full h-auto object-contain"
                     style={{ maxHeight: "520px" }}
                     loading="lazy"
@@ -371,9 +377,9 @@ const Wherit = () => {
                 <motion.div
                   animate={{ rotate: [0, -10, 10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-6 -left-3 sm:-left-6 w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center shadow-lg"
+                  className="absolute  -top-2 -left-2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center shadow-lg"
                 >
-                  <Users className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
+                  <Users className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
                 </motion.div>
               </div>
             </motion.div>
@@ -387,7 +393,7 @@ const Wherit = () => {
                 <motion.div
                   key={feature.title}
                   variants={itemVariants}
-                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileHover={{ scale: 1.02, y: -2 }}
                   className="bg-white rounded-xl p-6 border border-gray-200 hover:border-orange-300 transition-all shadow-lg"
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-orange-100 to-red-100 rounded-lg flex items-center justify-center mb-4">
@@ -425,11 +431,11 @@ const Wherit = () => {
             </motion.div>
 
             <motion.div variants={slideInLeft} className="relative w-full">
-              <div className="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-3xl p-4 md:p-8 shadow-2xl">
+              <div className="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-3xl p-4 md:p-6 shadow-2xl">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-xl p-4">
                   <img
-                    src="/product/wherit/wherit_users_list.png"
-                    alt="Users List"
+                    src="/product/wherit/wherit_users_list.webp"
+                    alt="Assets Inventory Dashboard"
                     className="w-full h-auto object-contain"
                     style={{ maxHeight: "520px" }}
                     loading="lazy"
@@ -438,9 +444,9 @@ const Wherit = () => {
                 <motion.div
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -bottom-6 -right-2 sm:-right-6 w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full flex items-center justify-center shadow-lg"
+                  className="absolute -bottom-4 -right-2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full flex items-center justify-center shadow-lg"
                 >
-                  <Shield className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
+                  <Shield className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
                 </motion.div>
               </div>
             </motion.div>
@@ -495,17 +501,16 @@ const Wherit = () => {
                 {/* Email Card */}
                 <motion.div
                 className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center shadow-md will-change-transform"
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 whileHover={{ 
-                    y: -8, 
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                    y: -4, 
+                    boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
                     borderColor: "rgba(99, 102, 241, 0.3)"
                 }}
                 transition={{ 
-                    duration: 0.5, 
-                    delay: 0.1, 
-                    ease: [0.25, 0.46, 0.45, 0.94]
+                    duration: 0.3, 
+                    ease: "easeOut"
                 }}
                 viewport={{ once: true, margin: "-100px" }}
                 >
@@ -526,6 +531,8 @@ const Wherit = () => {
 
                 <a
                     href="mailto:contact@1digittechnology.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base break-all"
                 >
                     contact@1digittechnology.com
@@ -535,17 +542,16 @@ const Wherit = () => {
                 {/* Call Card */}
                 <motion.div
                 className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center shadow-md will-change-transform"
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 whileHover={{ 
-                    y: -8, 
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                    y: -4, 
+                    boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
                     borderColor: "rgba(34, 197, 94, 0.3)"
                 }}
                 transition={{ 
-                    duration: 0.5, 
-                    delay: 0.2, 
-                    ease: [0.25, 0.46, 0.45, 0.94]
+                    duration: 0.3, 
+                    ease: "easeOut"
                 }}
                 viewport={{ once: true, margin: "-100px" }}
                 >
@@ -575,17 +581,16 @@ const Wherit = () => {
                 {/* Address Card */}
                 <motion.div
                 className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 lg:p-8 text-center shadow-md will-change-transform sm:col-span-2 lg:col-span-1"
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 whileHover={{ 
-                    y: -8, 
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                    y: -4, 
+                    boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
                     borderColor: "rgba(168, 85, 247, 0.3)"
                 }}
                 transition={{ 
-                    duration: 0.5, 
-                    delay: 0.3, 
-                    ease: [0.25, 0.46, 0.45, 0.94]
+                    duration: 0.3, 
+                    ease: "easeOut"
                 }}
                 viewport={{ once: true, margin: "-100px" }}
                 >
@@ -636,12 +641,12 @@ const Wherit = () => {
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6, duration: 0.6 }} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.button whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.95 }} 
+              <motion.button whileHover={{ scale: 1.02, y: -1 }} whileTap={{ scale: 0.98 }} 
                 className="w-full sm:w-auto bg-gradient-to-r from-green-600 to-orange-600 text-white px-10 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all text-base">
                 Start Free Trial <ArrowRight className="inline-block w-5 h-5 ml-2" />
               </motion.button>
 
-              <motion.button whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto bg-transparent text-gray-800 px-10 py-3 rounded-xl font-semibold border-2 border-gray-800 hover:bg-gray-800 hover:text-white transition-all text-base">
+              <motion.button whileHover={{ scale: 1.02, y: -1 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto bg-transparent text-gray-800 px-10 py-3 rounded-xl font-semibold border-2 border-gray-800 hover:bg-gray-800 hover:text-white transition-all text-base">
                 Schedule Demo
               </motion.button>
             </motion.div>

@@ -106,7 +106,7 @@
 // }
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -123,10 +123,14 @@ const navLinks = [
 
 const Header = () => {
 
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const [open, setOpen] = useState(false);
   const [productOpen, setProductOpen] = useState(false);
+
+  const isActive = (path: string) => location.pathname === path;
+  const isProductActive = location.pathname.startsWith('/product');
 
   return (
     <header className="sticky top-0 left-0 w-full z-50">
@@ -147,7 +151,7 @@ const Header = () => {
             <div className="relative group">
 
               <div onClick={()=>setOpen(!open)}
-                className="flex items-center gap-1 cursor-pointer hover:text-red-500">
+                className={`flex items-center gap-1 cursor-pointer hover:text-red-500 ${isProductActive ? 'text-red-500' : ''}`}>
                 Product
                 <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-200 will-change-transform" />
               </div>
@@ -157,14 +161,14 @@ const Header = () => {
 
                 <Link
                   to={'/product/one_store'}
-                  className="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition border-b-2 border-gray-200"
+                  className={`block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition border-b-2 border-gray-200 ${isActive('/product/one_store') ? 'bg-red-50 text-red-500' : ''}`}
                 >
                   One Store
                 </Link>
 
                 <Link
                   to={'/product/wherit'}
-                  className="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition border-b-2 border-gray-200"
+                  className={`block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition border-b-2 border-gray-200 ${isActive('/product/wherit') ? 'bg-red-50 text-red-500' : ''}`}
                 >
                   Wherit
                 </Link>
@@ -172,12 +176,12 @@ const Header = () => {
               </div>
             </div>
 
-            <Link to="/services" className="hover:text-red-500">Services</Link>
-            <Link to="/projects" className="hover:text-red-500">portfolio </Link>
-            <Link to="/blog" className="hover:text-red-500">Blog</Link>
-            <Link to="/about" className="hover:text-red-500">About</Link>
-            <Link to="/team" className="hover:text-red-500">Team</Link>
-            <Link to="/contact" className="hover:text-red-500">Contact</Link>
+            <Link to="/services" className={`hover:text-red-500 ${isActive('/services') ? 'text-red-500' : ''}`}>Services</Link>
+            <Link to="/projects" className={`hover:text-red-500 ${isActive('/projects') ? 'text-red-500' : ''}`}>portfolio </Link>
+            <Link to="/blog" className={`hover:text-red-500 ${isActive('/blog') ? 'text-red-500' : ''}`}>Blog</Link>
+            <Link to="/about" className={`hover:text-red-500 ${isActive('/about') ? 'text-red-500' : ''}`}>About</Link>
+            <Link to="/team" className={`hover:text-red-500 ${isActive('/team') ? 'text-red-500' : ''}`}>Team</Link>
+            <Link to="/contact" className={`hover:text-red-500 ${isActive('/contact') ? 'text-red-500' : ''}`}>Contact</Link>
 
             <Link to="/contact">
               <button className="flex items-center bg-gradient-to-r from-red-500 to-orange-400 hover:bg-orange-600 rounded-full pl-7 pr-1.5 py-1.5  transition-transform duration-200 hover:scale-105 active:scale-95 cursor-pointer">
@@ -222,8 +226,8 @@ const Header = () => {
             {/* LINKS */}
             <div className="flex flex-col gap-6 text-lg font-medium">
 
-              <Link onClick={() => setMenuOpen(false)} to="/">Home</Link>
-              <Link onClick={() => setMenuOpen(false)} to="/services">Services</Link>
+              <Link onClick={() => setMenuOpen(false)} to="/" className={isActive('/') ? 'text-red-500' : ''}>Home</Link>
+              <Link onClick={() => setMenuOpen(false)} to="/services" className={isActive('/services') ? 'text-red-500' : ''}>Services</Link>
 
               {/* PRODUCT MOBILE DROPDOWN */}
               <div>
@@ -239,21 +243,21 @@ const Header = () => {
 
                 {productOpen && (
                   <div className="mt-3 ml-3 flex flex-col gap-3 text-gray-600">
-                    <Link onClick={() => setMenuOpen(false)} to={"/product/one_store"}>
+                    <Link onClick={() => setMenuOpen(false)} to={"/product/one_store"} className={isActive('/product/one_store') ? 'text-red-500' : ''}>
                       One Store
                     </Link>
-                    <Link onClick={() => setMenuOpen(false)} to={"/product/wherit"}>
+                    <Link onClick={() => setMenuOpen(false)} to={"/product/wherit"} className={isActive('/product/wherit') ? 'text-red-500' : ''}>
                       Wherit
                     </Link>
                   </div>
                 )}
               </div>
 
-              <Link onClick={() => setMenuOpen(false)} to="/projects">Portfolio</Link> 
-              <Link onClick={() => setMenuOpen(false)} to="/blog">Blog</Link>
-              <Link onClick={() => setMenuOpen(false)} to="/about">About</Link>
-              <Link onClick={() => setMenuOpen(false)} to="/team" className="hover:text-red-500">Team</Link>
-              <Link onClick={() => setMenuOpen(false)} to="/contact">Contact Us</Link>
+              <Link onClick={() => setMenuOpen(false)} to="/projects" className={isActive('/projects') ? 'text-red-500' : ''}>Portfolio</Link> 
+              <Link onClick={() => setMenuOpen(false)} to="/blog" className={isActive('/blog') ? 'text-red-500' : ''}>Blog</Link>
+              <Link onClick={() => setMenuOpen(false)} to="/about" className={isActive('/about') ? 'text-red-500' : ''}>About</Link>
+              <Link onClick={() => setMenuOpen(false)} to="/team" className={`${isActive('/team') ? 'text-red-500' : ''} hover:text-red-500`}>Team</Link>
+              <Link onClick={() => setMenuOpen(false)} to="/contact" className={isActive('/contact') ? 'text-red-500' : ''}>Contact Us</Link>
 
             </div>
           </motion.div>
