@@ -141,7 +141,7 @@ const TeamdetailsPage = () => {
                     </motion.div>
                   )}
 
-                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-2">
+                  <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-3">
                     {teamMember.name}
                   </h1>
                   
@@ -149,7 +149,7 @@ const TeamdetailsPage = () => {
                     {teamMember.role}
                   </div>
 
-                  <p className="text-gray-600 text-lg italic mb-6 max-w-2xl relative">
+                  <p className="text-gray-600 text-lg italic mb-6 w-fit relative">
                     <span className="absolute -left-4 -top-2 text-4xl text-red-200 font-serif">"</span>
                     {teamMember.quote}
                     <span className="absolute -right-4 -top-2 text-4xl text-red-200 font-serif">"</span>

@@ -33,6 +33,7 @@ const BlogDetailPage = lazy(() => import('./pages/BlogDetailsPage'));
 const ProjectPage = lazy(() => import('./pages/ProjectPage'));
 const TeamdetailsPage = lazy(() => import('./pages/TeamdetailsPage'));
 const Newsletter = lazy(() => import('./components/Newsletter'));
+const CareerPage = lazy(() => import('./pages/CareerPage'));
 
 export default function App() {
   return (
@@ -71,6 +72,7 @@ export default function App() {
         <Route path="/team/ceo/vijay-sarkheliya" element={<Suspense fallback={<div>Loading...</div>}><CeoProfile /></Suspense>} />
         <Route path="/team/cto/hitesh-sarkheliya" element={<Suspense fallback={<div>Loading...</div>}><CtoProfile /></Suspense>} />
         <Route path="/team/details/:memberName" element={<Suspense fallback={<div>Loading...</div>}><TeamdetailsPage /></Suspense>} />
+        <Route path="/career" element={<Suspense fallback={<div>Loading...</div>}><CareerPage /></Suspense>} />
 
         <Route path="/product/one_store" element={<Suspense fallback={<div>Loading...</div>}><One_store /></Suspense>} />
         <Route path="/product/wherit" element={<Suspense fallback={<div>Loading...</div>}><Wherit /></Suspense>} />
