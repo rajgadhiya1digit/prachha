@@ -70,10 +70,10 @@ export default function App() {
         <Route path="/project-details/:id" element={<ProjectDetails />} />
         <Route path="/team/ceo/vijay-sarkheliya" element={<Suspense fallback={<div>Loading...</div>}><CeoProfile /></Suspense>} />
         <Route path="/team/cto/hitesh-sarkheliya" element={<Suspense fallback={<div>Loading...</div>}><CtoProfile /></Suspense>} />
+        <Route path="/team/details/:memberName" element={<Suspense fallback={<div>Loading...</div>}><TeamdetailsPage /></Suspense>} />
 
         <Route path="/product/one_store" element={<Suspense fallback={<div>Loading...</div>}><One_store /></Suspense>} />
         <Route path="/product/wherit" element={<Suspense fallback={<div>Loading...</div>}><Wherit /></Suspense>} />
-        <Route path="/team/details" element={<Suspense fallback={<div>Loading...</div>}><TeamdetailsPage /></Suspense>} />
 
       </Routes>
       <Footer />
