@@ -15,11 +15,11 @@ export function AboutUs() {
           {/* LEFT CONTENT */}
           <div>
             <span className="inline-block text-red-500 tracking-widest uppercase text-sm font-semibold mb-4">
-              About Prachha Technology
+              About Prachha Tech
             </span>
 
             <h2 className="text-3xl sm:text-4xl lg:text-4xl font-medium text-gray-900 leading-tight mb-6" >
-              Transforming Ideas into{" "}
+              Transforming Ideas Into{" "}
               <span className="text-transparent bg-clip-text bg-red-500">
                 Scalable Digital Products
               </span>
@@ -34,7 +34,7 @@ export function AboutUs() {
             </p>
 
             {/* POINTS */}
-            <div className="space-y-4 text-base">
+            {/* <div className="space-y-4 text-base">
               {[
                 "ISO 9001:2015 Certified",
                 "Microsoft Gold Partner",
@@ -47,7 +47,7 @@ export function AboutUs() {
                   </span>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             {/* CTA */}
             <Link

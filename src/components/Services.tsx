@@ -107,7 +107,7 @@ export function Services() {
 
         <div className='flex justify-center mt-12'>
           <Link to={'/services'} className='flex items-center gap-2 text-[18px] text-red-500 font-[600] hover:underline'>
-            explore more  <FiArrowUpRight />
+            Explore More  <FiArrowUpRight />
           </Link>
         </div>
       </div>

@@ -195,7 +195,7 @@ html {
 
 /* Universal Swiper Pagination */
 .universal-pagination .swiper-pagination-bullet {
-  width: 20px;
+  width: 15px;
   height: 5px;
   background-color: gray;
   opacity: 1;

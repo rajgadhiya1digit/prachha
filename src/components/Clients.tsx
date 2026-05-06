@@ -18,7 +18,7 @@ export function Clients() {
   return (
     <section className="py-12 sm:py-14 lg:py-20 bg-gray-100 relative overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center">
+        <div className="text-center mb-10">
           <h2 className="text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold leading-tight mb-6 fade-up-text">
           Trusted by
           <span className="block bg-gradient-to-r from-red-500 to-pink-500  bg-clip-text text-transparent">
@@ -44,10 +44,10 @@ export function Clients() {
             }}
             speed={1500}
             allowTouchMove={true}
-            pagination={{
-              clickable: true,
-              dynamicBullets: true,
-            }}
+            // pagination={{
+            //   clickable: true,
+            //   dynamicBullets: true,
+            // }}
             breakpoints={{
               320: {
                 slidesPerView: 1,
@@ -73,7 +73,7 @@ export function Clients() {
             className="clients-swiper"
           >
             {[...clients, ...clients].map((client, index) => (
-              <SwiperSlide key={index} className="py-10">
+              <SwiperSlide key={index} className="py-2">
                 <div className={`w-full h-32 bg-gradient-to-br ${client.color} ${client.borderColor} rounded-2xl border flex flex-col items-center justify-center hover:scale-105 transition-all duration-300 group cursor-pointer backdrop-blur-sm`}>
                   <div className="text-5xl mb-3 group-hover:scale-110 transition-transform duration-300 filter drop-shadow-sm">
                     {client.logo}

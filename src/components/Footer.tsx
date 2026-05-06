@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 
 export function Footer() {
   const services = [
-    'Custom Software Development',
-    'Enterprise Mobility Solutions',
-    'Cloud Solutions',
-    'AI & Machine Learning',
-    'Cybersecurity',
+    'Digital Marketing',
+    'Web Development',
+    'SEO Optimization',
+    'Shopify Development',
     'UI/UX Design',
+    'Graphics Design',
   ];
 
   const industries = [
@@ -26,7 +26,7 @@ export function Footer() {
   const company = [
     {link:'/about' , title:'About Us'},
     {link:'/team' , title:'Our Team'},
-    {link:'/careers' , title:'Careers'},
+    {link:'/career' , title:'Careers'},
     {link:'/projects' , title:'Portfolio'},
     {link:'/blog' , title:'Blog'},
     {link:'/contact' , title:'Contact'},
@@ -157,8 +157,8 @@ export function Footer() {
               <span>© 2026 Prachha Tech. All rights reserved.</span>
             </div>
             <div className="flex items-center gap-6 font-semibold">
-              <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-red-400 transition-colors duration-300 hover:underline">Privacy Policy</Link>
-              <Link to="/terms-and-conditions" className="text-sm text-gray-400 hover:text-red-400 transition-colors duration-300 hover:underline">Terms of Service</Link>
+              <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-red-400 transition-colors duration-300">Privacy Policy</Link>
+              <Link to="/terms-and-conditions" className="text-sm text-gray-400 hover:text-red-400 transition-colors duration-300">Terms of Service</Link>
             </div>
             <div className="flex gap-4">
               <a href="https://www.linkedin.com/company/prachhatech/" target="_blank" rel="noreferrer" className="group w-10 h-10 bg-gradient-to-br from-gray-700/80 to-gray-600/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:from-red-500 hover:to-red-600 transition-all duration-300 transform hover:scale-110 shadow-lg shadow-red-500/20 border border-gray-600/50">

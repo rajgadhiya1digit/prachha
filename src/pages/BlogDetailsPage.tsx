@@ -21,7 +21,7 @@ const BlogDetailPage = () => {
     );
   }
 
-  //previous ansd next blog logic
+  //previous and next blog logic
   const sortedBlogs = [...blogData].sort((a, b) => a.id - b.id);
   const currentIndex   = sortedBlogs.findIndex(blog => blog.id === parseInt(id!));
   
@@ -185,11 +185,11 @@ const BlogDetailPage = () => {
             {/* Sidebar */}
             <div className="lg:col-span-4 space-y-8">
 
-            {/* populer Posts */}
+            {/* Popular Posts */}
               <div className="bg-gray-50 p-6 rounded-xl">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Populer Posts</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Popular Posts</h3>
                 <div className="space-y-4">
-                  {blogData.filter(item => item.populer && item.id !== blog.id).slice(0, 3).map((item) => (
+                  {blogData.filter(item => item.popular && item.id !== blog.id).slice(0, 3).map((item) => (
                     <Link
                       key={item.id}
                       to={`/blog_details/${item.id}`}
@@ -216,7 +216,7 @@ const BlogDetailPage = () => {
               {/* Categories */}
               <div className="bg-gray-50 p-6 rounded-xl">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Categories</h3>
-                <div className="space-y-2">
+                <div>
                   {blogCategory.map((category, index) => (
                     <Link
                       key={index}

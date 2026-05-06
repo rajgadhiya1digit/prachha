@@ -115,7 +115,7 @@ export function CTA() {
                   <Mail className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
                 <div className="text-white mb-2 text-sm sm:text-base">Email Us</div>
-                <a href="mailto:info@onedigittech.com" target='_blank'
+                <a href="mailto:info@prachha.tech" target='_blank'
                  className="text-gray-300 hover:text-red-400 transition-colors text-xs sm:text-sm break-all">
                   info@prachha.tech
                 </a>

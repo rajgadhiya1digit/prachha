@@ -64,24 +64,23 @@ const AboutusPage = () => {
             {/* Left Content */}
             <div>
               <span className="text-[#FF0000] tracking-wider uppercase text-sm mb-4 block font-[600]">
-                About Prachha Technology
+                About Prachha Tech
               </span>
 
               <h2 className="text-2xl sm:text-3xl lg:text-4xl text-gray-900 mb-6 font-[600]">
-                Transforming Ideas into <span className="text-[#FF0000]"> Scalable Digital Products </span>
+                Transforming Ideas Into <span className="text-[#FF0000]"> Scalable Digital Products </span>
               </h2>
 
               <p className="text-base text-gray-600 mb-6 leading-relaxed">
                 Prachha Tech is a passionate team of developers, designers, and digital experts focused on building smart and reliable IT solutions. We believe in turning ideas into real digital experiences that help businesses grow and stand out in today’s competitive world.
 
-                {/* Since 2010, Prachha Tech has been at the forefront of digital innovation, 
-              helping businesses across the globe transform their operations and achieve remarkable growth. */}
+                Since 2010, Prachha Tech has been at the forefront of digital innovation, 
+              helping businesses across the globe transform their operations and achieve remarkable growth.
               </p>
               <p className="text-base text-gray-600 mb-6 leading-relaxed">
-                We have done 25+ successful projects, we've established
-                ourselves as a trusted partner for enterprises, startups, and everything in between.
+                We have completed 25+ successful projects, we've established ourselves as a trusted partner for enterprises, startups, and everything in between.
               </p>
-              <div className="space-y-4 text-base">
+              {/* <div className="space-y-4 text-base">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-[#FF0000] rounded-full"></div>
                   <span className="text-gray-700">ISO 9001:2015 Certified</span>
@@ -94,7 +93,7 @@ const AboutusPage = () => {
                   <div className="w-2 h-2 bg-[#FF0000] rounded-full"></div>
                   <span className="text-gray-700">AWS Advanced Consulting Partner</span>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Right Image */}

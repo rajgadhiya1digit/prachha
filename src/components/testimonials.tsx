@@ -11,44 +11,36 @@ import 'swiper/css/navigation'
 const testimonials = [
     {
         id: 1,
-        name: "Sarah Johnson",
+        name: "Vipul Vaghani",
         role: "CEO",
-        company: "TechStart Inc.",
+        company: "Aksharlon Jari",
         content: "Working with this team has been transformative for our business. Their innovative solutions and attention to detail exceeded our expectations.",
         rating: 5
     },
     {
         id: 2,
-        name: "Michael Chen",
-        role: "Product Manager",
-        company: "Digital Solutions",
+        name: "Atul Goti",
+        role: "CEO",
+        company: "Shayona",
         content: "Exceptional service and outstanding results. They delivered our project on time and within budget, with quality that speaks for itself.",
         rating: 5
     },
     {
         id: 3,
-        name: "Emily Rodriguez",
-        role: "Marketing Director",
-        company: "Growth Labs",
+        name: "Vijay Sarkheliya",
+        role: "CEO",
+        company: "Ouros Jewels",
         content: "The team's expertise and professionalism are unmatched. They understood our needs perfectly and delivered beyond our wildest dreams.",
         rating: 5
     },
-    {
-        id: 4,
-        name: "David Kim",
-        role: "CTO",
-        company: "Innovation Corp",
-        content: "A truly remarkable experience from start to finish. Their technical skills and creative approach solved problems we didn't even know we had.",
-        rating: 5
-    },
-    {
-        id: 5,
-        name: "Lisa Thompson",
-        role: "Operations Manager",
-        company: "Global Enterprises",
-        content: "I can't recommend them enough. Their dedication to excellence and customer satisfaction is evident in every interaction.",
-        rating: 4
-    }
+    // {
+    //     id: 4,
+    //     name: "David Kim",
+    //     role: "CTO",
+    //     company: "Innovation Corp",
+    //     content: "A truly remarkable experience from start to finish. Their technical skills and creative approach solved problems we didn't even know we had.",
+    //     rating: 5
+    // },
 ]
 
 const StarRating = ({ rating }: { rating: number }) => {
@@ -68,6 +60,7 @@ const StarRating = ({ rating }: { rating: number }) => {
 }
 const Testimonials = () => {
     const swiperRef = useRef<any>(null);
+    const showNavigation = testimonials.length > 3;
 
     return (
         <section className="py-8 xs:py-10 sm:py-12 md:py-14 lg:py-20  bg-gradient-to-b from-gray-50 to-white overflow-hidden">
@@ -112,9 +105,9 @@ const Testimonials = () => {
                         }}
                         pagination={{
                             clickable: true,
-                            dynamicBullets: true,
-                            bulletClass: 'swiper-pagination-bullet',
-                            bulletActiveClass: 'swiper-pagination-bullet-active',
+                            // dynamicBullets: true,
+                            // bulletClass: 'swiper-pagination-bullet',
+                            // bulletActiveClass: 'swiper-pagination-bullet-active',
                         }}
                         navigation={{
                             prevEl: '.custom-prev-button',
@@ -146,10 +139,10 @@ const Testimonials = () => {
                                 spaceBetween: 32,
                             },
                         }}
-                        className=".custom-pagination pb-12 xs:pb-14 sm:pb-16 cursor-pointer"
+                        className="universal-pagination"
                     >
                         {testimonials.map((testimonial) => (
-                            <SwiperSlide key={testimonial.id} className="h-auto">
+                            <SwiperSlide key={testimonial.id} className="h-auto cursor-pointer">
                                 <div className="w-full h-full bg-gray-100 border-gray-200 hover:shadow-lg transition-shadow duration-300 flex flex-col">
 
                                     <div className="p-4 xs:p-5 sm:p-6 flex flex-col h-full">
@@ -185,44 +178,48 @@ const Testimonials = () => {
                         ))}
                     </Swiper>
 
-                    {/* Custom Navigation Buttons */}
-                    {/* Prev Button */}
-                    <button
-                        className="
-                        custom-prev-button
-                        absolute z-10
-                          w-8 h-8 sm:w-10 sm:h-10
-                        rounded-full bg-white hover:bg-red-500 hover:text-white shadow-lg border border-gray-200
-                        flex items-center justify-center
-                        transition-all duration-300
+                    {/* Custom Navigation Buttons - Only show if more than 3 testimonials */}
+                    {showNavigation && (
+                        <>
+                            {/* Prev Button */}
+                            <button
+                                className="
+                                custom-prev-button
+                                absolute z-10
+                                  w-8 h-8 sm:w-10 sm:h-10
+                                rounded-full bg-white hover:bg-red-500 hover:text-white shadow-lg border border-gray-200
+                                flex items-center justify-center
+                                transition-all duration-300
 
-                        right-14 top-[-50px]
+                                right-14 top-[-50px]
 
-                        lg:left-[-60px] lg:right-auto lg:top-1/2 lg:-translate-y-1/2
-                    "
-                        onClick={() => swiperRef.current?.swiper.slidePrev()}
-                    >
-                        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </button>
+                                lg:left-[-60px] lg:right-auto lg:top-1/2 lg:-translate-y-1/2
+                            "
+                                onClick={() => swiperRef.current?.swiper.slidePrev()}
+                            >
+                                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+                            </button>
 
-                    {/* Next Button */}
-                    <button
-                        className="
-                        custom-next-button
-                        absolute z-10
-                        w-8 h-8 sm:w-10 sm:h-10
-                        rounded-full bg-white hover:bg-red-500 hover:text-white  shadow-lg border border-gray-200
-                        flex items-center justify-center
-                        transition-all duration-300
-                       
-                        right-0 top-[-50px]
+                            {/* Next Button */}
+                            <button
+                                className="
+                                custom-next-button
+                                absolute z-10
+                                w-8 h-8 sm:w-10 sm:h-10
+                                rounded-full bg-white hover:bg-red-500 hover:text-white  shadow-lg border border-gray-200
+                                flex items-center justify-center
+                                transition-all duration-300
+                               
+                                right-0 top-[-50px]
 
-                        lg:right-[-60px] lg:top-1/2 lg:-translate-y-1/2
-                    "
-                        onClick={() => swiperRef.current?.swiper.slideNext()}
-                    >
-                        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </button>
+                                lg:right-[-60px] lg:top-1/2 lg:-translate-y-1/2
+                            "
+                                onClick={() => swiperRef.current?.swiper.slideNext()}
+                            >
+                                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                            </button>
+                        </>
+                    )}
                 </div>
             </div>
         </section>

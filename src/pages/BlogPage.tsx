@@ -1,20 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import blogbg from '../assets/blogbg.jpg'
 import { blogCategory, blogData, blogTags } from '../data/blogData'
 import { FaUser } from "react-icons/fa";
 import { FaComments } from "react-icons/fa";
 import { IoSearchOutline } from "react-icons/io5";
 import Newsletter from '../components/Newsletter';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const BlogPage = () => {
-
+    const [searchParams] = useSearchParams();
+    const categoryFromUrl = searchParams.get('category');
+    
     const blogs = blogData;
 
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const [activeCategory, setActiveCategory] = useState("All");
+    const [activeCategory, setActiveCategory] = useState(categoryFromUrl || "All");
     const itemsPerPage = 6;
+
+    useEffect(() => {
+        if (categoryFromUrl) {
+            setActiveCategory(categoryFromUrl);
+            setCurrentPage(1);
+        }
+    }, [categoryFromUrl]);
 
     const filterBlog = blogs.filter((item)=>{
         const matchesSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
