@@ -192,3 +192,28 @@ html {
 .float-slow {
   animation: floatSlow 4s ease-in-out infinite;
 }
+
+/* Universal Swiper Pagination */
+.universal-pagination .swiper-pagination-bullet {
+  width: 20px;
+  height: 5px;
+  background-color: gray;
+  opacity: 1;
+  transition: all 0.3s ease;
+  border-radius: 1px;
+}
+
+.universal-pagination .swiper-pagination-bullet-active {
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  width: 25px;
+  height: 5px;
+}
+
+
+.universal-pagination .swiper-pagination-bullets-dynamic {
+  overflow: hidden;
+}
+
+.universal-pagination.swiper {
+  padding-bottom: 60px !important;
+}

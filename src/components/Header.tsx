@@ -128,9 +128,11 @@ const Header = () => {
 
   const [open, setOpen] = useState(false);
   const [productOpen, setProductOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
 
   const isActive = (path: string) => location.pathname === path;
   const isProductActive = location.pathname.startsWith('/product');
+  const isAboutActive = location.pathname.startsWith('/about') || location.pathname === '/career' || location.pathname === '/team';
 
   return (
     <header className="sticky top-0 left-0 w-full z-50">
@@ -179,9 +181,37 @@ const Header = () => {
             <Link to="/services" className={`hover:text-red-500 ${isActive('/services') ? 'text-red-500' : ''}`}>Services</Link>
             <Link to="/projects" className={`hover:text-red-500 ${isActive('/projects') ? 'text-red-500' : ''}`}>portfolio </Link>
             <Link to="/blog" className={`hover:text-red-500 ${isActive('/blog') ? 'text-red-500' : ''}`}>Blog</Link>
-            <Link to="/about" className={`hover:text-red-500 ${isActive('/about') ? 'text-red-500' : ''}`}>About</Link>
-            <Link to="/team" className={`hover:text-red-500 ${isActive('/team') ? 'text-red-500' : ''}`}>Team</Link>
-            <Link to="/contact" className={`hover:text-red-500 ${isActive('/contact') ? 'text-red-500' : ''}`}>Contact</Link>
+             <Link to="/contact" className={`hover:text-red-500 ${isActive('/contact') ? 'text-red-500' : ''}`}>Contact</Link>
+            
+            <div className="relative group">
+              <div onClick={()=>setAboutOpen(!aboutOpen)}
+                className={`flex items-center gap-1 cursor-pointer hover:text-red-500 ${isAboutActive ? 'text-red-500' : ''}`}>
+                About
+                <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-200 will-change-transform" />
+              </div>
+
+              {/* ABOUT DROPDOWN */}
+              <div className="absolute left-0 top-full text-sm hidden group-hover:block bg-white shadow-xl rounded-sm border w-48 overflow-hidden">
+                <Link
+                  to={'/about'}
+                  className={`block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition border-b-2 border-gray-200 ${isActive('/about') ? 'bg-red-50 text-red-500' : ''}`}
+                >
+                  About Us
+                </Link>
+                <Link
+                  to={'/career'}
+                  className={`block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition border-b-2 border-gray-200 ${isActive('/career') ? 'bg-red-50 text-red-500' : ''}`}
+                >
+                  Career
+                </Link>
+                <Link
+                  to={'/team'}
+                  className={`block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition ${isActive('/team') ? 'bg-red-50 text-red-500' : ''}`}
+                >
+                  Team
+                </Link>
+              </div>
+            </div>
 
             <Link to="/contact">
               <button className="flex items-center bg-gradient-to-r from-red-500 to-orange-400 hover:bg-orange-600 rounded-full pl-7 pr-1.5 py-1.5  transition-transform duration-200 hover:scale-105 active:scale-95 cursor-pointer">
@@ -255,8 +285,34 @@ const Header = () => {
 
               <Link onClick={() => setMenuOpen(false)} to="/projects" className={isActive('/projects') ? 'text-red-500' : ''}>Portfolio</Link> 
               <Link onClick={() => setMenuOpen(false)} to="/blog" className={isActive('/blog') ? 'text-red-500' : ''}>Blog</Link>
-              <Link onClick={() => setMenuOpen(false)} to="/about" className={isActive('/about') ? 'text-red-500' : ''}>About</Link>
-              <Link onClick={() => setMenuOpen(false)} to="/team" className={`${isActive('/team') ? 'text-red-500' : ''} hover:text-red-500`}>Team</Link>
+              
+              {/* ABOUT MOBILE DROPDOWN */}
+              <div>
+                <button
+                  onClick={() => setAboutOpen(!aboutOpen)}
+                  className="flex items-center justify-between w-full"
+                >
+                  About
+                  <ChevronDown
+                    className={`transition ${aboutOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+
+                {aboutOpen && (
+                  <div className="mt-3 ml-3 flex flex-col gap-3 text-gray-600">
+                    <Link onClick={() => setMenuOpen(false)} to="/about" className={isActive('/about') ? 'text-red-500' : ''}>
+                      About Us
+                    </Link>
+                    <Link onClick={() => setMenuOpen(false)} to="/career" className={isActive('/career') ? 'text-red-500' : ''}>
+                      Career
+                    </Link>
+                    <Link onClick={() => setMenuOpen(false)} to="/team" className={isActive('/team') ? 'text-red-500' : ''}>
+                      Team
+                    </Link>
+                  </div>
+                )}
+              </div>
+              
               <Link onClick={() => setMenuOpen(false)} to="/contact" className={isActive('/contact') ? 'text-red-500' : ''}>Contact Us</Link>
 
             </div>

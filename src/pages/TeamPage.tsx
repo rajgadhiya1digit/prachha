@@ -339,13 +339,14 @@ const TeamPage = () => {
                         <p className="text-white/90 text-sm sm:text-base md:text-lg mb-8 max-w-2xl mx-auto">
                             We're always looking for talented individuals to join our growing team. Check out our open positions and start your journey with us.
                         </p>
-                        <motion.button
+                        <motion.a
+                            href='/career'
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="bg-white text-red-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors"
                         >
                             View Open Positions
-                        </motion.button>
+                        </motion.a>
                     </div>
                 </div>
             </section>

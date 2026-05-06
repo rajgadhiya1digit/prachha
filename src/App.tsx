@@ -34,6 +34,7 @@ const ProjectPage = lazy(() => import('./pages/ProjectPage'));
 const TeamdetailsPage = lazy(() => import('./pages/TeamdetailsPage'));
 const Newsletter = lazy(() => import('./components/Newsletter'));
 const CareerPage = lazy(() => import('./pages/CareerPage'));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 
 export default function App() {
   return (
@@ -76,6 +77,7 @@ export default function App() {
 
         <Route path="/product/one_store" element={<Suspense fallback={<div>Loading...</div>}><One_store /></Suspense>} />
         <Route path="/product/wherit" element={<Suspense fallback={<div>Loading...</div>}><Wherit /></Suspense>} />
+        <Route path="/privacy-policy" element={<Suspense fallback={<div>Loading...</div>}><PrivacyPolicyPage /></Suspense>} />
 
       </Routes>
       <Footer />

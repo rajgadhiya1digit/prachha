@@ -3,27 +3,10 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Briefcase, Users, Zap, Target, Mail, MapPin, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
-// Custom CSS for swiper pagination
-const swiperStyles = `
-  .swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
-    background: #e5e7eb;
-    opacity: 1;
-    transition: all 0.3s ease;
-  }
-  .swiper-pagination-bullet-active {
-    background: linear-gradient(to right, #ef4444, #f97316);
-    transform: scale(1.2);
-  }
-  .swiper {
-    padding-bottom: 50px !important;
-  }
-`;
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -83,25 +66,22 @@ const jobOpenings = [
     title: "UI/UX Designer",
     department: "Design",
     type: "Full-time",
-    experience: "2+ years"
+    experience: "2+ years",
+    location: "Surat"
   },
   {
     title: "Backend Developer (Node.js)",
     department: "Engineering",
     type: "Full-time",
-    experience: "3+ years"
-  },
-  {
-    title: "Mobile App Developer (React Native)",
-    department: "Engineering",
-    type: "Full-time",
-    experience: "2+ years"
+    experience: "3+ years",
+    location: "Surat"
   },
   {
     title: "QA Engineer",
     department: "Quality Assurance",
     type: "Full-time",
-    experience: "2+ years"
+    experience: "2+ years",
+    location: "Surat"
   },
   
 ];
@@ -358,14 +338,15 @@ const CareerPage = () => {
 
           {/* Mobile Swiper */}
           <div className="lg:hidden">
-            <style>{swiperStyles}</style>
             <Swiper
               spaceBetween={20}
               slidesPerView={1}
               loop={true}
+              modules={[Pagination]}
+              className="universal-pagination"
               pagination={{
                 clickable: true,
-                dynamicBullets: true,
+                // dynamicBullets: true,
               }}
             >
               {careerStages.map((stage, index) => (
@@ -561,7 +542,7 @@ const CareerPage = () => {
             </motion.p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {jobOpenings.map((job, index) => (
               <motion.div
                 key={index}
@@ -571,7 +552,7 @@ const CareerPage = () => {
                 variants={fadeInUp}
                 transition={{ delay: index * 0.08 }}
                 whileHover={{ y: -4 }}
-                className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-red-300 hover:shadow-xl transition-all duration-300 group"
+                className="bg-white rounded-md p-6 border border-gray-200 hover:border-red-300 hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="flex flex-col h-full">
                   <div className="flex-1">
@@ -589,10 +570,10 @@ const CareerPage = () => {
                         <Briefcase size={16} className="text-red-500 flex-shrink-0" />
                         <span>{job.department}</span>
                       </div>
-                      {/* <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <div className="flex items-center gap-2 text-sm text-gray-600">
                         <MapPin size={16} className="text-red-500 flex-shrink-0" />
-                        <span>{job.location || "Ahmedabad"}</span>
-                      </div> */}
+                        <span>{job.location || "Surat"}</span>
+                      </div>
                       <div className="flex items-center gap-2 text-sm text-gray-600">
                         <Users size={16} className="text-red-500 flex-shrink-0" />
                         <span>{job.experience}</span>
@@ -611,39 +592,61 @@ const CareerPage = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* CTA Section */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={fadeInUp}
-            className="mt-12 text-center"
-          >
-            <div className="bg-gradient-to-br from-white via-gray-50 to-orange-50 rounded-3xl p-8 sm:p-12 max-w-4xl mx-auto shadow-2xl border border-gray-200 relative overflow-hidden">
-              {/* Background decoration */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-l from-red-100/50 to-orange-100/30 blur-xl rounded-full" />
-              <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-r from-orange-100/40 to-yellow-100/30 blur-xl rounded-full" />
-              
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 leading-tight relative z-10">
-                Don't See the Right Role?
-              </h3>
-              <p className="text-gray-600 mb-8 text-sm sm:text-base leading-relaxed relative z-10">
-                We're always looking for talented people. Send us your CV and we'll keep you in mind for future opportunities.
-              </p>
-              <div className="flex justify-center relative z-10">
-              <a
-                href="mailto:careers@prachha.com"
-                className="bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400 hover:scale-[1.02] transition duration-300 px-8 py-4 rounded-xl flex items-center justify-center gap-3 text-white font-semibold w-full sm:w-auto shadow-xl shadow-red-500/30 hover:shadow-red-500/40"
+      {/* CTA Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInUp}
+        className="py-20 sm:py-24 bg-gradient-to-br from-gray-50 via-white to-orange-50 relative overflow-hidden"
+      >
+        {/* Background decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-red-100/20 to-orange-100/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-orange-100/20 to-yellow-100/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 animate-pulse" style={{ animationDelay: '1s' }} />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 sm:p-12 lg:p-16 max-w-4xl mx-auto shadow-2xl border border-gray-100/50 relative overflow-hidden">
+            {/* Animated gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 via-orange-500/5 to-yellow-500/5 opacity-0 hover:opacity-100 transition-opacity duration-500" />
+            
+            {/* Decorative circles */}
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-l from-red-100/60 to-orange-100/40 blur-2xl rounded-full animate-pulse" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-r from-orange-100/50 to-yellow-100/40 blur-2xl rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+            
+            {/* Icon */}
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+              className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-red-500 via-orange-500 to-yellow-400 rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-xl shadow-red-500/30 relative z-10"
+            >
+              <Mail className="text-white w-8 h-8 sm:w-10 sm:h-10" />
+            </motion.div>
+            
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight relative z-10 text-center">
+              Don't See the Right Role?
+            </h3>
+            <p className="text-gray-600 mb-8 sm:mb-10 text-sm sm:text-base lg:text-lg leading-relaxed relative z-10 text-center max-w-2xl mx-auto">
+              We're always looking for talented people to join our team. Send us your CV and we'll keep you in mind for future opportunities that match your skills.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }} 
+                target='_blank'
+                href="mailto:info@prachha.com"
+                className="bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400 hover:from-red-600 hover:via-orange-600 hover:to-yellow-500 transition-all duration-300 px-8 py-4 rounded-xl flex items-center justify-center gap-3 text-white font-semibold w-full sm:w-auto shadow-xl shadow-red-500/30 hover:shadow-red-500/50"
               >
                 <Mail size={20} />
                 Email Your CV
-              </a>
+              </motion.a>
             </div>
-            </div>
-          </motion.div>
+          </div>
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };

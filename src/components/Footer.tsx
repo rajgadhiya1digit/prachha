@@ -133,7 +133,7 @@ export function Footer() {
               © 2026 Prachha Tech. All rights reserved.
             </div>
             <div className="flex items-center gap-6">
-              <a href="#" className="text-sm hover:text-[#FF0000] transition-colors">Privacy Policy</a>
+              <Link to="/privacy-policy" className="text-sm hover:text-[#FF0000] transition-colors">Privacy Policy</Link>
               <a href="#" className="text-sm hover:text-[#FF0000] transition-colors">Terms of Service</a>
               <a href="#" className="text-sm hover:text-[#FF0000] transition-colors">Cookie Policy</a>
             </div>
