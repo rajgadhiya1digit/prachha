@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react';
 
-export default function PrivacyPolicyPage() {
+export default function TermsAndConditionsPage() {
   const [activeSection, setActiveSection] = useState('');
 
   const sections = [
     { id: 'introduction', title: '1. Introduction', number: '1' },
-    { id: 'definitions', title: '2. Definitions', number: '2' },
-    { id: 'personal-data', title: '3. Personal Data We Collect', number: '3' },
-    { id: 'purpose', title: '4. Purpose of Processing', number: '4' },
-    { id: 'legal-basis', title: '5. Legal Basis for Processing', number: '5' },
-    { id: 'collection', title: '6. Collection Methods', number: '6' },
-    { id: 'sharing', title: '7. Data Sharing & Transfers', number: '7' },
-    { id: 'retention', title: '8. Data Retention', number: '8' },
-    { id: 'rights', title: '9. Your Rights', number: '9' },
-    { id: 'cookies', title: '10. Cookies & Tracking Technologies', number: '10' },
-    { id: 'security', title: '11. Data Security', number: '11' },
-    { id: 'changes', title: '12. Changes to This Privacy Policy', number: '12' },
-    { id: 'contact', title: '13. Contact Us', number: '13' },
+    { id: 'acceptance', title: '2. Acceptance of Terms', number: '2' },
+    { id: 'services', title: '3. Services Description', number: '3' },
+    { id: 'responsibilities', title: '4. User Responsibilities', number: '4' },
+    { id: 'intellectual-property', title: '5. Intellectual Property', number: '5' },
+    { id: 'payments', title: '6. Payments & Billing', number: '6' },
+    { id: 'third-party', title: '7. Third-Party Services', number: '7' },
+    { id: 'termination', title: '8. Termination', number: '8' },
+    { id: 'liability', title: '9. Limitation of Liability', number: '9' },
+    { id: 'indemnification', title: '10. Indemnification', number: '10' },
+    { id: 'privacy', title: '11. Privacy Policy Reference', number: '11' },
+    { id: 'changes', title: '12. Changes to Terms', number: '12' },
+    { id: 'governing-law', title: '13. Governing Law', number: '13' },
+    { id: 'contact', title: '14. Contact Information', number: '14' },
   ];
 
   useEffect(() => {
@@ -59,14 +60,14 @@ export default function PrivacyPolicyPage() {
           <div className="text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
               <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Privacy Policy
+              Terms and Conditions
             </h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Your privacy matters to us. This policy outlines how Prachha Tech collects, uses, and protects your personal information.
+              Welcome to Prachha Tech. Please read these terms and conditions carefully before using our services.
             </p>
           </div>
         </div>
@@ -116,473 +117,460 @@ export default function PrivacyPolicyPage() {
                 </div>
                 <div className="ml-0 sm:ml-12 space-y-4">
                   <p className="text-gray-700 leading-relaxed">
-                    At Prachha Tech, we are committed to protecting your privacy and ensuring the security of your personal information. 
-                    This Privacy Policy explains how we collect, use, store, and protect your data when you visit our website, 
-                    use our services, or interact with our company.
+                    Welcome to Prachha Tech. These Terms and Conditions ("Terms") govern your access to and use of our website, services, and products. By accessing or using our services, you agree to be bound by these Terms.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
-                    We are a technology company based in Surat, Gujarat, India, specializing in software development, AI solutions, and digital transformation services. 
-                    This policy applies to all users of our website and services.
+                    Prachha Tech is a technology company based in Surat, Gujarat, India, specializing in software development, AI solutions, and digital transformation services. We are committed to providing innovative technology solutions that help businesses thrive in the digital age.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
-                    By using our services, you acknowledge that you have read and understood this Privacy Policy and consent to the collection, 
-                    use, and sharing of your information as described herein.
+                    These Terms apply to all users of our services, including without limitation users who are browsers, vendors, customers, merchants, and/or contributors of content.
                   </p>
                 </div>
               </section>
 
-              {/* 2. Definitions */}
-              <section id="definitions" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
+              {/* 2. Acceptance of Terms */}
+              <section id="acceptance" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                     2
                   </span>
-                  <h2 className="text-2xl font-bold text-gray-900">Definitions</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">Acceptance of Terms</h2>
                 </div>
                 <div className="ml-0 sm:ml-12 space-y-4">
                   <p className="text-gray-700 leading-relaxed">
-                    For the purposes of this Privacy Policy, the following terms have the following meanings:
+                    By accessing or using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree to these Terms, please do not use our services.
                   </p>
-                  <ul className="space-y-3 text-gray-700">
-                    <li className="flex items-start">
-                      <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Personal Data:</strong> Any information relating to an identified or identifiable natural person. This includes, but is not limited to, name, email address, phone number, and other contact information.</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Usage Data:</strong> Data collected automatically either generated by the use of our Service or from the Service infrastructure itself. This includes IP addresses, browser types, and access times.</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Cookies:</strong> Small files stored on your device (computer or mobile device) that track your browsing behavior and preferences.</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Data Controller:</strong> Prachha Tech determines the purposes and means of the processing of Personal Data.</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Data Processor:</strong> Any natural or legal person who processes the data on behalf of the Data Controller.</span>
-                    </li>
-                  </ul>
+                  <p className="text-gray-700 leading-relaxed">
+                    Your continued use of our services following the posting of any changes to these Terms constitutes acceptance of those changes. You should review this page periodically for any updates.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    If you do not agree to any of these Terms, you are not authorized to use or access our services and you must immediately cease such use.
+                  </p>
                 </div>
               </section>
 
-              {/* 3. Personal Data We Collect */}
-              <section id="personal-data" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
+              {/* 3. Services Description */}
+              <section id="services" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                     3
                   </span>
-                  <h2 className="text-2xl font-bold text-gray-900">Personal Data We Collect</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">Services Description</h2>
                 </div>
                 <div className="ml-0 sm:ml-12 space-y-4">
                   <p className="text-gray-700 leading-relaxed">
-                    We may collect and process the following categories of personal data:
+                    Prachha Tech provides the following services:
                   </p>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Identity Data:</strong> Name, company name, job title, and professional information</span>
+                      <span><strong>Custom Software Development:</strong> Tailored software solutions for business needs including web applications, mobile apps, and enterprise systems.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Contact Data:</strong> Email address, phone number, website link, and other contact details</span>
+                      <span><strong>AI & Machine Learning Solutions:</strong> Advanced AI-powered solutions for automation, data analysis, and intelligent decision-making.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Technical Data:</strong> IP address, browser type, device identifiers, system logs, and technical usage information</span>
+                      <span><strong>Cloud Services:</strong> Cloud migration, deployment, and management services on leading cloud platforms.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Usage Data:</strong> Interactions with our website/services, access times, pages viewed, and feature usage patterns</span>
+                      <span><strong>Consulting Services:</strong> Technical consulting and strategic guidance for digital transformation initiatives.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Business Information:</strong> Company details, project requirements, business inquiries, and professional needs</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Voluntarily Provided Information:</strong> Inquiry forms, uploaded resumes, project proposals, or other details you choose to share</span>
+                      <span><strong>Support and Maintenance:</strong> Ongoing technical support and system maintenance services.</span>
                     </li>
                   </ul>
                   <p className="text-gray-700 leading-relaxed">
-                    We only collect data that is necessary for the purposes outlined in this Privacy Policy and we take reasonable steps to ensure that the data is accurate and up-to-date.
+                    We reserve the right to modify, suspend, or discontinue any part of our services at any time without prior notice.
                   </p>
                 </div>
               </section>
 
-              {/* 4. Purpose of Processing */}
-              <section id="purpose" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
+              {/* 4. User Responsibilities */}
+              <section id="responsibilities" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                     4
                   </span>
-                  <h2 className="text-2xl font-bold text-gray-900">Purpose of Processing</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">User Responsibilities</h2>
                 </div>
                 <div className="ml-0 sm:ml-12 space-y-4">
                   <p className="text-gray-700 leading-relaxed">
-                    We process personal data for the following lawful business purposes:
+                    As a user of our services, you agree to:
                   </p>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>To provide and improve our services, website performance, and overall user experience</span>
+                      <span>Provide accurate, current, and complete information during registration and throughout your use of our services.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>To engage with prospective and existing clients for business development and relationship management</span>
+                      <span>Use our services for lawful purposes only and in compliance with all applicable laws and regulations.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>To communicate service updates, respond to inquiries, and provide technical support</span>
+                      <span>Not attempt to gain unauthorized access to our systems, networks, or servers.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>To ensure the security and integrity of our systems and protect against unauthorized access</span>
+                      <span>Respect intellectual property rights and not infringe on any patents, copyrights, trademarks, or other proprietary rights.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>To comply with legal, regulatory, or contractual obligations and audit requirements</span>
+                      <span>Maintain the confidentiality of your account credentials and notify us immediately of any unauthorized use.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>For recruitment, employment, and human resources purposes</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>To analyze website usage and improve our digital presence and marketing efforts</span>
+                      <span>Not engage in any activity that interferes with or disrupts our services or servers.</span>
                     </li>
                   </ul>
                 </div>
               </section>
 
-              {/* 5. Legal Basis for Processing */}
-              <section id="legal-basis" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
+              {/* 5. Intellectual Property */}
+              <section id="intellectual-property" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                     5
                   </span>
-                  <h2 className="text-2xl font-bold text-gray-900">Legal Basis for Processing</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">Intellectual Property</h2>
                 </div>
                 <div className="ml-0 sm:ml-12 space-y-4">
                   <p className="text-gray-700 leading-relaxed">
-                    We rely on the following lawful bases for processing your personal data:
+                    All content, trademarks, service marks, logos, and intellectual property on our website and services are owned by Prachha Tech or our licensors. This includes but is not limited to:
                   </p>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Consent:</strong> Particularly for marketing communications, cookies, and tracking technologies where explicit consent is required by law</span>
+                      <span>Software code, applications, and systems developed by Prachha Tech</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Contractual Necessity:</strong> To deliver requested services, respond to inquiries, or enter into business agreements</span>
+                      <span>Website design, layout, graphics, and visual elements</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Legitimate Interests:</strong> For improving our services, maintaining security, operational analytics, and legitimate business purposes</span>
+                      <span>Documentation, guides, and other written materials</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Legal Obligation:</strong> Compliance with statutory requirements, legal proceedings, audit, or regulatory disclosures</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Vital Interests:</strong> To protect essential interests in emergency situations</span>
+                      <span>Brand names, trademarks, and service marks</span>
                     </li>
                   </ul>
                   <p className="text-gray-700 leading-relaxed">
-                    We will always ensure that our processing activities are proportionate and necessary for the stated purposes.
+                    You may not use, copy, reproduce, distribute, or create derivative works of any our intellectual property without prior written consent from Prachha Tech.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    Any unauthorized use of our intellectual property may result in legal action and claims for damages.
                   </p>
                 </div>
               </section>
 
-              {/* 6. Collection Methods */}
-              <section id="collection" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
+              {/* 6. Payments & Billing */}
+              <section id="payments" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                     6
                   </span>
-                  <h2 className="text-2xl font-bold text-gray-900">Collection Methods</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">Payments & Billing</h2>
                 </div>
                 <div className="ml-0 sm:ml-12 space-y-4">
                   <p className="text-gray-700 leading-relaxed">
-                    We collect data through various methods:
+                    Payment terms are as follows:
                   </p>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Direct Collection:</strong> Contact forms, inquiry submissions, resumes, and information you voluntarily provide through our website</span>
+                      <span><strong>Payment Schedules:</strong> Payment schedules will be specified in project agreements and may include milestone-based payments or monthly recurring fees.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Automated Collection:</strong> Cookies, analytics tools, web beacons, and similar technologies (with consent where legally required)</span>
+                      <span><strong>Late Payments:</strong> Late payments may incur interest charges at a rate of 1.5% per month or the maximum rate permitted by law, whichever is lower.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Communication Channels:</strong> Email exchanges, phone calls, chat conversations, and other direct communications</span>
+                      <span><strong>Refund Policy:</strong> Refunds are handled on a case-by-case basis and are subject to the terms outlined in individual service agreements.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Business Interactions:</strong> Meetings, networking events, conferences, and professional engagements</span>
+                      <span><strong>Price Changes:</strong> All prices are subject to change without prior notice, but any changes will not affect existing agreements.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Third-Party Sources:</strong> Publicly available information and legitimate business directories where appropriate</span>
+                      <span><strong>Payment Methods:</strong> We accept various payment methods including bank transfers, credit cards, and digital payment platforms.</span>
                     </li>
                   </ul>
+                  <p className="text-gray-700 leading-relaxed">
+                    All payments are due within the timeframe specified in your service agreement. Failure to make timely payments may result in suspension or termination of services.
+                  </p>
                 </div>
               </section>
 
-              {/* 7. Data Sharing & Transfers */}
-              <section id="sharing" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
+              {/* 7. Third-Party Services */}
+              <section id="third-party" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                     7
                   </span>
-                  <h2 className="text-2xl font-bold text-gray-900">Data Sharing & Transfers</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">Third-Party Services</h2>
                 </div>
                 <div className="ml-0 sm:ml-12 space-y-4">
                   <p className="text-gray-700 leading-relaxed">
-                    We may share your personal data with:
+                    Our services may integrate with or provide access to third-party services, APIs, or platforms. These include:
                   </p>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Service Providers & Partners:</strong> Third-party vendors including cloud hosting providers, analytics services, IT support, and other business partners under strict contractual obligations</span>
+                      <span>Cloud hosting providers (AWS, Google Cloud, Azure)</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Legal Authorities:</strong> When required by law, regulation, court order, or in response to lawful requests from government agencies</span>
+                      <span>Payment processing services</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Business Transactions:</strong> In case of merger, acquisition, or sale of assets, provided appropriate safeguards are in place to protect your data</span>
+                      <span>Analytics and monitoring tools</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Cross-border transfers:</strong> Where data is transferred internationally, we ensure appropriate safeguards including standard contractual clauses or other legal mechanisms</span>
+                      <span>Communication platforms and APIs</span>
                     </li>
                   </ul>
                   <p className="text-gray-700 leading-relaxed">
-                    We do not sell your personal data to third parties for marketing purposes.
+                    Your use of third-party services is subject to their respective terms of service and privacy policies. We are not responsible for the availability, functionality, or terms of these third-party services.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    We do not endorse and are not responsible or liable for any content, advertising, products, services, or other materials on or available from such third-party resources.
                   </p>
                 </div>
               </section>
 
-              {/* 8. Data Retention */}
-              <section id="retention" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
+              {/* 8. Termination */}
+              <section id="termination" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                     8
                   </span>
-                  <h2 className="text-2xl font-bold text-gray-900">Data Retention</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">Termination</h2>
                 </div>
                 <div className="ml-0 sm:ml-12 space-y-4">
                   <p className="text-gray-700 leading-relaxed">
-                    We retain your personal data only for as long as necessary to fulfill the purposes outlined in this policy or to comply with applicable legal and regulatory requirements.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed">
-                    Our retention periods are determined based on:
+                    We reserve the right to terminate or suspend access to our services immediately, without prior notice or liability, for any reason whatsoever, including:
                   </p>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>The nature and purpose of the data collection</span>
+                      <span>Breach of these Terms or any applicable service agreement</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>Legal and regulatory requirements</span>
+                      <span>Violation of applicable laws or regulations</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>Business needs and contractual obligations</span>
+                      <span>Fraudulent or illegal activities</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>Your preferences and consent</span>
+                      <span>Activities that compromise the security or integrity of our systems</span>
                     </li>
                   </ul>
                   <p className="text-gray-700 leading-relaxed">
-                    Data that is no longer required will be securely deleted or anonymized in accordance with our data retention policies.
+                    Upon termination, your right to use the services will cease immediately. All provisions of the Terms which by their nature should survive termination shall survive, including ownership provisions, warranty disclaimers, and limitations of liability.
                   </p>
                 </div>
               </section>
 
-              {/* 9. Your Rights */}
-              <section id="rights" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
+              {/* 9. Limitation of Liability */}
+              <section id="liability" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                     9
                   </span>
-                  <h2 className="text-2xl font-bold text-gray-900">Your Rights</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">Limitation of Liability</h2>
                 </div>
                 <div className="ml-0 sm:ml-12 space-y-4">
                   <p className="text-gray-700 leading-relaxed">
-                    Depending on your jurisdiction, you may exercise the following rights:
+                    To the maximum extent permitted by law, Prachha Tech shall not be liable for any indirect, incidental, special, or consequential damages arising out of or in connection with our services, including but not limited to:
                   </p>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Right to Access:</strong> Request access to your personal data and information about how we process it</span>
+                      <span>Loss of data, information, or business opportunities</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Right to Correction:</strong> Request correction of inaccurate or incomplete personal data</span>
+                      <span>Business interruption or loss of profits</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Right to Erasure:</strong> Request deletion of your personal data (subject to legal or contractual obligations)</span>
+                      <span>Loss of goodwill or reputation</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Right to Withdraw Consent:</strong> Withdraw consent at any time for consent-based processing</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Right to Restrict Processing:</strong> Request restriction of processing in certain circumstances</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Right to Object:</strong> Object to processing based on legitimate interests</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Right to Data Portability:</strong> Request transfer of your data to another service provider</span>
+                      <span>Costs of procurement of substitute goods or services</span>
                     </li>
                   </ul>
                   <p className="text-gray-700 leading-relaxed">
-                    You may exercise these rights by contacting us at <a href="mailto:info@prachha.tech" className="text-red-600 hover:text-red-700 font-medium">info@prachha.tech</a>. We will respond to your request within the timeframes required by applicable law.
+                    Our total liability for any claims arising from or relating to these Terms or our services shall not exceed the amount paid by you for the services in the twelve (12) months preceding the claim.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    Some jurisdictions do not allow the exclusion of certain warranties or the limitation of liability for consequential or incidental damages, so these limitations may not apply to you.
                   </p>
                 </div>
               </section>
 
-              {/* 10. Cookies & Tracking Technologies */}
-              <section id="cookies" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
+              {/* 10. Indemnification */}
+              <section id="indemnification" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                     10
                   </span>
-                  <h2 className="text-2xl font-bold text-gray-900">Cookies & Tracking Technologies</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">Indemnification</h2>
                 </div>
                 <div className="ml-0 sm:ml-12 space-y-4">
                   <p className="text-gray-700 leading-relaxed">
-                    Our website uses cookies and similar technologies to:
+                    You agree to indemnify, defend, and hold harmless Prachha Tech and our officers, directors, employees, and agents from and against any and all claims, liabilities, damages, losses, and expenses, including reasonable attorneys' fees, arising from or in connection with:
                   </p>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>Ensure secure and reliable access to our website</span>
+                      <span>Your use or misuse of our services</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>Monitor system performance and optimize functionality</span>
+                      <span>Your violation of these Terms or any applicable law</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>Analyze website usage and engagement patterns (subject to consent where legally required)</span>
+                      <span>Your violation of any third-party rights, including intellectual property rights</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>Remember your preferences and settings for improved user experience</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>Provide personalized content and relevant information</span>
+                      <span>Any content or information you provide or transmit through our services</span>
                     </li>
                   </ul>
                   <p className="text-gray-700 leading-relaxed">
-                    You can manage your cookie preferences through your browser settings. Please note that disabling certain cookies may affect your experience on our website.
+                    We reserve the right to assume the exclusive defense and control of any matter otherwise subject to indemnification by you, in which event you shall assist and cooperate with us in asserting any available defenses.
                   </p>
                 </div>
               </section>
 
-              {/* 11. Data Security */}
-              <section id="security" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
+              {/* 11. Privacy Policy Reference */}
+              <section id="privacy" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                     11
                   </span>
-                  <h2 className="text-2xl font-bold text-gray-900">Data Security</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">Privacy Policy Reference</h2>
                 </div>
                 <div className="ml-0 sm:ml-12 space-y-4">
                   <p className="text-gray-700 leading-relaxed">
-                    We adopt industry best practices to ensure data confidentiality, integrity, and availability. Our security measures include:
+                    Your privacy is important to us. Our Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    By using our services, you consent to the collection and use of information in accordance with our Privacy Policy. Our Privacy Policy is incorporated by reference into these Terms.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    Key aspects of our privacy practices include:
                   </p>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Encryption:</strong> Data encryption in transit and at rest using industry-standard protocols</span>
+                      <span>Collection of personal information necessary to provide our services</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Access Controls:</strong> Role-based access control and principle of least privilege</span>
+                      <span>Use of information to improve and personalize our services</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Regular Assessments:</strong> Periodic security audits and risk assessments</span>
+                      <span>Implementation of appropriate security measures to protect your data</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Employee Training:</strong> Regular security awareness training for all staff members</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span><strong>Incident Response:</strong> Established procedures for handling security incidents</span>
+                      <span>Your rights regarding your personal information</span>
                     </li>
                   </ul>
                   <p className="text-gray-700 leading-relaxed">
-                    While we take reasonable measures to protect your personal information, no method of transmission over the internet or method of electronic storage is 100% secure.
+                    Please review our Privacy Policy for detailed information about our privacy practices.
                   </p>
                 </div>
               </section>
 
-              {/* 12. Changes to This Privacy Policy */}
+              {/* 12. Changes to Terms */}
               <section id="changes" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <span className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                     12
                   </span>
-                  <h2 className="text-2xl font-bold text-gray-900">Changes to This Privacy Policy</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">Changes to Terms</h2>
                 </div>
                 <div className="ml-0 sm:ml-12 space-y-4">
                   <p className="text-gray-700 leading-relaxed">
-                    We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or business operations.
+                    We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting on our website.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
-                    When we make changes, we will:
+                    When we make changes to these Terms, we will:
                   </p>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>Post the updated Privacy Policy on our website with an updated effective date</span>
+                      <span>Post the updated Terms on our website and update the "Last Updated" date</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>Notify users of significant changes through email or website notifications where appropriate</span>
+                      <span>Notify users of significant changes via email or website notifications</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-3 mt-1">•</span>
-                      <span>Provide a summary of key changes for easy understanding</span>
+                      <span>Provide a summary of the changes for easy understanding</span>
                     </li>
                   </ul>
                   <p className="text-gray-700 leading-relaxed">
-                    You are advised to review this Privacy Policy periodically for any changes. Your continued use of our services after changes constitutes acceptance of the updated policy.
+                    Your continued use of our services after any such changes constitutes acceptance of the modified Terms. If you do not agree to the modified Terms, you must stop using our services.
                   </p>
                 </div>
               </section>
 
-              {/* 13. Contact Us */}
-              <section id="contact" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
-                <div className="flex items-start gap-4 mb-6">
+              {/* 13. Governing Law */}
+              <section id="governing-law" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
+                <div className="flex items-start gap-4 mb-4">
                   <span className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                     13
                   </span>
-                  <h2 className="text-2xl font-bold text-gray-900">Contact Us</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">Governing Law</h2>
+                </div>
+                <div className="ml-0 sm:ml-12 space-y-4">
+                  <p className="text-gray-700 leading-relaxed">
+                    These Terms shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law provisions.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts located in Surat, Gujarat, India.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    The application of the United Nations Convention on Contracts for the International Sale of Goods is expressly excluded.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall continue to be valid and enforceable.
+                  </p>
+                </div>
+              </section>
+
+              {/* 14. Contact Information */}
+              <section id="contact" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8">
+                <div className="flex items-start gap-4 mb-6">
+                  <span className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                    14
+                  </span>
+                  <h2 className="text-2xl font-bold text-gray-900">Contact Information</h2>
                 </div>
                 <div className="ml-0 sm:ml-12">
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    If you have any questions about this Privacy Policy or your data protection rights, please contact us:
+                    If you have any questions about these Terms and Conditions, please contact us:
                   </p>
                   <div className="grid md:grid-cols-3 gap-6">
                     <div className="bg-gray-50 p-6 rounded-xl">

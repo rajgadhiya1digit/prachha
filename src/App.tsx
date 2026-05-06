@@ -35,6 +35,7 @@ const TeamdetailsPage = lazy(() => import('./pages/TeamdetailsPage'));
 const Newsletter = lazy(() => import('./components/Newsletter'));
 const CareerPage = lazy(() => import('./pages/CareerPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
+const TermsAndConditionsPage = lazy(() => import('./pages/TermsAndConditionsPage'));
 
 export default function App() {
   return (
@@ -78,6 +79,7 @@ export default function App() {
         <Route path="/product/one_store" element={<Suspense fallback={<div>Loading...</div>}><One_store /></Suspense>} />
         <Route path="/product/wherit" element={<Suspense fallback={<div>Loading...</div>}><Wherit /></Suspense>} />
         <Route path="/privacy-policy" element={<Suspense fallback={<div>Loading...</div>}><PrivacyPolicyPage /></Suspense>} />
+        <Route path="/terms-and-conditions" element={<Suspense fallback={<div>Loading...</div>}><TermsAndConditionsPage /></Suspense>} />
 
       </Routes>
       <Footer />
