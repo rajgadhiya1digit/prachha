@@ -62,7 +62,7 @@ export function WhyChoose() {
         
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 text-sm font-semibold tracking-wider uppercase text-red-500 rounded-full">
+          <span className="inline-block px-4 py-2 text-sm font-semibold tracking-wider uppercase text-red-500 rounded-full select-none">
             Why Choose Us
           </span>
 
@@ -71,10 +71,10 @@ export function WhyChoose() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="mt-5 text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold text-gray-900 leading-tight"
+            className="mt-5 text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold text-gray-900 leading-tight select-none"
           >
             Your Trusted{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-pink-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500  to-orange-500 select-none">
               Technology Partner
             </span>
           </motion.h2>
@@ -99,7 +99,6 @@ export function WhyChoose() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="float-slow"
             >
               <Card className="relative group p-4 sm:p-6 lg:p-8 h-full rounded-xl border border-gray-100 bg-white backdrop-blur-xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer overflow-hidden">
 
@@ -115,13 +114,13 @@ export function WhyChoose() {
                 <motion.div
                   whileHover={{ rotate: 8, scale: 1.15 }}
                   transition={{ type: "spring", stiffness: 200 }}
-                  className="w-12 h-12 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-4 rounded-2xl flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 shadow-lg"
+                  className="w-12 h-12 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-4 rounded-2xl flex items-center justify-center bg-gradient-to-r from-red-500 to-red-600 shadow-lg"
                 >
-                  <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </motion.div>
 
                 {/* Title */}
-                <h3 className="text-sm sm:text-lg font-semibold text-gray-900 text-center group-hover:text-red-600 transition">
+                <h3 className="text-sm sm:text-lg font-semibold text-gray-900 text-center group-hover:text-red-600 transition select-none">
                   {item.title}
                 </h3>
 

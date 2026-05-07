@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FiArrowUpRight } from "react-icons/fi";
+import { ArrowRight } from "lucide-react";
 
 export function AboutUs() {
   return (
@@ -14,13 +15,13 @@ export function AboutUs() {
 
           {/* LEFT CONTENT */}
           <div>
-            <span className="inline-block text-red-500 tracking-widest uppercase text-sm font-semibold mb-4">
+            <span className="inline-block text-red-500 tracking-widest uppercase text-sm font-semibold mb-4 select-none">
               About Prachha Tech
             </span>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-4xl font-medium text-gray-900 leading-tight mb-6" >
+            <h2 className="text-3xl sm:text-4xl lg:text-4xl font-medium text-gray-900 leading-tight mb-6 select-none" >
               Transforming Ideas Into{" "}
-              <span className="text-transparent bg-clip-text bg-red-500">
+              <span className="text-transparent bg-clip-text bg-red-500 select-none">
                 Scalable Digital Products
               </span>
             </h2>
@@ -52,11 +53,11 @@ export function AboutUs() {
             {/* CTA */}
             <Link
               to="/about"
-              className="inline-flex items-center gap-2 mt-8 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-red-500 text-white font-semibold shadow-md hover:bg-red-600 hover:shadow-lg transition group
+              className="inline-flex items-center gap-2 mt-8 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-gradient-to-r from-red-600  to-orange-500 text-white font-semibold shadow-md hover:bg-red-600 hover:shadow-lg transition group
               text-sm md:text-base"
             >
               Explore More
-              <FiArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </div>
 

@@ -16,6 +16,7 @@ import ScrollToTop from './components/ScrollToTop';
 import { Hero } from './components/Hero';
 import Homehero from './components/Homehero';
 import Portfolio from './components/Portfolio';
+import ScrollToTopButton from './components/ScrollUp';
 
 
 // Lazy load route components
@@ -82,6 +83,7 @@ export default function App() {
         <Route path="/terms-and-conditions" element={<Suspense fallback={<div>Loading...</div>}><TermsAndConditionsPage /></Suspense>} />
 
       </Routes>
+      <ScrollToTopButton />
       <Footer />
       </>
     // </div>

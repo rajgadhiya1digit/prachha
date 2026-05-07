@@ -106,7 +106,7 @@ const Wherit = () => {
               From inventory tracking to user assignments, see how modern businesses manage their IT infrastructure.
             </p>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
@@ -126,7 +126,7 @@ const Wherit = () => {
               >
                 View Demo
               </motion.button>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </motion.section>
@@ -530,12 +530,12 @@ const Wherit = () => {
                 </p>
 
                 <a
-                  href="mailto:contact@1digittechnology.com"
+                  href="mailto:info@prachha.tech"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base break-all"
                 >
-                  contact@1digittechnology.com
+                  info@prachha.tech
                 </a>
               </motion.div>
 
@@ -571,10 +571,10 @@ const Wherit = () => {
                 </p>
 
                 <a
-                  href="tel:9898386870"
+                  href="tel:+91 9974736870"
                   className="text-green-600 hover:text-green-700 font-medium text-base sm:text-lg"
                 >
-                  9898386870
+                 +91 9974736870
                 </a>
               </motion.div>
 
@@ -607,15 +607,12 @@ const Wherit = () => {
                   Address
                 </h3>
 
-                <p className="text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed">
-
-
-                  7/4003, 4004(1), Prachha House,<br />
-                  Baman Ji Ni Sheri,<br />
-                  Beside -Diamond City Restaurant,<br />
-                  Surat People's Bank,<br />
-                  Lal Darvaja - Rampura Road
-                </p>
+                <a href='https://maps.app.goo.gl/5FafFiMcKPM7kTVZA' target='_blank'
+                className="group inline-block text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed hover:text-red-500 transition-colors cursor-pointer">
+                  PRACHHA HOUSE, 3rd Floor, <br />
+                  Beside Diamond City hotel, Bamanji Sheri, <br />
+                  Rughnathpura Road, Lal Darwaja, Surat - 395003
+                </a>
               </motion.div>
 
             </motion.div>
@@ -624,7 +621,7 @@ const Wherit = () => {
       </motion.section>
 
       {/* ... */}
-      <section className="relative z-10 bg-gradient-to-br from-green-100 to-orange-100 text-gray-800 py-16">
+      {/* <section className="relative z-10 bg-gradient-to-br from-green-100 to-orange-100 text-gray-800 py-16">
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center space-y-8 max-w-xl mx-auto">
             <motion.h2 initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.2, duration: 0.6 }} className="text-2xl sm:text-3xl md:text-4xl
@@ -653,7 +650,7 @@ const Wherit = () => {
 
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
     </section>
   );

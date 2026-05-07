@@ -39,14 +39,14 @@ const TeamPage = () => {
                     className="relative w-full mx-auto px-4 text-center"
                 >
                     <div className="mb-6">
-                        <span className="inline-block text-xs sm:text-sm font-[600] tracking-widest uppercase bg-red-500/10 text-white px-5 py-2 rounded-full border border-orange-400 backdrop-blur-md">
+                        <span className="inline-block text-xs sm:text-sm font-[600] tracking-widest uppercase bg-red-500/10 text-white px-5 py-2 rounded-full border border-orange-400 backdrop-blur-md select-none">
                             Meet Our Team
                         </span>
                     </div>
 
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 select-none" style={{ lineHeight: '1.1' }}>
                         The Minds Behind
-                        <span className="block bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent leading">
+                        <span className="block bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent leading-tight select-none" style={{ lineHeight: '1.1' }}>
                             Our Success
                         </span>
                     </h1>
@@ -56,7 +56,7 @@ const TeamPage = () => {
                     </p>
 
                     {/* Stats */}
-                    <div className="flex flex-row justify-center gap-4 sm:gap-8 lg:gap-10 mt-10 text-sm text-gray-400">
+                    <div className="flex flex-row justify-center gap-4 sm:gap-8 lg:gap-10 mt-10 text-sm text-gray-400 select-none">
                         {/* <div className="text-center">
                             <p className="text-white text-xl sm:text-2xl lg:text-3xl font-bold">50+</p>
                             <p className="text-gray-300 text-xs sm:text-sm font-medium">Years Of Experience</p>
@@ -86,7 +86,7 @@ const TeamPage = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
-                            className="inline-block text-red-500 tracking-wider uppercase text-sm mb-4 font-[600]"
+                            className="inline-block text-red-500 tracking-wider uppercase text-sm mb-4 font-[600] select-none"
                         >
                             Leadership
                         </motion.span>
@@ -95,7 +95,7 @@ const TeamPage = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1, duration: 0.6 }}
                             viewport={{ once: true }}
-                            className="text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold leading-tight mb-6"
+                            className="text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold leading-tight mb-6 select-none"
                         >
                             Meet the Leaders Shaping
                             <span className="block bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
@@ -235,7 +235,7 @@ const TeamPage = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1, duration: 0.6 }}
                             viewport={{ once: true }}
-                            className="text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold leading-tight mb-6"
+                            className="text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold leading-tight mb-6 select-none"
                         >
                             Meet Our 
                             <span className="block bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
@@ -273,10 +273,16 @@ const TeamPage = () => {
                                             {/* Avatar */}
                                             <div className="relative mb-5">
                                                 <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-red-500 to-orange-500 p-[3px] shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                                                    <div className="w-full h-full rounded-xl bg-gradient-to-br from-gray-50 to-white flex items-center justify-center">
-                                                        <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
-                                                            {member.name.split(' ').map((n: any) => n[0]).join('')}
-                                                        </span>
+                                                    <div className="w-full h-full rounded-xl bg-gradient-to-br from-gray-50 to-white flex items-center justify-center overflow-hidden">
+                                                        {member.image === ''  ? (
+                                                            <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
+                                                                {member.name.split(' ').map((n: any) => n[0]).join('')}
+                                                            </span>
+                                                        ):
+                                                        (
+                                                            <img src={member.image} alt={member.name} />
+                                                        )
+                                                        }
                                                     </div>
                                                 </div>
                                                 {/* Decorative dots */}
@@ -332,7 +338,7 @@ const TeamPage = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-16 sm:py-20 bg-gray-50">
+            <section className="py-16 sm:py-20 bg-gray-50 select-none">
                 <div className="container mx-auto px-4">
                     <div className="bg-gradient-to-r from-red-600 to-orange-600 rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto">
                         <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">Join Our Team</h2>

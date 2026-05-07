@@ -20,7 +20,9 @@ import {
   Star,
   TrendingUp,
   Users,
-  Target
+  Target,
+  Settings,
+  FileText
 } from 'lucide-react';
 import { getTeamMemberById, TeamMember } from '../data/teamData';
 
@@ -127,21 +129,8 @@ const TeamdetailsPage = () => {
 
                 {/* Profile Info */}
                 <div className="flex-1 text-center lg:text-left">
-                  
-                  {/* Top Performer Badge */}
-                  {teamMember.achievements && teamMember.achievements.length > 3 && (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.3 }}
-                      className="inline-flex items-center gap-1.5 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-bold px-3 py-1.5 rounded-full mb-4 shadow-lg"
-                    >
-                      <Star className="w-3.5 h-3.5 fill-white" />
-                      Top Performer
-                    </motion.div>
-                  )}
 
-                  <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-3">
+                  <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-4">
                     {teamMember.name}
                   </h1>
                   
@@ -209,61 +198,123 @@ const TeamdetailsPage = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {teamMember.stats && (
             <>
-              <motion.div variants={fadeInUp} className="group h-full">
-                <div className="relative bg-white rounded-2xl p-3 sm:p-6 text-center sm:text-left border border-gray-200 hover:border-red-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col justify-center">
-                  <div className="flex flex-col sm:flex-row items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center flex-shrink-0">
-                      <Trophy className="w-5 h-5 text-white" />
+              {teamMember.type === 'admin' ? (
+                <>
+                  <motion.div variants={fadeInUp} className="group h-full">
+                    <div className="relative bg-white rounded-2xl p-3 sm:p-6 text-center sm:text-left border border-gray-200 hover:border-red-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col justify-center">
+                      <div className="flex flex-col sm:flex-row items-center gap-3 mb-2">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center flex-shrink-0">
+                          <Users className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="text-2xl md:text-3xl font-bold text-gray-900">
+                          {teamMember.stats.teamMembersManaged}+
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-600">Team Members Managed</p>
                     </div>
-                    <span className="text-2xl md:text-3xl font-bold text-gray-900">
-                      {teamMember.stats.projectsCompleted}+
-                    </span>
-                  </div>
-                  <p className="text-sm text-gray-600">Projects Completed</p>
-                </div>
-              </motion.div>
+                  </motion.div>
 
-              <motion.div variants={fadeInUp} className="group h-full">
-                <div className="relative bg-white rounded-2xl p-3 sm:p-6 text-center sm:text-left border border-gray-200 hover:border-red-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col justify-center">
-                  <div className="flex flex-col sm:flex-row items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center flex-shrink-0">
-                      <Briefcase className="w-5 h-5 text-white" />
+                  <motion.div variants={fadeInUp} className="group h-full">
+                    <div className="relative bg-white rounded-2xl p-3 sm:p-6 text-center sm:text-left border border-gray-200 hover:border-red-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col justify-center">
+                      <div className="flex flex-col sm:flex-row items-center gap-3 mb-2">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center flex-shrink-0">
+                          <FileText className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="text-2xl md:text-3xl font-bold text-gray-900">
+                          {teamMember.stats.internalProjects}+
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-600">Internal Projects</p>
                     </div>
-                    <span className="text-2xl md:text-3xl font-bold text-gray-900">
-                      {experienceYears}+
-                    </span>
-                  </div>
-                  <p className="text-sm text-gray-600">Years Experience</p>
-                </div>
-              </motion.div>
+                  </motion.div>
 
-              <motion.div variants={fadeInUp} className="group h-full">
-                <div className="relative bg-white rounded-2xl p-3 sm:p-6text-center sm:text-left border border-gray-200 hover:border-red-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col justify-center">
-                  <div className="flex flex-col sm:flex-row items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center flex-shrink-0">
-                      <Users className="w-5 h-5 text-white" />
+                  <motion.div variants={fadeInUp} className="group h-full">
+                    <div className="relative bg-white rounded-2xl p-3 sm:p-6 text-center sm:text-left border border-gray-200 hover:border-red-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col justify-center">
+                      <div className="flex flex-col sm:flex-row items-center gap-3 mb-2">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center flex-shrink-0">
+                          <Target className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="text-2xl md:text-3xl font-bold text-gray-900">
+                          {teamMember.stats.workflowEfficiency}%
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-600">Workflow Efficiency</p>
                     </div>
-                    <span className="text-2xl md:text-3xl font-bold text-gray-900">
-                      {teamMember.stats.teamSize}+
-                    </span>
-                  </div>
-                  <p className="text-sm text-gray-600">Team Size Managed</p>
-                </div>
-              </motion.div>
+                  </motion.div>
 
-              <motion.div variants={fadeInUp} className="group h-full">
-                <div className="relative bg-white rounded-2xl p-3 sm:p-6 border text-center sm:text-left border-gray-200 hover:border-red-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col justify-center">
-                  <div className="flex flex-col sm:flex-row items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center flex-shrink-0">
-                      <Target className="w-5 h-5 text-white" />
+                  <motion.div variants={fadeInUp} className="group h-full">
+                    <div className="relative bg-white rounded-2xl p-3 sm:p-6 text-center sm:text-left border border-gray-200 hover:border-red-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col justify-center">
+                      <div className="flex flex-col sm:flex-row items-center gap-3 mb-2">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center flex-shrink-0">
+                          <Briefcase className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="text-2xl md:text-3xl font-bold text-gray-900">
+                          {experienceYears}+
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-600">Years Experience</p>
                     </div>
-                    <span className="text-2xl md:text-3xl font-bold text-gray-900">
-                      {teamMember.stats.satisfaction}%
-                    </span>
-                  </div>
-                  <p className="text-sm text-gray-600">Client Satisfaction</p>
-                </div>
-              </motion.div>
+                  </motion.div>
+                </>
+              ) : (
+                <>
+                  <motion.div variants={fadeInUp} className="group h-full">
+                    <div className="relative bg-white rounded-2xl p-3 sm:p-6 text-center sm:text-left border border-gray-200 hover:border-red-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col justify-center">
+                      <div className="flex flex-col sm:flex-row items-center gap-3 mb-2">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center flex-shrink-0">
+                          <Trophy className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="text-2xl md:text-3xl font-bold text-gray-900">
+                          {teamMember.stats.projectsCompleted}+
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-600">Projects Completed</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div variants={fadeInUp} className="group h-full">
+                    <div className="relative bg-white rounded-2xl p-3 sm:p-6 text-center sm:text-left border border-gray-200 hover:border-red-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col justify-center">
+                      <div className="flex flex-col sm:flex-row items-center gap-3 mb-2">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center flex-shrink-0">
+                          <Briefcase className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="text-2xl md:text-3xl font-bold text-gray-900">
+                          {experienceYears}+
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-600">Years Experience</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div variants={fadeInUp} className="group h-full">
+                    <div className="relative bg-white rounded-2xl p-3 sm:p-6 text-center sm:text-left border border-gray-200 hover:border-red-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col justify-center">
+                      <div className="flex flex-col sm:flex-row items-center gap-3 mb-2">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center flex-shrink-0">
+                          <Users className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="text-2xl md:text-3xl font-bold text-gray-900">
+                          {teamMember.stats.teamSize}+
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-600">Team Size Managed</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div variants={fadeInUp} className="group h-full">
+                    <div className="relative bg-white rounded-2xl p-3 sm:p-6 border text-center sm:text-left border-gray-200 hover:border-red-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col justify-center">
+                      <div className="flex flex-col sm:flex-row items-center gap-3 mb-2">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center flex-shrink-0">
+                          <Target className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="text-2xl md:text-3xl font-bold text-gray-900">
+                          {teamMember.stats.satisfaction}%
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-600">Client Satisfaction</p>
+                    </div>
+                  </motion.div>
+                </>
+              )}
             </>
           )}
         </div>

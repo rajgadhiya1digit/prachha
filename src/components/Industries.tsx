@@ -92,7 +92,7 @@ export function Industries() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, margin: "-100px" }}
             className="text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] text-gray-900 font-bold mb-4">
-            Empowering Businesses <span className=" bg-gradient-to-r from-red-500 to-pink-500  bg-clip-text text-transparent">Across Industries</span>
+            Empowering Businesses <span className=" bg-gradient-to-r from-red-500  to-orange-500  bg-clip-text text-transparent">Across Industries</span>
           </motion.h2>
 
           <motion.p

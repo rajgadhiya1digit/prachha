@@ -21,7 +21,7 @@ export function Blog() {
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-block px-4 py-2 text-sm font-semibold tracking-wider uppercase text-[#ff0000] rounded-ful mb-6">
+            className="inline-block px-4 py-2 text-sm font-semibold tracking-wider uppercase text-[#ff0000] rounded-ful  select-none">
               Latest Insights
           </motion.span>
 
@@ -29,9 +29,9 @@ export function Blog() {
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] text-gray-900 font-bold mb-4">
+            className="text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] text-gray-900 font-bold mb-4 select-none">
               Explore Our{" "}
-              <span className="bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-red-500  to-orange-500 bg-clip-text text-transparent select-none">
                 Latest Articles
               </span>
           </motion.h2>
@@ -83,18 +83,18 @@ export function Blog() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/80 transition-colors duration-500"></div>
 
-                    <Badge className="absolute top-4 right-4 bg-white/95 backdrop-blur hover:bg-white text-[#FF0000] border-0 font-semibold px-3 py-1 text-xs sm:text-sm">
+                    <Badge className="absolute top-4 right-4 bg-white/95 backdrop-blur hover:bg-white text-[#FF0000] border-0 font-semibold px-3 py-1 text-xs sm:text-sm select-none">
                       {blog.category}
                     </Badge>
 
                     <div className="absolute bottom-4 left-4 inline-block bg-[#FF0000] px-3 py-1.5 rounded-md shadow-lg">
-                      <span className="block text-white text-xs font-[700]">
+                      <span className="block text-white text-xs font-[700] select-none">
                         {blog.date}
                       </span>
                     </div>
 
-                    {blog.populer && (
-                      <div className="absolute top-4 left-4 bg-[#FF0000] text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                    {blog.popular && (
+                      <div className="absolute top-4 left-4 bg-[#FF0000] text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg select-none">
                         Popular
                       </div>
                     )}
@@ -102,7 +102,7 @@ export function Blog() {
 
                   {/* Content */}
                   <div className="p-6 sm:p-8 flex flex-col flex-grow">
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 group-hover:text-[#FF0000] transition-colors duration-300 line-clamp-2 flex-grow">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 group-hover:text-[#FF0000] transition-colors duration-300 line-clamp-2 flex-grow select-none">
                       {blog.title}
                     </h3>
 
@@ -110,7 +110,7 @@ export function Blog() {
                       {blog.excerpt}
                     </p>
 
-                    <button className="text-[#FF0000] font-semibold inline-flex items-center gap-2 transition-all duration-300 group-hover:gap-3 mt-auto">
+                    <button className="text-[#FF0000] font-semibold inline-flex items-center gap-2 transition-all duration-300 group-hover:gap-3 mt-auto select-none">
                       Read More
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                     </button>
@@ -125,11 +125,11 @@ export function Blog() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.6 }}
           className="text-center pt-4 sm:pt-8">
           <Link
             to="/blog"
-            className="group inline-flex items-center gap-2 text-[#FF0000] font-semibold hover:gap-3 transition-all duration-300"
+            className="group inline-flex items-center gap-2 text-[#FF0000] font-semibold hover:gap-3 transition-all duration-300 select-none"
           >
             View All Articles
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />

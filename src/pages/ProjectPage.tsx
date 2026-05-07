@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { projectData } from "../data/projectData";
 
 const INITIAL_VISIBLE = 6;
@@ -49,7 +50,12 @@ const ProjectPage = () => {
 
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F19]/40 via-[#0B0F19]/45 to-[#0B0F19]/60" />
 
-        <div className="relative w-full mx-auto px-4 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative w-full mx-auto px-4 text-center"
+        >
           <div className="mb-6">
             <span className="inline-block text-xs sm:text-sm font-[600] tracking-widest uppercase bg-red-500/10 text-white px-5 py-2 rounded-full border border-orange-400 backdrop-blur-sm">
               Our Portfolio
@@ -68,7 +74,7 @@ const ProjectPage = () => {
             that solve real-world problems and create meaningful user
             experiences.
           </p>
-        </div>
+        </motion.div>
       </section>
 
       <section className="py-16">

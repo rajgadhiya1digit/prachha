@@ -71,14 +71,14 @@ const Newsletter = () => {
 
             {/* LEFT div */}
             <div>
-              <span className="text-red-500 text-sm font-semibold tracking-widest uppercase">
+              <span className="text-red-500 text-sm font-semibold tracking-widest uppercase select-none">
                 Stay Updated
               </span>
 
-              <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mt-3 leading-tight">
-                Subscribe to our{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-pink-500">
-                  Newsletter
+              <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mt-3 leading-tight select-none">
+                Subscribe to {" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500  to-orange-500 select-none">
+                Our Newsletter
                 </span>
               </h2>
 
@@ -105,11 +105,11 @@ const Newsletter = () => {
                   onClick={handleSubscribe}
                   disabled={loading}
                   className="px-6 py-3 rounded-full text-white font-semibold
-                  bg-gradient-to-r from-red-500 to-pink-500
+                   bg-gradient-to-r from-red-600  to-orange-500
                   hover:from-red-600 hover:to-pink-600
                   shadow-md hover:shadow-red-400/40
                   transition-all duration-300 hover:scale-105 active:scale-95
-                  disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 select-none"
                 >
                   {loading ? "Subscribing..." : "Subscribe"}
                 </button>

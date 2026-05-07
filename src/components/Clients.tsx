@@ -21,7 +21,7 @@ export function Clients() {
         <div className="text-center mb-10">
           <h2 className="text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold leading-tight mb-6 fade-up-text">
           Trusted by
-          <span className="block bg-gradient-to-r from-red-500 to-pink-500  bg-clip-text text-transparent">
+          <span className="block bg-gradient-to-r from-red-500  to-orange-500  bg-clip-text text-transparent">
             Leading Industries
           </span>
         </h2>

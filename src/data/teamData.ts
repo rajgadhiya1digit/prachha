@@ -8,9 +8,12 @@ export interface Project {
 }
 
 export interface Stats {
-  projectsCompleted: number;
-  teamSize: number;
-  satisfaction: number;
+  projectsCompleted?: number;
+  teamSize?: number;
+  satisfaction?: number;
+  teamMembersManaged?: number;
+  internalProjects?: number;
+  workflowEfficiency?: number;
 }
 
 export interface TeamMember {
@@ -31,7 +34,8 @@ export interface TeamMember {
   twitter?: string;
   github?: string;
   available: boolean;
-  type: 'founder' | 'member';
+  type: 'founder' | 'member' | 'admin';
+  department?: string;
   stats?: Stats;
   projects?: Project[];
 }
@@ -50,7 +54,7 @@ export const teamData: TeamData = {
       image: '/team/vijaysirprofile.jpg',
       bio: 'Visionary leader with 15+ years of experience in scaling tech startups and driving digital transformation.',
       quote: 'Innovation and excellence are not just goals, they\'re our DNA.',
-      experience: '15+ Years',
+      experience: '10+ Years',
       location: 'Surat, India',
       languages: ['English', 'Hindi', 'Gujarati'],
       skills: ['Strategic Planning', 'Business Development', 'Team Leadership', 'Digital Transformation', 'Project Management', 'Technology Consulting'],
@@ -69,7 +73,7 @@ export const teamData: TeamData = {
       image: '/team/hiteshsirprofile.jpg',
       bio: 'Tech architect specializing in AI, cloud solutions, and scalable enterprise systems.',
       quote: 'Building the future, one line of code at a time.',
-      experience: '12+ Years',
+      experience: '10+ Years',
       location: 'Surat, India',
       languages: ['English', 'Hindi', 'Gujarati'],
       skills: ['AI/ML', 'Cloud Architecture', 'System Design', 'DevOps', 'Backend Development', 'Database Design'],
@@ -86,35 +90,102 @@ export const teamData: TeamData = {
     {
       id: 'twinkal-goyani',
       name: 'Twinkal Goyani',
-      role: 'Human Resources (HR)',
-      image: '',
-      bio: 'Dedicated HR professional focused on building strong teams and fostering a positive work culture.',
-      quote: 'People are the heart of every successful organization.',
+      role: 'Department Admin',
+      image: '/team/twinkalmadam.jpg',
+      bio: 'Responsible for managing department operations, coordinating team activities, handling internal communication, and ensuring smooth day-to-day workflow within the organization.',
+      quote: 'Great teamwork starts with proper coordination and support.',
       experience: '5+ Years',
-      location: 'Surat, India',
+      location: 'Surat, Gujarat, India',
       languages: ['English', 'Hindi', 'Gujarati'],
-      skills: ['Recruitment', 'Team Building', 'Employee Relations', 'HR Policies', 'Training & Development'],
-      education: ['MBA in HR', 'B.Com'],
-      achievements: ['Built 20+ member team', 'Implemented HR automation', 'Reduced turnover by 30%'],
+
+      skills: [
+        'Team Coordination',
+        'Task Management',
+        'Department Management',
+        'Administration',
+        'Operational Support',
+        'Employee Coordination'
+      ],
+
+      education: [
+        'MBA',
+        'Bachelor of Commerce (B.Com)'
+      ],
+
+      achievements: [
+        'Successfully coordinated 20+ team members',
+        'Managed internal department operations efficiently',
+        'Improved communication workflow across teams',
+        'Organized company activities and internal events',
+        'Maintained smooth day-to-day department management'
+      ],
+
       email: 'twinkal@company.com',
       linkedin: 'https://www.linkedin.com/in/twinkle-goyani-278a1a304/',
       available: true,
+      type: 'admin',
+      department: 'Administration',
+
+      stats: {
+        teamMembersManaged: 20,
+        internalProjects: 5,
+        workflowEfficiency: 98
+      },
+
+      projects: [
+        {
+          name: 'Internal Team Management',
+          description: 'Managed department coordination and daily operational activities.',
+          techStack: ['Management', 'Coordination'],
+          status: 'completed'
+        },
+        {
+          name: 'Workflow Coordination System',
+          description: 'Handled task tracking and communication between teams.',
+          techStack: ['Operations', 'Communication'],
+          status: 'in-progress'
+        },
+        {
+          name: 'Employee Engagement Activities',
+          description: 'Organized internal team activities and employee engagement events.',
+          techStack: ['Administration', 'Team Management'],
+          status: 'completed'
+        }
+      ]
+    },
+    {
+      id: 'janvi-goyani',
+      name: 'Janvi Goyani',
+      role: 'UI/UX design HOD',
+      image: '/team/janvigoyani.jpg',
+      bio: 'UI/UX design leader focused on creating intuitive user experiences, modern interfaces, and visually engaging digital products.',
+      quote: 'Design is not just what it looks like, design is how it works.',
+      experience: '5+ Years',
+      location: 'Surat, India',
+      languages: ['English', 'Hindi', 'Gujarati'],
+      skills: ['UI Design', 'UX Research', 'Prototyping', 'Figma', 'Adobe XD', 'User Testing'],
+      education: ['B.Des in UI/UX', 'Google UX Certificate'],
+      achievements: ['Designed 20+ products', 'Improved user satisfaction by 40%', 'Built design system'],
+      email: 'janvi.ouros@gmail.com',
+      linkedin: 'https://www.linkedin.com/in/janvikajavadara/',
+      available: true,
       type: 'member',
       stats: {
-        projectsCompleted: 4,
-        teamSize: 20,
-        satisfaction: 94
+        projectsCompleted: 20,
+        teamSize: 4,
+        satisfaction: 99
       },
       projects: [
-        { name: 'HR Portal', description: 'Employee management system', techStack: ['React', 'Node.js', 'MongoDB'], status: 'completed' },
-        { name: 'Recruitment Platform', description: 'ATS and hiring workflow', techStack: ['Next.js', 'PostgreSQL'], status: 'in-progress' }
+        { name: 'Design System', description: 'Component library and guidelines', techStack: ['Figma', 'React', 'Storybook'], status: 'completed' },
+        { name: 'Mobile App UI', description: 'iOS and Android app design', techStack: ['Figma', 'Principle'], status: 'completed' },
+        { name: 'Brand Redesign', description: 'Complete brand identity overhaul', techStack: ['Illustrator', 'Figma'], status: 'in-progress' }
       ]
     },
     {
       id: 'pratham-thakkar',
       name: 'Pratham Thakkar',
-      role: 'Development Team Leader',
-      image: '',
+      role: 'Web Development HOD',
+      image: '/team/pratham.jpg',
       bio: 'Leads development team with expertise in scalable systems, clean architecture, and delivering high-performance web applications.',
       quote: 'Clean code is not written, it\'s crafted.',
       experience: '4+ Years',
@@ -130,7 +201,7 @@ export const teamData: TeamData = {
       stats: {
         projectsCompleted: 15,
         teamSize: 15,
-        satisfaction: 99  
+        satisfaction: 99
       },
       projects: [
         { name: 'E-commerce Platform', description: 'Full-stack shopping platform', techStack: ['React', 'Node.js', 'Stripe'], status: 'completed' },
@@ -142,7 +213,7 @@ export const teamData: TeamData = {
       id: 'raj-bhatt',
       name: 'Raj Bhatt',
       role: 'Team Leader (SEO)',
-      image: '',
+      image: '/team/thumb-Raj.jpg',
       bio: 'Experienced team leader guiding projects with strong leadership, coordination, and technical expertise in digital marketing.',
       quote: 'Good SEO is not about gaming Google. It\'s about creating value for users.',
       experience: '6+ Years',
@@ -169,48 +240,40 @@ export const teamData: TeamData = {
       id: 'yash-makwana',
       name: 'Yash Makwana',
       role: 'Development Team Leader',
-      image: '',
-      bio: 'Skilled development leader specializing in building scalable applications and guiding tech team.',
+      image: '/team/yash.jpg',
+      bio: 'Skilled development leader specializing in building scalable applications and guiding tech teams with modern technologies and best development practices.',
       quote: 'Leadership is not about being in charge, it\'s about taking care of those in your charge.',
-      experience: '6+ Years',
+      experience: '4+ Years',
       location: 'Surat, India',
       languages: ['English', 'Hindi', 'Gujarati'],
-      skills: ['Full Stack', 'Cloud', 'DevOps', 'React', 'Node.js', 'Team Management'],
+      skills: ['Full Stack', 'Cloud', 'React', 'Node.js', 'Team Management'],
       education: ['B.Tech in IT', 'Azure Certified'],
-      achievements: ['Built 15+ applications', 'Led development team', 'Implemented CI/CD'],
+      achievements: ['Built 10+ Projects', 'Led development team', 'Optimized application performance and scalability',
+        'Mentored junior developers and interns'],
       email: 'yash.1digit@gmail.com',
       linkedin: 'https://www.linkedin.com/in/yash-makwana-b2a858287/',
       available: true,
-      type: 'member'
-    },
-    {
-      id: 'janvi-goyani',
-      name: 'Janvi Goyani',
-      role: 'Team Leader (UI/UX design)',
-      image: '',
-      bio: 'UI/UX design leader focused on creating intuitive user experiences, modern interfaces, and visually engaging digital products.',
-      quote: 'Design is not just what it looks like, design is how it works.',
-      experience: '5+ Years',
-      location: 'Surat, India',
-      languages: ['English', 'Hindi', 'Gujarati'],
-      skills: ['UI Design', 'UX Research', 'Prototyping', 'Figma', 'Adobe XD', 'User Testing'],
-      education: ['B.Des in UI/UX', 'Google UX Certificate'],
-      achievements: ['Designed 20+ products', 'Improved user satisfaction by 40%', 'Built design system'],
-      email: 'janvi.ouros@gmail.com',
-      linkedin: 'https://www.linkedin.com/in/janvikajavadara/',
-      available: true,
       type: 'member',
       stats: {
-        projectsCompleted: 20,
-        teamSize: 4,
+        projectsCompleted: 5,
+        teamSize: 10,
         satisfaction: 99
       },
       projects: [
-        { name: 'Design System', description: 'Component library and guidelines', techStack: ['Figma', 'React', 'Storybook'], status: 'completed' },
-        { name: 'Mobile App UI', description: 'iOS and Android app design', techStack: ['Figma', 'Principle'], status: 'completed' },
-        { name: 'Brand Redesign', description: 'Complete brand identity overhaul', techStack: ['Illustrator', 'Figma'], status: 'in-progress' }
-      ]
-    }
+        {
+          name: 'Aksharlon Jari',
+          description: 'Aksharlon is a modern textile industry website developed for showcasing premium metallic yarn and embroidery products.',
+          techStack: ['React.js', 'Node.js', 'PostgreSQL', 'Express.js'],
+          status: 'completed'
+        },
+        {
+          name: 'HR Management Platform',
+          description: 'Built an employee and attendance management system with role-based access.',
+          techStack: ['Next.js', 'PostgreSQL', 'Tailwind CSS'],
+          status: 'completed'
+        }]
+    },
+
   ]
 };
 
@@ -223,7 +286,7 @@ export const getTeamMemberById = (id: string): TeamMember | undefined => {
 export const getTeamMemberByUrl = (url: string): TeamMember | undefined => {
   const allMembers = [...teamData.founders, ...teamData.members];
   return allMembers.find(member => {
-    const memberUrl = member.type === 'founder' 
+    const memberUrl = member.type === 'founder'
       ? `/team/${member.id === 'vijay-sarkheliya' ? 'ceo' : 'cto'}/${member.id}`
       : `/team/details/${member.id}`;
     return memberUrl === url;

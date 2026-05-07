@@ -214,7 +214,7 @@ const Header = () => {
             </div>
 
             <Link to="/contact">
-              <button className="flex items-center bg-gradient-to-r from-red-500 to-orange-400 hover:bg-orange-600 rounded-full pl-7 pr-1.5 py-1.5  transition-transform duration-200 hover:scale-105 active:scale-95 cursor-pointer">
+              <button className="flex items-center bg-gradient-to-r from-red-600  to-orange-500  hover:bg-orange-600 rounded-full pl-7 pr-1.5 py-1.5  transition-transform duration-200 hover:scale-105 active:scale-95 cursor-pointer">
                 <span className="text-white font-bold text-sm tracking-wide mr-4">Get Started</span>
                 <span className="w-8 h-8 bg-white rounded-full flex items-center justify-center shrink-0">
                   <RiArrowRightSLine />

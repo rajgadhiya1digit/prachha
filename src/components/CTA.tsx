@@ -65,17 +65,17 @@ export function CTA() {
           <div className="flex justify-center mb-6 sm:mb-8">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600/20 to-pink-600/20 backdrop-blur-md border border-red-500/30 rounded-full px-4 sm:px-6 py-2 sm:py-3">
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-red-400" />
-              <span className="text-red-100 text-sm sm:text-base">Let's Build Something Amazing Together</span>
+              <span className="text-red-100 text-sm sm:text-base select-none">Let's Build Something Amazing Together</span>
             </div>
           </div>
 
           {/* Main Content */}
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white mb-4 sm:mb-6 leading-tight px-4">
-              Ready to Transform Your{' '}
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-tight px-4 select-none">
+              Ready To Transform {' '}
               <span className="relative inline-block">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-400 to-purple-400">
-                  Business?
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-400 to-purple-400 select-none">
+                Your  Business?
                 </span>
                 <div className="absolute -bottom-1 sm:-bottom-2 left-0 right-0 h-0.5 sm:h-1 bg-gradient-to-r from-red-400 via-pink-400 to-purple-400 blur-sm"></div>
               </span>
@@ -88,7 +88,7 @@ export function CTA() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 px-4">
               <Link to={'/contact'}>
-                  <Button className="bg-gradient-to-r from-[#FF0000] to-red-600 hover:from-red-600 hover:to-[#FF0000] h-12 sm:h-14 px-6 sm:px-8 md:px-10 text-sm sm:text-base group border-0 shadow-lg shadow-red-500/30 w-full sm:w-auto">
+                  <Button className=" bg-gradient-to-r from-red-600  to-orange-500 hover:from-red-600 hover:to-[#FF0000] text-white h-12 sm:h-14 px-6 sm:px-8 md:px-10 text-sm sm:text-base group border-0 shadow-lg shadow-red-500/30 w-full sm:w-auto select-none">
                   <Zap className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                   Get Free Consultation
                   <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
@@ -98,7 +98,7 @@ export function CTA() {
               <Link to="/projects">
                 <Button 
                   variant="outline" 
-                  className="h-12 sm:h-14 px-6 sm:px-8 md:px-10 border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 backdrop-blur-sm text-sm sm:text-base w-full sm:w-auto"
+                  className="h-12 sm:h-14 px-6 sm:px-8 md:px-10 border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 backdrop-blur-sm text-sm sm:text-base w-full sm:w-auto select-none"
                 >
                   View Our Portfolio
                 </Button>
@@ -114,7 +114,7 @@ export function CTA() {
                 <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-red-500 to-pink-500 rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 mx-auto">
                   <Mail className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
-                <div className="text-white mb-2 text-sm sm:text-base">Email Us</div>
+                <div className="text-white mb-2 text-sm sm:text-base select-none">Email Us</div>
                 <a href="mailto:info@prachha.tech" target='_blank'
                  className="text-gray-300 hover:text-red-400 transition-colors text-xs sm:text-sm break-all">
                   info@prachha.tech
@@ -128,7 +128,7 @@ export function CTA() {
                 <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 mx-auto">
                   <Phone className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
-                <div className="text-white mb-2 text-sm sm:text-base">Call Us</div>
+                <div className="text-white mb-2 text-sm sm:text-base select-none">Call Us</div>
                 <a href="tel:+1234567890" className="text-gray-300 hover:text-red-400 transition-colors text-xs sm:text-sm">
                  +91-955-802-6870
                 </a>

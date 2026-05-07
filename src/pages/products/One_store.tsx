@@ -563,11 +563,12 @@ const ContactModal: React.FC<{
             <div className="text-center space-y-2">
               <p className="text-sm text-gray-600">Or reach us directly:</p>
               <div className="space-y-1">
-                <a href="mailto:contact@1digittechnology.com" className="text-sm text-blue-600 hover:text-blue-700 block">
-                  contact@1digittechnology.com
+                <a href="mailto:info@prachha.tech" target="_blank"
+                className="text-sm text-blue-600 hover:text-blue-700 block">
+                  info@prachha.tech
                 </a>
-                <a href="tel:9898386870" className="text-sm text-blue-600 hover:text-blue-700 block">
-                  9898386870
+                <a href="tel:+91-955-802-6870" target="_blank" className="text-sm text-blue-600 hover:text-blue-700 block">
+                  +91-955-802-6870
                 </a>
               </div>
             </div>
@@ -877,7 +878,7 @@ const One_store: React.FC = () => {
               Complete business management solution for modern retail. From billing to inventory, analytics to e-commerce - everything you need to grow your business.
             </motion.p>
 
-            <motion.div
+            {/* <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -899,7 +900,7 @@ const One_store: React.FC = () => {
                 <Target className="w-5 h-5 mr-2" />
                 Watch Demo
               </motion.button>
-            </motion.div>
+            </motion.div> */}
 
             <motion.div
               className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 pt-6 w-full max-w-2xl mx-auto"
@@ -1222,12 +1223,12 @@ const One_store: React.FC = () => {
                 Get in touch via email
               </p>
 
-              <button
-                onClick={() => setShowContactModal(true)}
+              <a href="mailto:info@prachha.tech" target="_blank"
+                // onClick={() => setShowContactModal(true)}
                 className="text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base break-all"
               >
-                contact@1digittechnology.com
-              </button>
+                info@prachha.tech
+              </a>
             </motion.div>
 
             {/* Call Card */}
@@ -1263,10 +1264,10 @@ const One_store: React.FC = () => {
               </p>
 
               <a
-                href="tel:9898386870"
+                href="tel:+91 9974736870"
                 className="text-green-600 hover:text-green-700 font-medium text-base sm:text-lg"
               >
-                9898386870
+                +91 9974736870
               </a>
             </motion.div>
 
@@ -1300,13 +1301,12 @@ const One_store: React.FC = () => {
                 Address
               </h3>
 
-              <p className="text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed">
-                7/4003, 4004(1), Prachha House,<br />
-                Baman Ji Ni Sheri,<br />
-                Diamond City Restaurant,<br />
-                Surat People's Bank,<br />
-                Lal Darvaja - Rampura Road
-              </p>
+              <a href='https://maps.app.goo.gl/5FafFiMcKPM7kTVZA' target='_blank'
+              className="group inline-block text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed hover:text-red-500 transition-colors cursor-pointer">
+                PRACHHA HOUSE, 3rd Floor, <br />
+                Beside Diamond City hotel, Bamanji Sheri, <br />
+                Rughnathpura Road, Lal Darwaja, Surat - 395003
+              </a>
             </motion.div>
 
           </div>

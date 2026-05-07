@@ -592,7 +592,8 @@ export default function PrivacyPolicyPage() {
                         </div>
                         <h4 className="font-semibold text-gray-900">Email</h4>
                       </div>
-                      <a href="mailto:info@prachha.tech" className="text-red-600 hover:text-red-700 font-medium">
+                      <a href="mailto:info@prachha.tech" target='_blank'
+                      className="text-red-600 hover:text-red-700 font-medium">
                         info@prachha.tech
                       </a>
                     </div>

@@ -1,9 +1,9 @@
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { projectData } from "../data/projectData";
-
+import { motion } from 'framer-motion'
 import React from 'react'
 
 const Portfolio = () => {
@@ -25,7 +25,7 @@ const Portfolio = () => {
 
           <h2 className="text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold text-gray-900 mt-4">
             Projects That Drive{" "}
-            <span className="bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-500  to-orange-500 bg-clip-text text-transparent">
               Real Impact
             </span>
           </h2>
@@ -61,13 +61,13 @@ const Portfolio = () => {
 
                 
                 <span className="absolute top-4 left-4 bg-gradient-to-r from-red-500 to-orange-400 text-white shadow-md
-                rounded-md px-3 py-1 text-xs font-medium">
+                rounded-md px-3 py-1 text-xs font-medium select-none">
                   {project.category}
                 </span>
 
                 <div className="absolute bottom-4 left-4 right-4">
 
-                  <h3 className="text-[18px] sm:text-[20px] lg:text-[22px] mb-2 flex items-center justify-between text-white font-semibold group-hover:text-red-400 transition">
+                  <h3 className="text-[18px] sm:text-[20px] lg:text-[22px] mb-2 flex items-center justify-between text-white font-semibold group-hover:text-red-400 transition select-none">
 
                     {project.title}
 
@@ -87,7 +87,7 @@ const Portfolio = () => {
                     <Badge
                       key={idx}
                       variant="outline"
-                      className="text-xs  transition bg-red-500 text-white"
+                      className="text-xs  transition bg-red-500 text-white select-none"
                     >
                       {tag}
                     </Badge>
@@ -99,13 +99,20 @@ const Portfolio = () => {
 
         </div>
 
-        {/* CTA */}
-        <div className="text-center">
-          <Link to={'/projects'} className="text-red-500 font-semibold hover:text-red-600 inline-flex items-center gap-2 group transition">
-            View All Projects
-            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition" />
+        {/* View All Link */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, }}
+          className="text-center">
+          <Link
+            to="/blog"
+            className="group inline-flex items-center gap-2 text-[#FF0000] font-semibold hover:gap-3 transition-all duration-300 select-none"
+          >
+             View All Projects
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
-        </div>
+        </motion.div>
 
       </div>
     </section>

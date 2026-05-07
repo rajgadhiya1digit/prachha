@@ -1,8 +1,6 @@
 import React, { useState, useCallback } from 'react'
-import { Code, Smartphone, Cloud, Brain, Shield, Palette, Megaphone, Search, ShoppingCart, Puzzle, View } from 'lucide-react';
 import { RiLoaderFill } from "react-icons/ri";
 import {motion } from "framer-motion"
-import servicebg from '../assets/servicebg.jpg'
 import { Card } from '../components/ui/card';
 import { services } from '../data/serviceData';
 import { WhyChoose } from '../components/WhyChoose';
@@ -41,16 +39,21 @@ const ServicesPage = () => {
 
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F19]/40 via-[#0B0F19]/45 to-[#0B0F19]/60" />
     
-        <div className='relative text-center px-4 max-w-4xl'>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className='relative text-center px-4 max-w-4xl'
+        >
             <div className="mb-6">
-                <span className="inline-block text-xs sm:text-sm font-[600] tracking-widest uppercase bg-red-500/10 text-white px-5 py-2 rounded-full border border-orange-400 backdrop-blur-md">
+                <span className="inline-block text-xs sm:text-sm font-[600] tracking-widest uppercase bg-red-500/10 text-white px-5 py-2 rounded-full border border-orange-400 backdrop-blur-md select-none">
                     Our Services
                 </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 select-none" style={{ lineHeight: '1.1' }}>
                 Powerful Digital
-                <span className="block bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent leading">
+                <span className="block bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent leading-tight select-none" style={{ lineHeight: '1.1' }}>
                     Experiences That Scale
                 </span>
             </h1>
@@ -64,27 +67,27 @@ const ServicesPage = () => {
             <div className="mt-8 flex flex-wrap justify-center gap-4">
 
               <Link to={"/contact"}>
-                <button className="h-full bg-red-500 hover:bg-red-600 text-white rounded-full font-semibold transition duration-300 shadow-lg hover:scale-105 px-5 sm:px-6 py-2 sm:py-3 text-sm md:text-base">
+                <button className="h-full bg-gradient-to-r from-red-600  to-orange-500 hover:bg-red-600 text-white rounded-full font-semibold transition duration-300 shadow-lg hover:scale-105 px-5 sm:px-6 py-2 sm:py-3 text-sm md:text-base select-none">
                   Get Started
                 </button>
               </Link>
               
 
-              <button className="h-full border-2 border-white hover:border-red-400 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition duration-300 bg-white/30 hover:bg-white hover:text-black text-sm md:text-base"
+              <button className="h-full border-2 border-red-400 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition duration-300 text-sm md:text-base select-none"
                 onClick={handleViewServices}>
                 View Services
               </button>
 
             </div>
               {/* </div> */}
-        </div>
+        </motion.div>
     </section>
 
 
     <section id='services' className='py-16  bg-gray-50 overflow-hidden'>
       <section className='container mx-auto px-4'>
         <div className="text-center mb-16">
-          <span className="text-[#FF0000] tracking-wider uppercase text-sm mb-4 font-[600] block">
+          <span className="text-[#FF0000] tracking-wider uppercase text-sm mb-4 font-[600] block select-none">
             Our Services
           </span>
 
@@ -93,10 +96,10 @@ const ServicesPage = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="mt-5 text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold text-gray-900 leading-tight"
+            className="mt-5 text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold text-gray-900 leading-tight select-none"
           >
             Comprehensive{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-pink-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500  to-orange-500 select-none">
               Technology Solutions
             </span>
           </motion.h2>
@@ -139,7 +142,7 @@ const ServicesPage = () => {
                 </div>
 
                 {/* Title on Image */}
-                <h3 className="absolute bottom-4 left-4 bg-gradient-to-r from-yellow-200 via-amber-400 to-amber-600 bg-clip-text text-transparent text-lg font-semibold">
+                <h3 className="absolute bottom-4 left-4 bg-gradient-to-r from-yellow-200 via-amber-400 to-amber-600 bg-clip-text text-transparent text-lg font-semibold select-none">
                   {service.title}
                 </h3>
                 
@@ -174,7 +177,7 @@ const ServicesPage = () => {
           <div className='flex justify-center mt-10 sm:mt-12 md:mt-16 font-[600]'>
               <button onClick={handleLoadMore} disabled={loading}
               className="px-6 py-2.5 bg-red-500 text-white rounded-full flex items-center gap-3
-              text-[14px] sm:text-[16px] cursor-pointer hover:bg-gradient-to-r hover:from-red-600 hover:to-orange-500 hover:scale-105 transition-all duration-300"
+              text-[14px] sm:text-[16px] cursor-pointer bg-gradient-to-r from-red-600  to-orange-500 hover:scale-105 transition-all duration-300 select-none"
               >
                 {loading ? (
                   <>

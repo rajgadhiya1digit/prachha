@@ -19,8 +19,8 @@ export function FAQ() {
           </span>
           
           <h2 className="text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold text-gray-900 mt-4 mb-6 leading-tight">
-            Got Questions? We Have
-            <span className="block bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
+            Got Questions? We Have {' '}
+            <span className="block bg-gradient-to-r from-red-500  to-orange-500 bg-clip-text text-transparent">
               Answers for You
             </span>
           </h2>

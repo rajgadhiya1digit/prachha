@@ -12,7 +12,7 @@ const contactInfo = [
   {
     icon:Phone,
     title: "Contact Number",
-    description: "+91-955-802-6870"
+    description: "+91 9974736870"
   },
   {
     icon:Mail,
@@ -104,7 +104,7 @@ const ContactusPage = () => {
 
   return (
     <>
-   <section className='relative min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-72px)] flex justify-center items-center overflow-hidden  text-white'>
+   <section className='relative min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-72px)] flex justify-center items-center overflow-hidden text-white'>
 
       <div className="absolute inset-0">
         <img src='/contact/contactbg.jpg' alt="Service Background" 
@@ -113,30 +113,30 @@ const ContactusPage = () => {
 
       <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F19]/40 via-[#0B0F19]/45 to-[#0B0F19]/60" />
 
-      <div className='relative w-full mx-auto px-4 text-center'>
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative w-full mx-auto px-4 text-center"
+      >
+        <div className="mb-6">
+          <span className="inline-block text-xs sm:text-sm font-[600] tracking-widest uppercase bg-red-500/10 text-white px-5 py-2 rounded-full border border-orange-400 backdrop-blur-md select-none">
+            Contact Us
+          </span>
+        </div>
 
-        <motion.div 
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className=''>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 select-none">
+          Let's Connect
+          <span className="block bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent leading-tight select-none">
+            Build Something Great
+          </span>
+        </h1>
 
-          <div className="mb-6">
-            <span className="inline-block text-xs sm:text-sm font-[600] tracking-widest uppercase bg-red-500/10 text-white px-5 py-2 rounded-full border border-orange-400 backdrop-blur-md">
-              Contact Us
-            </span>
-          </div>
-
-          <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent leading'>
-            Get in Touch with Us
-          </h1>
-
-          <p className='text-gray-50 text-sm sm:text-base md:text-lg  max-w-2xl mx-auto'>
-            We design, develop, and deliver high-performance digital solutions
-            tailored for growth, innovation, and long-term success.
-          </p>
-        </motion.div>
-      </div>
+        <p className='text-gray-50 text-sm sm:text-base md:text-lg max-w-2xl mx-auto'>
+          We design, develop, and deliver high-performance digital solutions
+          tailored for growth, innovation, and long-term success.
+        </p>
+      </motion.div>
    </section>
 
    <section className='py-8 lg:py-16'>
@@ -145,7 +145,7 @@ const ContactusPage = () => {
               <div className='p-0 md:p-4 lg:p-8'>
 
                 <div className='mb-4'>
-                  <h2 className='text-xl sm:text-2xl font-semibold mb-2'>
+                  <h2 className='text-xl sm:text-2xl font-semibold mb-2 select-none'>
                     Let’s Build Something Great 
                  </h2>
                  <div className='w-14 h-[3px] ' style={{ background: "linear-gradient(to right, #ef4444, #fbbf24)" }}></div>
@@ -163,8 +163,33 @@ const ContactusPage = () => {
                     </span>
 
                     <div>
-                      <h4 className='font-semibold text-base text-gray-700 mb-1'>{item.title}</h4>
-                      <p className='text-gray-600 text-sm sm:text-base font-[400]'>{item.description}</p>
+                      <h4 className='font-semibold text-base text-gray-700 mb-1 select-none'>{item.title}</h4>
+                      {item.title === "Our Location" ? (
+                        <a 
+                          href="https://maps.google.com/?q=PRACHHA+HOUSE+3rd+Floor+Beside+Diamond+City+hotel+Bamanji+Sheri+Rughnathpura+Road+Lal+Darwaja+Surat+395003"
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='text-gray-600 text-sm sm:text-base font-[400] hover:text-red-500 transition-colors cursor-pointer'
+                        >
+                          {item.description}
+                        </a>
+                      ) : item.title === "Contact Number" ? (
+                        <a 
+                          href={`tel:${item.description.replace(/[^0-9+]/g, '')}`}
+                          className='text-gray-600 text-sm sm:text-base font-[400] hover:text-red-500 transition-colors cursor-pointer'
+                        >
+                          {item.description}
+                        </a>
+                      ) : item.title === "Email Address" ? (
+                        <a 
+                          href={`mailto:${item.description}`} target='_blank'
+                          className='text-gray-600 text-sm sm:text-base font-[400] hover:text-red-500 transition-colors cursor-pointer'
+                        >
+                          {item.description}
+                        </a>
+                      ) : (
+                        <p className='text-gray-600 text-sm sm:text-base font-[400]'>{item.description}</p>
+                      )}
                     </div>
                   </div>  
                 ))}
@@ -172,10 +197,9 @@ const ContactusPage = () => {
 
               <div className=' flex items-center justify-center'>
                   <form onSubmit={handleSubmit} className="w-full max-w-full  bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 lg:p-8 shadow-xl">
-                    {/* bg-white/10 backdrop-blur-xl border border-white/20  */}
                   
                   <div className='mb-4'>
-                      <h3 className="text-2xl font-semibold mb-2">
+                      <h3 className="text-2xl font-semibold mb-2 select-none">
                         Let's Get In Touch
                       </h3>
 
@@ -279,7 +303,7 @@ const ContactusPage = () => {
                     type="submit"
                     disabled={loading}
                     className="w-fit py-3 px-10 rounded-full text-white font-medium
-                    bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400
+                    bg-gradient-to-r from-red-600  to-orange-500
                     hover:scale-[1.02] transition duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {loading ? 'Sending...' : 'Submit'}

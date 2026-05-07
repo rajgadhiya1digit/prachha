@@ -86,7 +86,7 @@ const jobOpenings = [
   
 ];
 
-const benifits = [
+const benefits = [
   {
     icon: "/career/work-environment.png",
     title: "Favorable Work Environment",
@@ -118,7 +118,7 @@ const benifits = [
     description: "Celebrate festivals, milestones, and special occasions together to build a joyful and inclusive workplace culture."
   },
   {
-    icon: "/career/workenvirment.png",
+    icon: "/career/workenvironment.png",
     title: "Strong Work Ethics",
     description: "A culture built on integrity, accountability, and professionalism to maintain trust and transparency."
   },
@@ -169,94 +169,55 @@ const CareerPage = () => {
             </div>
           </div>
           
-          {/* Random browser image overlay */}
-          {/* {randomImage && (
-            <img 
-              src={randomImage} 
-              alt="Career overlay" 
-              className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay"
-            />
-          )} */}
-          
           {/* Enhanced gradient orbs */}
           <div className="absolute w-[300px] sm:w-[400px] lg:w-[500px] h-[300px] sm:h-[400px] lg:h-[500px] bg-gradient-to-r from-red-500/20 via-orange-500/15 to-yellow-500/10 blur-[100px] rounded-full top-[-150px] left-[-150px] animate-pulse" />
           <div className="absolute w-[250px] sm:w-[350px] lg:w-[450px] h-[250px] sm:h-[350px] lg:h-[450px] bg-gradient-to-r from-orange-500/15 via-red-500/10 to-pink-500/8 blur-[80px] rounded-full bottom-[-150px] right-[-150px] animate-pulse" style={{ animationDelay: '2s' }} />
           <div className="absolute w-[200px] sm:w-[300px] lg:w-[400px] h-[200px] sm:h-[300px] lg:h-[400px] bg-gradient-to-r from-blue-500/10 via-purple-500/8 to-red-500/6 blur-[60px] rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
         </div>
 
-        {/* Grid Overlay */}
-        <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:50px_50px] sm:bg-[size:60px_60px]" />
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="container mx-auto px-4 relative z-10 text-center max-w-4xl"
+        >
+          <div className="mb-6">
+            <span className="inline-block text-xs sm:text-sm font-[600] tracking-widest uppercase bg-red-500/10 text-white px-5 py-2 rounded-full border border-orange-400 backdrop-blur-md select-none">
+              Join Our Team
+            </span>
+          </div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="mb-6"
-            >
-              <span className="inline-block text-xs sm:text-sm font-[600] tracking-widest uppercase text-red-400 px-5 py-2 rounded-full border border-red-400/30 backdrop-blur-md">
-                Join Our Team
-              </span>
-            </motion.div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 select-none">
+            Ready to Build the
+            <span className="block bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent leading-tight select-none">
+              Future of Technology?
+            </span>
+          </h1>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
-            >
-              Ready to Build the
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.3 }}
-                className="text-red-500 block"
-              >
-                Future of Technology?
-              </motion.span>
-            </motion.h1>
+          <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+            Join a team of passionate innovators building cutting-edge digital solutions.
+            Grow your career while working on exciting projects that make a real impact.
+          </p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed"
-            >
-              Join a team of passionate innovators building cutting-edge digital solutions.
-              Grow your career while working on exciting projects that make a real impact.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-col sm:flex-row justify-center gap-4"
-            >
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
                 href="#openings"
-                className="bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400 hover:scale-[1.02] transition duration-300 px-6 py-3 rounded-xl flex items-center justify-center gap-2 text-white font-medium w-full sm:w-auto shadow-lg shadow-red-500/20"
+                className="bg-gradient-to-r from-red-600  to-orange-500 hover:scale-[1.02] transition duration-300 px-6 py-3 rounded-lg flex items-center justify-center gap-2 text-white font-medium w-full sm:w-auto shadow-lg shadow-red-500/20 select-none"
               >
                 View Openings <ArrowRight size={18} />
               </a>
               <a
                 href="#culture"
-                className="border-2 border-gray-600 hover:border-red-400 text-gray-300 hover:text-red-400 px-6 py-3 rounded-xl transition w-full sm:w-auto font-medium"
+                className="border-2 border-red-400 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition duration-300 text-sm md:text-base select-none"
               >
                 Our Culture
               </a>
-            </motion.div>
+            </div>
           </motion.div>
-        </div>
       </motion.section>
 
       {/* Career Growth Section */}
-      <section id="culture" className="py-20 sm:py-24 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-orange-50 relative overflow-hidden">
+      <section id="culture" className="py-10 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-orange-50 relative overflow-hidden">
         {/* Background Decorative Elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-red-100/30 to-orange-100/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-orange-100/30 to-red-100/30 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
@@ -316,16 +277,20 @@ const CareerPage = () => {
           >
             <motion.span
               variants={fadeIn}
-              className="text-red-500 uppercase tracking-wide font-bold text-sm"
+              className="text-red-500 uppercase tracking-wide font-bold text-sm select-none"
             >
               Career Growth
             </motion.span>
             <motion.h2
               variants={fadeInUp}
               transition={{ delay: 0.1 }}
-              className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 mb-4 leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 mb-4 leading-tight select-none"
             >
-              Your Path to Excellence
+              Your Path {' '}
+              <span className='bg-gradient-to-r from-red-500  to-orange-500 bg-clip-text text-transparent'>
+                To Excellence
+              </span>
+
             </motion.h2>
             <motion.p
               variants={fadeInUp}
@@ -359,7 +324,7 @@ const CareerPage = () => {
                     <div className={`absolute inset-0 bg-gradient-to-br ${stage.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                     
                     {/* Tag */}
-                    <span className={`block text-xs font-bold text-white bg-gradient-to-r ${stage.color} px-3 py-1 rounded-full mb-3 relative z-10`}>
+                    <span className={`block text-xs font-bold text-white bg-gradient-to-r ${stage.color} px-3 py-1 rounded-full mb-3 relative z-10 select-none`}>
                       {stage.tag}
                     </span>
                     
@@ -369,12 +334,12 @@ const CareerPage = () => {
                     </div>
                     
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-1 relative z-10">
+                    <h3 className="text-xl font-bold text-gray-900 mb-1 relative z-10 select-none">
                       {stage.title}
                     </h3>
                     
                     {/* Subtitle */}
-                    <p className={`text-sm font-semibold bg-gradient-to-r ${stage.color} bg-clip-text text-transparent mb-2 relative z-10`}>
+                    <p className={`text-sm font-semibold bg-gradient-to-r ${stage.color} bg-clip-text text-transparent mb-2 relative z-10 select-none`}>
                       {stage.subtitle}
                     </p>
                     
@@ -417,7 +382,7 @@ const CareerPage = () => {
                 <div className={`absolute inset-0 bg-gradient-to-br ${stage.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                 
                 {/* Tag */}
-                <span className={`inline-block text-xs font-bold text-white bg-gradient-to-r ${stage.color} px-3 py-1 rounded-full mb-2 sm:mb-3 relative z-10`}>
+                <span className={`inline-block text-xs font-bold text-white bg-gradient-to-r ${stage.color} px-3 py-1 rounded-full mb-2 sm:mb-3 relative z-10 select-none`}>
                   {stage.tag}
                 </span>
                 
@@ -427,12 +392,12 @@ const CareerPage = () => {
                 </div>
                 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-gray-900 mb-1 relative z-10">
+                <h3 className="text-xl font-bold text-gray-900 mb-1 relative z-10 select-none">
                   {stage.title}
                 </h3>
                 
                 {/* Subtitle */}
-                <p className={`text-sm font-semibold bg-gradient-to-r ${stage.color} bg-clip-text text-transparent mb-2 relative z-10`}>
+                <p className={`text-sm font-semibold bg-gradient-to-r ${stage.color} bg-clip-text text-transparent mb-2 relative z-10 select-none`}>
                   {stage.subtitle}
                 </p>
                 
@@ -467,16 +432,19 @@ const CareerPage = () => {
           >
             <motion.span
               variants={fadeIn}
-              className="text-red-500 uppercase tracking-wide font-bold text-sm"
+              className="text-red-500 uppercase tracking-wide font-bold text-sm select-none"
             >
               Why Join Us
             </motion.span>
             <motion.h2
               variants={fadeInUp}
               transition={{ delay: 0.1 }}
-              className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 mb-4 leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 mb-4 leading-tight select-none"
             >
-              Benefits of Working with Prachha
+              Benefits Of Working {' '}
+              <span className='bg-gradient-to-r from-red-500  to-orange-500 bg-clip-text text-transparent'>
+               With Prachha
+              </span>
             </motion.h2>
             <motion.p
               variants={fadeInUp}
@@ -488,7 +456,7 @@ const CareerPage = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {benifits.map((benefit, index) => (
+            {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
                 initial="hidden"
@@ -503,7 +471,7 @@ const CareerPage = () => {
                   <img src={benefit.icon} alt={benefit.title} className="w-8 h-8" />
                   {/* <benefit.icon className="text-white" size={28} /> */}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2 select-none">{benefit.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
               </motion.div>
             ))}
@@ -522,16 +490,18 @@ const CareerPage = () => {
           >
             <motion.span
               variants={fadeIn}
-              className="text-red-500 uppercase tracking-wide font-bold text-sm"
+              className="text-red-500 uppercase tracking-wide font-bold text-sm select-none"
             >
               Current Openings
             </motion.span>
             <motion.h2
               variants={fadeInUp}
               transition={{ delay: 0.1 }}
-              className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 mb-4 text-gray-900"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 mb-4 text-gray-900 select-none"
             >
-              Join Our Team
+              Join <span className='bg-gradient-to-r from-red-500  to-orange-500 bg-clip-text text-transparent'>
+                 Our Team
+                </span>
             </motion.h2>
             <motion.p
               variants={fadeInUp}
@@ -557,10 +527,10 @@ const CareerPage = () => {
                 <div className="flex flex-col h-full">
                   <div className="flex-1">
                     <div className="flex items-start justify-between mb-4">
-                      <h3 className="text-xl font-bold text-gray-900 leading-tight">
+                      <h3 className="text-xl font-bold text-gray-900 leading-tight select-none">
                         {job.title}
                       </h3>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-600 whitespace-nowrap ml-2">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-600 whitespace-nowrap ml-2 select-none">
                         {job.type}
                       </span>
                     </div>
@@ -584,7 +554,7 @@ const CareerPage = () => {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="mt-4 w-full bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white px-6 py-3 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 shadow-md shadow-red-500/20 font-semibold"
+                    className="mt-4 w-full bg-gradient-to-r from-red-600  to-orange-500 hover:from-red-600 hover:to-orange-600 text-white px-6 py-3 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 shadow-md shadow-red-500/20 font-semibold select-none"
                   >
                     Apply Now <ArrowRight size={18} />
                   </motion.button>
@@ -621,12 +591,12 @@ const CareerPage = () => {
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-red-500 via-orange-500 to-yellow-400 rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-xl shadow-red-500/30 relative z-10"
+              className="w-14 h-14 sm:w-16 sm:h-16 bg-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-xl shadow-red-500/30 relative z-10"
             >
               <Mail className="text-white w-8 h-8 sm:w-10 sm:h-10" />
             </motion.div>
             
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight relative z-10 text-center">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight relative z-10 text-center select-none">
               Don't See the Right Role?
             </h3>
             <p className="text-gray-600 mb-8 sm:mb-10 text-sm sm:text-base lg:text-lg leading-relaxed relative z-10 text-center max-w-2xl mx-auto">
@@ -638,7 +608,7 @@ const CareerPage = () => {
                 whileTap={{ scale: 0.98 }} 
                 target='_blank'
                 href="mailto:info@prachha.com"
-                className="bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400 hover:from-red-600 hover:via-orange-600 hover:to-yellow-500 transition-all duration-300 px-8 py-4 rounded-xl flex items-center justify-center gap-3 text-white font-semibold w-full sm:w-auto shadow-xl shadow-red-500/30 hover:shadow-red-500/50"
+                className="bg-gradient-to-r from-red-600  to-orange-500 transition-all duration-300 px-8 py-4 rounded-xl flex items-center justify-center gap-3 text-white font-semibold w-full sm:w-auto shadow-xl shadow-red-500/30 hover:shadow-red-500/50 select-none"
               >
                 <Mail size={20} />
                 Email Your CV
