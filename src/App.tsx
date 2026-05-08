@@ -50,7 +50,7 @@ export default function App() {
             <Homehero />
             {/* <AIBanner /> */}
             <Industries />
-            <Clients />
+            {/* <Clients /> */}
             <Services />
             <DevelopmentProcess />
             <Portfolio />

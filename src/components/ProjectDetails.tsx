@@ -56,7 +56,7 @@ export const ProjectDetails = () => {
                     <img
                         src={img}
                         alt={`project-${index}`}
-                        className="w-full h-full object-cover object-center"
+                        className="w-full h-full object-cover object-center select-none"
                     />
 
                     <div className="absolute inset-0 bg-black/50"></div>
@@ -74,18 +74,18 @@ export const ProjectDetails = () => {
 
             <div className=''>
                 <div className='flex items-center gap-2'>
-                    <Link to={'/projects'} className='tracking-widest text-amber-50 font-[600] text-[13px] sm:text-[16px]'>PROJECTS</Link>
+                    <Link to={'/projects'} className='tracking-widest text-amber-50 font-[600] text-[13px] sm:text-[16px] select-none'>PROJECTS</Link>
                      <MdOutlineKeyboardArrowRight />
-                    <span className='text-amber-200 text-[14px] sm:text-[16px] font-[600] tracking-widest'>{project.title}</span>
+                    <span className='text-amber-200 text-[14px] sm:text-[16px] font-[600] tracking-widest select-none'>{project.title}</span>
                 </div>
 
                 <span className="inline-block mt-[15px] py-[6px] md:py-[8px] px-[20px] md:px-[30px] rounded-[10px] text-black/90 font-[600]
-                    bg-[#ff0000] text-white text-[12px] sm:text-[14px]"
+                    bg-[#ff0000] text-white text-[12px] sm:text-[14px] select-none"
                 >
                     {project.category}
                 </span>
 
-                <h1 className="text-[22px] sm:text-[30px] md:text-[40px] lg:text-[50px] font-bold text-white mt-[15px]">
+                <h1 className="text-[22px] sm:text-[30px] md:text-[40px] lg:text-[50px] font-bold text-white mt-[15px] select-none">
                     {project.title}
                 </h1>
 
@@ -106,7 +106,7 @@ export const ProjectDetails = () => {
             <div className=' mx-auto mt-[25px]
                 rounded-[15px]' 
             >   
-                <h2 className='text-[18px] sm:text-[22px] text-[#ff0000] font-[600] uppercase tracking-wider '>Project Overview</h2>
+                <h2 className='text-[18px] sm:text-[22px] text-[#ff0000] font-[600] uppercase tracking-wider select-none'>Project Overview</h2>
 
                 {project.overview.map((items, index)=>(
                     <p key={index} className='mt-[15px] text-[14px] sm:text-[15px] font-[500] text-[#603e39] '>
@@ -192,7 +192,7 @@ export const ProjectDetails = () => {
         <section className="container  mx-auto px-4">
             <div className='py-[50px]'>
                 <div className='flex items-center justify-between'>
-                    <h2 className='text-[25px] text-red-600 font-[600]'>Project Visuals</h2>
+                    <h2 className='text-[25px] text-red-600 font-[600] select-none'>Project Visuals</h2>
 
                     <div className='flex gap-2'>
                         <button className='custom-prev text-[28px] cursor-pointer'>
@@ -235,9 +235,9 @@ export const ProjectDetails = () => {
                         <SwiperSlide key={index}>
                             <div onClick={()=> {setOpenSlide(true),setActiveIndex(index)}} className='w-full h-[300px] aspect-video cursor-pointer rounded-md '>
                                 {item.type === "image" ? (
-                                    <img src={item.src} className='w-full h-full object-cover rounded-md' alt="" />
+                                    <img src={item.src} className='w-full h-full object-cover rounded-md select-none' alt="" />
                                 ): (
-                                    <video src={item.src}  className='w-full h-full object-cover rounded-md'
+                                    <video src={item.src}  className='w-full h-full object-cover rounded-md select-none'
                                     autoPlay
                                     muted
                                     loop
@@ -317,10 +317,10 @@ export const ProjectDetails = () => {
                         <div className="pagination-btn flex justify-center mt-4 md:hidden"></div>
                         
                         <div className='text-white'>
-                            <button className='custom-prev-in absolute -left-20 top-1/2 text-[35px] cursor-pointer'>
+                            <button className='custom-prev-in absolute -left-20 top-1/2 text-[35px] cursor-pointer select-none'>
                                 <BsArrowLeftCircle />
                             </button>
-                            <button className='custom-next-in absolute -right-20 top-1/2 text-[35px] cursor-pointer'>
+                            <button className='custom-next-in absolute -right-20 top-1/2 text-[35px] cursor-pointer select-none'>
                                 <BsArrowRightCircle />
                             </button>
                         </div>
@@ -353,9 +353,9 @@ export const ProjectDetails = () => {
                     </div>
 
                     <div>
-                        <small className='uppercase tracking-wider text-gray-700 font-[500]'>Tech Stack</small>
+                        <small className='uppercase tracking-wider text-gray-700 font-[500] select-none'>Tech Stack</small>
                         {project.techStack.map((item)=>(
-                            <h4 className='text-sm sm:text-base font-[700]'>{item}</h4>
+                            <h4 className='text-sm sm:text-base font-[700] select-none'>{item}</h4>
                         ))}
                     </div>
                 </div>
@@ -366,15 +366,15 @@ export const ProjectDetails = () => {
                     </div>
 
                     <div>
-                        <small className='uppercase tracking-wider text-gray-700 text-xs sm:text-sm font-[500]'>Timeline</small>
-                        <h4 className='text-sm sm:text-base font-[700]'>{project.timeline}</h4>
+                        <small className='uppercase tracking-wider text-gray-700 text-xs sm:text-sm font-[500] select-none'>Timeline</small>
+                        <h4 className='text-sm sm:text-base font-[700] select-none'>{project.timeline}</h4>
                     </div>
                 </div>
 
                 <div className='flex items-center sm:justify-center'>
                     <a href={project.demo_link} target='_blank'>
-                        <button className='bg-red-500 text-white py-2 px-6 rounded-full font-medium cursor-pointer
-                            hover:bg-white hover:text-red-500 border hover:border-red-500  duration-300 active:scale-90 text-sm '>
+                        <button className='bg-gradient-to-r from-red-600  to-orange-500  text-white py-3 px-6 rounded-full font-medium cursor-pointer
+                            hover:bg-white hover:text-red-500 border hover:border-red-500  duration-300 active:scale-90 text-sm select-none'>
                             View Demo
                         </button>
                     </a>
@@ -389,38 +389,38 @@ export const ProjectDetails = () => {
     <section className='py-[20px] sm:py-[30px] md:py-[40px] lg:py-[50px] bg-black text-white'>
         <section className="container mx-auto px-4">
             <div className=''>
-                <h2 className='text-[20px] sm:text-[22px] md:text-[25px] lg:text-[28px] text-[#E53935] font-[600]'>Real-World Results</h2>
+                <h2 className='text-[20px] sm:text-[22px] md:text-[25px] lg:text-[28px] text-[#E53935] font-[600] select-none'>Real-World Results</h2>
             </div>
 
             <div ref={ref} className='mt-[30px] grid sm:grid-cols-2 md:grid-cols-3 gap-5'>
                 <div className='border-l-[3px] border-red-600 bg-white/20 p-[15px] sm:p-[20px] lg:p-[30px] rounded-md cursor-pointer hover:bg-white/30'>
-                    <h1 className='text-[25px] sm:text-[30px] md:text-[35px] lg:text-[40px] text-[#ff0000] font-[700]'>
+                    <h1 className='text-[25px] sm:text-[30px] md:text-[35px] lg:text-[40px] text-[#ff0000] font-[700] select-none'>
                         {inView &&(
                             <CountUp  end={project.impact.efficiency} decimals={1} suffix='%'/>
                         )}
                     </h1>
 
-                    <small className='text-white/70 tracking-widest uppercase'>Operational Efficiency</small>
+                    <small className='text-white/70 tracking-widest uppercase select-none'>Operational Efficiency</small>
                     <p className='text-[14px] mt-[10px]'>Measured across all global shipping lanes within the first quarter.</p>
                 </div>
 
                 <div className='border-l-[3px] border-red-600 bg-white/20 p-[15px] sm:p-[20px] lg:p-[30px] rounded-md cursor-pointer hover:bg-white/30'>
-                    <h1 className='text-[25px] sm:text-[30px] md:text-[35px] lg:text-[40px] text-[#ff0000] font-[700]'>
+                    <h1 className='text-[25px] sm:text-[30px] md:text-[35px] lg:text-[40px] text-[#ff0000] font-[700] select-none'>
                         {inView &&(
                             <CountUp end={project.impact.latency} decimals={1} suffix='s'/>
                         )}
                     </h1>
 
-                    <small className='text-white/70 uppercase tracking-widest'>Data Latency Reduction</small>
+                    <small className='text-white/70 uppercase tracking-widest select-none'>Data Latency Reduction</small>
                     <p className='text-[14px] mt-[10px]'>Down from 5.4s, enabling true real-time response capabilities.</p>
                 </div>
 
                 <div className='border-l-[3px] border-red-600 bg-white/20 p-[15px] sm:p-[20px] lg:p-[30px] rounded-md cursor-pointer hover:bg-white/30'>
-                    <h1 className='text-[25px] sm:text-[30px] md:text-[35px] lg:text-[40px] text-[#ff0000] font-[700]'>
+                    <h1 className='text-[25px] sm:text-[30px] md:text-[35px] lg:text-[40px] text-[#ff0000] font-[700] select-none'>
                         <p>{project.impact.avialable }</p>
                     </h1>
 
-                    <small className='text-white/70 uppercase tracking-widest'>System Availability</small>
+                    <small className='text-white/70 uppercase tracking-widest select-none'>System Availability</small>
                     <p className='text-[14px] mt-[10px]'>Zero unscheduled downtime since the platform launch.</p>
                 </div>
             </div>
@@ -432,12 +432,12 @@ export const ProjectDetails = () => {
             <div className='max-w-[850px] mx-auto p-[40px] sm:p-[60px] md:p-[80px] lg:p-[100px] text-center rounded-2xl'
                  style={{background: "linear-gradient(135deg, #e30613 0%, #000000 100%)"}}>
 
-                <h1 className='text-[25px] sm:text-[30px] md:text-[35px] lg:text-[45px] font-[600] leading-none'>Build the future of your infrastructure.</h1>
+                <h1 className='text-[25px] sm:text-[30px] md:text-[35px] lg:text-[45px] font-[600] leading-none select-none'>Build the future of your infrastructure.</h1>
                 <p className='mt-[15px] text-[13px] sm:text-[14px] md:text-[16px] lg:text-[18px]'>Ready to revolutionize your business with custom software and AI? Let's talk about your vision.</p>
 
                 <Link to={'/contact'}>
                     <button className='s-project text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] font-[600] py-[10px] px-[25px] rounded-3xl tracking-widest
-                        bg-red-500 mt-[30px] text-white hover:bg-white hover:text-black cursor-pointer
+                        bg-gradient-to-r from-red-600  to-orange-500  mt-[30px] text-white hover:bg-whit cursor-pointer select-none
                     '>
                         START A PROJECT
                     </button>

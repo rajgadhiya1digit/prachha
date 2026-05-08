@@ -98,9 +98,13 @@ const BlogDetailPage = () => {
 
                     <div className="flex flex-wrap gap-2">
                     {blog.tags.map((tag, idx) => (
-                      <span key={idx} className="bg-red-50 text-gray-800 px-3 py-1 border border-red-500 rounded-full text-xs sm:text-sm  font-medium">
+                      <Link 
+                        key={idx} 
+                        to={`/blog?tag=${encodeURIComponent(tag)}`}
+                        className="bg-red-50 text-gray-800 px-3 py-1 border border-red-500 rounded-full text-xs sm:text-sm font-medium hover:bg-red-100 hover:text-red-600 transition-colors duration-200 cursor-pointer select-none"
+                      >
                         {tag}
-                      </span>
+                      </Link>
                     ))}
                     </div>
                 </div>
@@ -224,7 +228,7 @@ const BlogDetailPage = () => {
                       className="flex justify-between items-center py-2 px-3 rounded-lg hover:bg-red-50 hover:text-red-600 transition"
                     >
                       <span>{category.name}</span>
-                      <span className="text-sm text-gray-500">({category.count})</span>
+                      {/* <span className="text-sm text-gray-500">({category.count})</span> */}
                     </Link>
                   ))}
                 </div>
@@ -235,12 +239,13 @@ const BlogDetailPage = () => {
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Popular Tags</h3>
                 <div className="flex flex-wrap gap-2">
                   {blogTags.map((tag, index) => (
-                    <span
+                    <Link
                       key={index}
-                      className="bg-white border border-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm hover:bg-red-50 hover:text-red-600 hover:border-red-300 transition cursor-pointer"
+                      to={`/blog?tag=${encodeURIComponent(tag)}`}
+                      className="bg-red-50 text-gray-800 px-3 py-1 border border-red-500 rounded-full text-xs sm:text-sm font-medium hover:bg-red-100 hover:text-red-600 transition-colors duration-200 cursor-pointer select-none"
                     >
                       {tag}
-                    </span>
+                    </Link>
                   ))}
                 </div>
               </div>

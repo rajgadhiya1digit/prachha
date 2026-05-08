@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { blogCategory, blogData, blogTags } from '../data/blogData'
 import Newsletter from '../components/Newsletter';
@@ -7,13 +7,27 @@ import { Link, useSearchParams } from 'react-router-dom';
 const BlogPage = () => {
     const [searchParams] = useSearchParams();
     const categoryFromUrl = searchParams.get('category');
+    const tagFromUrl = searchParams.get('tag');
     
     const blogs = blogData;
 
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [activeCategory, setActiveCategory] = useState(categoryFromUrl || "All");
+    const [activeTag, setActiveTag] = useState(tagFromUrl || "");
     const itemsPerPage = 6;
+
+    const blogSectionRef = useRef<HTMLDivElement | null>(null);
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+
+        setTimeout(() => {
+            blogSectionRef.current?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }, 0);
+    };
 
     useEffect(() => {
         if (categoryFromUrl) {
@@ -22,13 +36,22 @@ const BlogPage = () => {
         }
     }, [categoryFromUrl]);
 
+    useEffect(() => {
+        if (tagFromUrl) {
+            setActiveTag(tagFromUrl);
+            setCurrentPage(1);
+        }
+    }, [tagFromUrl]);
+
     const filterBlog = blogs.filter((item)=>{
         const matchesSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
         
         const matchesCategory = activeCategory === "All" || item.category === activeCategory;
         
-        return matchesSearch && matchesCategory;
+        const matchesTag = activeTag === "" || item.tags.includes(activeTag);
+        
+        return matchesSearch && matchesCategory && matchesTag;
     });
 
     const lastIndex = currentPage * itemsPerPage;
@@ -94,12 +117,41 @@ const BlogPage = () => {
         </motion.div>
     </section>
 
-    <section className='py-12 sm:py-14 md:py-16 bg-gradient-to-b from-gray-50 to-white'>
+    <section ref={blogSectionRef} className='py-12 sm:py-14 md:py-16 bg-gradient-to-b from-gray-50 to-white'>
         <section className="containers mx-auto px-4">
             
             <div className='grid grid-cols-12'>
 
             </div>
+            
+            {/* Active Tag Indicator */}
+            {activeTag && (
+                <div className='mb-8 bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-xl p-4 shadow-sm'>
+                    <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4'>
+                        <div className='flex items-center gap-3'>
+                            
+                            <span className='text-sm font-semibold text-gray-700 block'>Filtered by tag</span>
+                            <span className='bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-md select-none inline-block mt-1'>
+                                {activeTag}
+                            </span>
+                    
+                        </div>
+                        <button
+                            onClick={() => {
+                                setActiveTag("");
+                                setCurrentPage(1);
+                            }}
+                            className='flex items-center gap-2 px-4 py-2 bg-white text-red-600 border border-red-200 rounded-lg hover:bg-red-50 hover:border-red-300 transition-all duration-200 font-medium text-sm shadow-sm select-none'
+                        >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            Clear filter
+                        </button>
+                    </div>
+                </div>
+            )}
+
             {/* category tab */}
             <div className='mb-16'>
                 <div className='flex flex-wrap justify-start gap-3 sm:gap-3'>
@@ -199,7 +251,7 @@ const BlogPage = () => {
                 {/* Prev Button */}
                 <button
                     disabled={currentPage === 1}
-                    onClick={() => setCurrentPage((prev) => prev - 1)}
+                    onClick={() => handlePageChange(currentPage - 1)}
                     className={`px-3 sm:px-4 py-2 rounded-xl border font-semibold text-xs sm:text-sm transition-all duration-200 shadow-sm select-none ${
                     currentPage === 1
                         ? "opacity-40 cursor-not-allowed bg-gray-100 text-gray-400"
@@ -215,7 +267,7 @@ const BlogPage = () => {
                     {[...Array(totalPages)].map((_, index) => (
                     <button
                         key={index}
-                        onClick={() => setCurrentPage(index + 1)}
+                        onClick={() => handlePageChange(index + 1)}
                         className={`min-w-[34px] sm:min-w-[40px] h-[34px] sm:h-[40px] flex items-center justify-center rounded-xl font-semibold text-xs sm:text-sm border transition-all duration-200 select-none ${
                         currentPage === index + 1
                             ? "bg-red-500 text-white border-red-500 shadow-md scale-105"
@@ -231,7 +283,7 @@ const BlogPage = () => {
                 {/* Next Button */}
                 <button
                     disabled={currentPage === totalPages}
-                    onClick={() => setCurrentPage((prev) => prev + 1)}
+                    onClick={() => handlePageChange(currentPage + 1)}
                     className={`px-3 sm:px-4 py-2 rounded-xl border font-semibold text-xs sm:text-sm transition-all duration-200 shadow-sm select-none ${
                     currentPage === totalPages
                         ? "opacity-40 cursor-not-allowed bg-gray-100 text-gray-400"

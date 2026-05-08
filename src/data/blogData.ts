@@ -8,16 +8,26 @@ export const blogCategory = [
 ];
 
 export const blogTags = [
-  "React",
-  "Next.js",
+  "Web Dev",
+  "Scalability",
+  "Performance",
   "SEO",
   "Marketing",
+  "Google",
   "Design",
-  "Startup",
-  "AI",
-  "Performance",
+  "UX",
+  "Trends",
+  "Business",
   "Branding",
-  "Technology"
+  "React",
+  "NextJS",
+  "Frontend",
+  "AI",
+  "Automation",
+  "Speed",
+  "Frameworks",
+  "Tech",
+  "Development"
 ];
 
 
@@ -100,7 +110,7 @@ export const blogData = [
     date: "March 25, 2026",
     blog_image: "/blog/blog-4.avif",
     excerpt: "Understand the importance of custom websites for branding, scalability, and growth.",
-    tags: ["Business", "Website", "Branding"],
+    tags: ["Business", "Branding"],
     article: "A custom website helps businesses build a unique digital presence and stand out from competitors. It offers better performance, scalability, and flexibility compared to template-based solutions. Investing in a custom site improves branding, trust, and long-term growth.", 
     content: `In today’s digital-first world, having a custom website is no longer optional—it’s essential for business growth. A custom-built website allows businesses to create a unique online presence that reflects their brand identity and values. Unlike template-based solutions, custom websites provide flexibility and scalability.
 

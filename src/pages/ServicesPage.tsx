@@ -5,12 +5,13 @@ import { Card } from '../components/ui/card';
 import { services } from '../data/serviceData';
 import { WhyChoose } from '../components/WhyChoose';
 import { Link } from 'react-router-dom';
+import { GoArrowRight } from "react-icons/go";
 
 const ServicesPage = () => {
 
   const ServiceData = services;
 
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [visibleCount, setVisibleCount] = useState(6);
   const [loading, setLoading] = useState(false);
 
   const handleLoadMore = useCallback(() => {
@@ -115,46 +116,32 @@ const ServicesPage = () => {
         </div>
 
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {ServiceData.slice(0, visibleCount).map((service, index) => (
             <div
               key={index}
-              className="group relative rounded-2xl overflow-hidden bg-white/80 backdrop-blur-lg border border-gray-200 
-              transition-all duration-500 hover:-translate-y-3"
+              className="bg-orange-50 rounded-sm border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 p-4 md:p-6 flex flex-col group"
             >
-              
-              {/* Image Section */}
-              <div className="relative h-[220px] overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-
+              {/* Header with icon and number */}
+              <div className="flex items-start justify-between mb-4">
                 {/* Icon */}
-                <div className="absolute top-4 left-4 w-12 h-12 bg-white/90 backdrop-blur-md rounded-xl flex items-center justify-center shadow-md
-                  group-hover:scale-105 transition">
-                  <service.icon className="w-6 h-6 text-red-500" />
+                <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center transition-all duration-300 group-hover:from-red-100 group-hover:to-orange-100">
+                  <img src={service.icon} alt={service.title} className="w-10 h-10 text-red-500 group-hover:scale-110 transition-transform duration-300" />
                 </div>
-
-                {/* Title on Image */}
-                <h3 className="absolute bottom-4 left-4 bg-gradient-to-r from-yellow-200 via-amber-400 to-amber-600 bg-clip-text text-transparent text-lg font-semibold select-none">
-                  {service.title}
-                </h3>
-                
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+              <div className="flex flex-col flex-grow">
+                <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-red-500 transition-colors duration-300">
+                  {service.title}
+                </h3>
+
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
                   {service.description}
                 </p>
 
-                <ul className="space-y-2">
+                {/* Features List */}
+                <ul className="space-y-2 mb-4">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center text-sm text-gray-700">
                       <span className="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
@@ -163,12 +150,16 @@ const ServicesPage = () => {
                   ))}
                 </ul>
 
-              
-                {/* <button className="mt-5 text-sm font-semibold text-red-500 flex items-center gap-2 group-hover:gap-3 transition-all">
-                  Learn More →
-                </button> */}
+                {/* Learn More Link */}
+                <div className="mt-auto">
+                  <a 
+                    href="#" 
+                    className="text-red-500 font-medium flex justify-end gap-1 hover:gap-2 transition-all duration-200"
+                  >
+                    <GoArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
+                  </a>
+                </div>
               </div>
-
             </div>
           ))}
         </div>

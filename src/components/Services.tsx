@@ -1,9 +1,16 @@
 import { Card } from './ui/card';
 import { services } from '../data/serviceData';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
+import { BsArrowLeftCircle, BsArrowRightCircle  } from "react-icons/bs";
+
 import { Link } from 'react-router-dom';
 import {motion} from "framer-motion"
 import { GoArrowRight } from "react-icons/go";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export function Services() {
   const ServiceData = services;
@@ -11,7 +18,7 @@ export function Services() {
   return (
     <section className="py-12 sm:py-14 lg:py-20 bg-white overflow-hidden" id="services">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <span className="inline-block px-4 py-2 text-sm font-semibold tracking-wider uppercase text-[#ff0000] rounded-full select-none">
             Our Services
           </span>
@@ -33,73 +40,119 @@ export function Services() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
               className="text-[14px] sm:text-[16px] md:text-[17px] lg:text-[18px] text-gray-600 max-w-3xl mx-auto">
-            From concept to deployment, we offer end-to-end digital services
+            We provide comprehensive digital solutions to help your business grow and succeed
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-          {ServiceData.slice(0, 3).map((service, index) => (
-            
+        {/* Mobile Swiper */}
+        <div className="md:hidden relative">
+          {/* Custom Navigation Buttons */}
+          <div className='flex justify-end gap-3 mb-4'>
+            <button className="static swiper-button-prev p-0 m-0 w-8 h-8 rounded-full transition-colors duration-200 text-red-500">
+              <BsArrowLeftCircle className="w-6 h-6" />
+            </button>
+            <button className=" static swiper-button-next  p-0 m-0 w-8 h-8 text-black/90 rounded-full transition-colors duration-200 text-red-500">
+              <BsArrowRightCircle className="w-6 h-6" />
+            </button>
+          </div>
+          
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={1}
+            loop={true}
+            pagination={{
+              clickable: true,
+              bulletClass: 'swiper-pagination-bullet !bg-red-500',
+              bulletActiveClass: 'swiper-pagination-bullet-active !bg-red-500'
+            }}
+            navigation={{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            className="pb-12 universal-pagination"
+          >
+            {ServiceData.slice(0, 8).map((service, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-orange-50 rounded-lg p-4 flex flex-col h-full cursor-pointer group">
+                  {/* Header with icon and number */}
+                  <div className="flex items-start justify-between mb-4">
+                    {/* Icon */}
+                    <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center transition-colors duration-300">
+                      <img src={service.icon} alt={service.title} className="w-10 h-10 text-red-500 group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex flex-col flex-grow">
+                    <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-red-500 transition-colors duration-300">
+                      {service.title}
+                    </h3>
+
+                    <p className="text-gray-600 text-sm leading-relaxed flex-grow">
+                      {service.description}
+                    </p>
+
+                    {/* Learn More Link */}
+                    <div className="mt-4 pt-4 border-t border-gray-100">
+                      <a 
+                        href="#" 
+                        className="text-red-500 font-medium text-sm flex justify-end gap-1 hover:gap-2 transition-all duration-200"
+                      >
+                        <GoArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {ServiceData.slice(0, 8).map((service, index) => (
             <div
               key={index}
-              className="group relative h-full rounded-2xl overflow-hidden 
-              bg-white/80 backdrop-blur-sm border border-gray-100
-              shadow-md hover:shadow-2xl transition-transform duration-300 will-change-transform
-              hover:-translate-y-2 flex flex-col"
+              className="bg-orange-50 rounded-lg transition-all duration-300 p-4 md:p-6 flex flex-col group"
             >
-              {/* IMAGE */}
-              <div className="relative h-52 overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-300 will-change-transform group-hover:scale-105"
-                  loading="lazy"
-                />
-
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-
+              {/* Header with icon and number */}
+              <div className="flex items-start justify-between mb-4">
                 {/* Icon */}
-                <div className="absolute top-4 left-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform will-change-transform">
-                  <service.icon className="w-6 h-6 text-red-500" />
+                <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center transition-colors duration-300">
+                  <img src={service.icon} alt={service.title} className="w-10 h-10 text-red-500 group-hover:scale-110 transition-transform duration-300" />
                 </div>
+                {/* Number */}
+                <span className="text-3xl font-light text-black/60">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
               </div>
 
-              {/* CONTENT */}
-              <div className="p-6 flex flex-col flex-grow">
-
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-red-500 transition-colors duration-200 select-none">
+              {/* Content */}
+              <div className="flex flex-col flex-grow">
+                <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-red-500 transition-colors duration-300">
                   {service.title}
                 </h3>
 
-                <p className="text-gray-600 mb-4 leading-relaxed text-sm md:text-base flex-grow line-clamp-2">
+                <p className="text-gray-600 text-sm leading-relaxed flex-grow">
                   {service.description}
                 </p>
 
-                <ul className="space-y-2 mt-auto">
-                  {service.features.map((feature, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-center text-sm text-gray-700 transition-transform duration-200 will-change-transform group-hover:translate-x-0.5"
-                    >
-                      <span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2"></span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-5 flex items-center gap-2 cursor-pointer">
-                  <span className="text-red-500 font-medium text-sm tracking-wide select-none">
-                    Learn More
-                  </span>
-                  <span className="text-red-500 transition-transform duration-200 will-change-transform group-hover:translate-x-0.5 select-none">
-                    <GoArrowRight />
-                  </span>
+                {/* Learn More Link */}
+                <div className="mt-3">
+                  <a 
+                    href="#" 
+                    className="text-red-500 font-medium flex justify-end gap-1 hover:gap-2 transition-all duration-200"
+                  >
+                    <GoArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
+                  </a>
                 </div>
-
               </div>
             </div>
-
           ))}
         </div>
 
@@ -108,9 +161,9 @@ export function Services() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center pt-4 sm:pt-8">
+          className="hidden md:block text-center pt-4 sm:pt-8">
           <Link
-            to="/blog"
+            to="/services"
             className="group inline-flex items-center gap-2 text-[#FF0000] font-semibold hover:gap-3 transition-all duration-300 select-none"
           >
              Explore More  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
