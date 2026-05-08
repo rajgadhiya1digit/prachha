@@ -102,7 +102,7 @@ export function Footer() {
           </div>
 
           {/* Industries */}
-          <div className="space-y-6">
+          {/* <div className="space-y-6">
             <div className="flex items-center gap-2 mb-6 ml-4">
               <h3 className="text-white uppercase font-bold tracking-wider px-5 text-lg relative border-l-4 border-red-500 rounded-sm pl-2">
                 <span className="relative z-10 select-none">Industries</span>
@@ -119,7 +119,7 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Company */}
           <div className="space-y-6">

@@ -421,64 +421,6 @@ const CareerPage = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white text-gray-900">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className="text-center mb-12 sm:mb-16"
-          >
-            <motion.span
-              variants={fadeIn}
-              className="text-red-500 uppercase tracking-wide font-bold text-sm select-none"
-            >
-              Why Join Us
-            </motion.span>
-            <motion.h2
-              variants={fadeInUp}
-              transition={{ delay: 0.1 }}
-              className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 mb-4 leading-tight select-none"
-            >
-              Benefits Of Working {' '}
-              <span className='bg-gradient-to-r from-red-500  to-orange-500 bg-clip-text text-transparent'>
-               With Prachha
-              </span>
-            </motion.h2>
-            <motion.p
-              variants={fadeInUp}
-              transition={{ delay: 0.2 }}
-              className="text-gray-600 text-base max-w-2xl mx-auto"
-            >
-              We value our team and provide ample support for growth and self-development
-            </motion.p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={fadeInUp}
-                transition={{ delay: index * 0.05 }}
-                whileHover={{ y: -5 }}
-                className="bg-gradient-to-br from-gray-50 to-orange-50 p-6 sm:p-8 border border-gray-100 hover:shadow-xl transition-all"
-              >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 shadow-md">
-                  <img src={benefit.icon} alt={benefit.title} className="w-8 h-8" />
-                  {/* <benefit.icon className="text-white" size={28} /> */}
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2 select-none">{benefit.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Job Openings Section */}
       <section id="openings" className="py-16 sm:py-20 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -559,6 +501,64 @@ const CareerPage = () => {
                     Apply Now <ArrowRight size={18} />
                   </motion.button>
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white text-gray-900">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <motion.span
+              variants={fadeIn}
+              className="text-red-500 uppercase tracking-wide font-bold text-sm select-none"
+            >
+              Why Join Us
+            </motion.span>
+            <motion.h2
+              variants={fadeInUp}
+              transition={{ delay: 0.1 }}
+              className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 mb-4 leading-tight select-none"
+            >
+              Benefits Of Working {' '}
+              <span className='bg-gradient-to-r from-red-500  to-orange-500 bg-clip-text text-transparent'>
+               With Prachha
+              </span>
+            </motion.h2>
+            <motion.p
+              variants={fadeInUp}
+              transition={{ delay: 0.2 }}
+              className="text-gray-600 text-base max-w-2xl mx-auto"
+            >
+              We value our team and provide ample support for growth and self-development
+            </motion.p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={fadeInUp}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ y: -5 }}
+                className="bg-gradient-to-br from-gray-50 to-orange-50 p-6 sm:p-8 border border-gray-100 hover:shadow-xl transition-all"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 shadow-md">
+                  <img src={benefit.icon} alt={benefit.title} className="w-8 h-8" />
+                  {/* <benefit.icon className="text-white" size={28} /> */}
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2 select-none">{benefit.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
               </motion.div>
             ))}
           </div>

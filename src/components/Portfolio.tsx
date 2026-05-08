@@ -19,20 +19,35 @@ const Portfolio = () => {
 
         {/* HEADER */}
         <div className="text-center mb-16">
-          <span className="text-red-500 font-semibold tracking-wider uppercase text-sm">
+          <motion.span
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-red-500 font-semibold tracking-wider uppercase text-sm select-none">
             Success Stories
-          </span>
+          </motion.span>
 
-          <h2 className="text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold text-gray-900 mt-4">
+          <motion.h2
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-[22px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-bold text-gray-900 mt-4 select-none">
             Projects That Drive{" "}
-            <span className="bg-gradient-to-r from-red-500  to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-500  to-orange-500 bg-clip-text text-transparent select-none">
               Real Impact
             </span>
-          </h2>
+          </motion.h2>
 
-          <p className="text-gray-600 mt-4 max-w-3xl mx-auto text-base md:text-lg">
+          <motion.p
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-gray-600 mt-4 max-w-3xl mx-auto text-base md:text-lg">
             Explore our portfolio of transformative digital solutions
-          </p>
+          </motion.p>
         </div>
 
         {/* GRID */}
@@ -106,7 +121,7 @@ const Portfolio = () => {
           transition={{ duration: 0.6, }}
           className="text-center">
           <Link
-            to="/blog"
+            to="/projects"
             className="group inline-flex items-center gap-2 text-[#FF0000] font-semibold hover:gap-3 transition-all duration-300 select-none"
           >
              View All Projects

@@ -114,7 +114,7 @@ export function Services() {
         </div>
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="hidden md:grid md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {ServiceData.slice(0, 8).map((service, index) => (
             <div
               key={index}
@@ -143,14 +143,14 @@ export function Services() {
                 </p>
 
                 {/* Learn More Link */}
-                <div className="mt-3">
+                {/* <div className="mt-3">
                   <a 
                     href="#" 
                     className="text-red-500 font-medium flex justify-end gap-1 hover:gap-2 transition-all duration-200"
                   >
                     <GoArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}

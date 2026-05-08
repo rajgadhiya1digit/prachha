@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { blogData, blogCategory, blogTags } from '../data/blogData'
 import { FaUser, FaComments, FaCalendar, FaTag, FaArrowLeft } from "react-icons/fa";
 import { FaQuoteLeft } from "react-icons/fa";
+import { IoCalendarOutline } from "react-icons/io5";
 import { GoArrowRight , GoArrowLeft } from "react-icons/go";
 import Newsletter from '../components/Newsletter';
 
@@ -53,13 +54,13 @@ const BlogDetailPage = () => {
           </h1>
           
           <div className="flex items-center justify-center gap-6 text-sm text-gray-300">
-            <div className="flex items-center gap-2">
-              <FaUser className="text-red-400" />
+            <div className="flex items-center gap-2 text-base">
+              <FaUser className="text-red-400 w-5 h-5"/>
               <span>{blog.author.name}</span>
             </div>
 
-            <div className="flex items-center gap-2">
-              <FaCalendar className="text-red-400" />
+            <div className="flex items-center gap-2 text-base">
+              <IoCalendarOutline className="text-red-400 w-5 h-5"/>
               <span>{blog.date}</span>
             </div>
           </div>
